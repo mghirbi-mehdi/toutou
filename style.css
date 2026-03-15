@@ -518,3 +518,130 @@ footer {
         margin-left: 0;
     }
 }
+/* ===== CATÉGORIES SCROLLABLES ===== */
+.categories-section {
+    background: white;
+    padding: 1rem;
+    margin: 0.5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.categories-header h3 {
+    font-size: 1.2rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+.see-all {
+    color: #ff4757;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.see-all:hover {
+    color: #ff6b6b;
+}
+
+.categories-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categories-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+    background-color: #f8f9fa;
+}
+
+.category-item.active {
+    background-color: #ff4757;
+    color: white;
+}
+
+.category-item.active .category-icon {
+    background: white;
+    color: #ff4757;
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+    transition: all 0.2s;
+}
+
+.category-item span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+.category-item.active span {
+    color: white;
+}
+
+/* Animation pour le filtrage */
+.plat-card {
+    transition: opacity 0.3s ease, transform 0.2s;
+}
+
+.plat-card[style*="display: none"] {
+    display: none !important;
+}
+
+/* Version responsive */
+@media screen and (max-width: 768px) {
+    .categories-section {
+        margin: 0.5rem;
+        padding: 0.8rem;
+    }
+    
+    .category-item {
+        min-width: 60px;
+    }
+    
+    .category-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .category-item span {
+        font-size: 0.7rem;
+    }
+}
