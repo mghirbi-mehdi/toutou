@@ -356,3 +356,145 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser la recherche
     searchRestaurant();
 });
+// Catégories et mots-clés associés
+const categoryKeywords = {
+    'pizza': ['pizza', 'margherita', 'pepperoni', 'calzone'],
+    'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'steak'],
+    'sweet': ['sweet', 'dessert', 'gâteau', 'pâtisserie', 'chocolat'],
+    'chicken': ['poulet', 'chicken', 'chawarma', 'brochette'],
+    'rice': ['riz', 'couscous', 'paella', 'biryani'],
+    'fish': ['poisson', 'fish', 'fruits de mer', 'crevettes'],
+    'oriental': ['oriental', 'libanais', 'mezzé', 'hoummous'],
+    'salad': ['salade', 'salad', 'mezzé', 'taboulé']
+};
+
+// Fonction pour filtrer par catégorie
+function filterByCategory(category) {
+    // Mettre à jour la classe active
+    document.querySelectorAll('.category-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    document.querySelector(`.category-item[data-category="${category}"]`).classList.add('active');
+    
+    if (category === 'all') {
+        // Afficher tous les plats
+        document.querySelectorAll('.plat-card').forEach(plat => {
+            plat.style.display = 'block';
+        });
+        // Afficher tous les restaurants
+        document.querySelectorAll('.restaurant-section').forEach(resto => {
+            resto.style.display = 'block';
+        });
+        
+        // Effacer le message "aucun résultat"
+        let oldNoResult = document.getElementById('noResult');
+        if (oldNoResult) oldNoResult.remove();
+        
+        return;
+    }
+    
+    let keywords = categoryKeywords[category] || [category];
+    let resultCount = 0;
+    
+    // Filtrer les plats par catégorie
+    document.querySelectorAll('.plat-card').forEach(plat => {
+        let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
+        let description = plat.querySelector('.plat-description').textContent.toLowerCase();
+        let devraitAfficher = false;
+        
+        // Vérifier si le plat correspond à la catégorie
+        keywords.forEach(keyword => {
+            if (nomPlat.includes(keyword) || description.includes(keyword)) {
+                devraitAfficher = true;
+            }
+        });
+        
+        // Vérifier aussi l'attribut data-category
+        let platCategory = plat.getAttribute('data-category');
+        if (platCategory === category) {
+            devraitAfficher = true;
+        }
+        
+        if (devraitAfficher) {
+            plat.style.display = 'block';
+            resultCount++;
+        } else {
+            plat.style.display = 'none';
+        }
+    });
+    
+    // Cacher les restaurants sans plats visibles
+    document.querySelectorAll('.restaurant-section').forEach(resto => {
+        let platsVisibles = resto.querySelectorAll('.plat-card[style*="display: block"]').length;
+        if (platsVisibles > 0) {
+            resto.style.display = 'block';
+        } else {
+            resto.style.display = 'none';
+        }
+    });
+    
+    // Afficher message si aucun résultat
+    let oldNoResult = document.getElementById('noResult');
+    if (oldNoResult) oldNoResult.remove();
+    
+    if (resultCount === 0) {
+        let categoryName = document.querySelector(`.category-item[data-category="${category}"] span`).textContent;
+        let noResult = document.createElement('div');
+        noResult.id = 'noResult';
+        noResult.className = 'no-result';
+        noResult.innerHTML = `
+            <span>😕</span>
+            <p>Aucun plat dans la catégorie "${categoryName}"</p>
+        `;
+        document.querySelector('.container').insertBefore(noResult, document.querySelector('.restaurant-section'));
+    }
+}
+
+// Modifier la fonction searchRestaurant pour respecter les catégories
+const originalSearchRestaurant = searchRestaurant;
+searchRestaurant = function() {
+    let input = document.getElementById('searchInput').value.toLowerCase().trim();
+    
+    // Si recherche vide, réinitialiser à la catégorie active
+    if (input === '') {
+        let activeCategory = document.querySelector('.category-item.active')?.getAttribute('data-category') || 'all';
+        filterByCategory(activeCategory);
+        return;
+    }
+    
+    // Sinon, exécuter la recherche normale
+    originalSearchRestaurant();
+    
+    // Réinitialiser la catégorie active
+    document.querySelectorAll('.category-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    document.querySelector('.category-item[data-category="all"]').classList.add('active');
+};
+
+// Initialisation des catégories
+document.addEventListener('DOMContentLoaded', function() {
+    // Ajouter les événements de clic sur les catégories
+    document.querySelectorAll('.category-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            let category = this.dataset.category;
+            filterByCategory(category);
+            
+            // Vider le champ de recherche
+            document.getElementById('searchInput').value = '';
+            
+            // Cacher les suggestions
+            document.getElementById('suggestionsList')?.classList.remove('show');
+            
+            // Optionnel : smooth scroll vers les restaurants
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Gestionnaire pour "Voir tout"
+    document.querySelector('.see-all').addEventListener('click', function() {
+        filterByCategory('all');
+        document.getElementById('searchInput').value = '';
+        document.getElementById('suggestionsList')?.classList.remove('show');
+    });
+});
