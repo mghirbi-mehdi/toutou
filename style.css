@@ -9,17 +9,14 @@ body {
     background-color: #f8f9fa;
 }
 
-header {
-    background-color: #ff4757;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+/* ===== HEADER AVEC IMAGE SEULE ===== */
+.hero-header {
+    background-size: contain;  /* L'image entière visible */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #E3001F;  /* Fond rouge derrière */
+    height: 350px;
+    width: 100%;
 }
 
 /* ===== WHATSAPP BANNER AVEC LOGO ===== */
@@ -437,8 +434,8 @@ footer {
 
 /* ===== STYLES RESPONSIVE POUR MOBILE ===== */
 @media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem;
+    .hero-header {
+        height: 150px;
     }
     
     .restaurant-header {
@@ -514,6 +511,10 @@ footer {
 
 /* Pour très petits écrans */
 @media screen and (max-width: 480px) {
+    .hero-header {
+        height: 120px;
+    }
+    
     .plat-footer {
         flex-direction: column;
         gap: 0.5rem;
