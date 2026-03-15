@@ -248,7 +248,7 @@ footer {
     margin-top: 2rem;
 }
 
-/* ===== STYLES POUR LA RECHERCHE - VERSION PROFESSIONNELLE ===== */
+/* ===== STYLES POUR LA RECHERCHE ===== */
 .search-container {
     max-width: 500px;
     margin: 1.2rem auto;
@@ -259,8 +259,9 @@ footer {
 #searchInput {
     width: 100%;
     padding: 0.8rem 1.2rem;
-    border-radius: 30px;
+    border-radius: 12px 12px 0 0;
     border: 1px solid #e0e0e0;
+    border-bottom: none;
     font-size: 0.95rem;
     outline: none;
     transition: all 0.2s;
@@ -278,14 +279,115 @@ footer {
     font-size: 0.9rem;
 }
 
-.search-icon {
+/* ===== STYLES POUR L'AUTOCOMPLETE ===== */
+.suggestions-list {
     position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #adb5bd;
-    font-size: 1rem;
-    pointer-events: none;
+    top: 100%;
+    left: 1rem;
+    right: 1rem;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestions-list.show {
+    display: block;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+.suggestion-item.selected {
+    background-color: #fff3f0;
+    border-left: 3px solid #ff4757;
+}
+
+.suggestion-icon {
+    width: 35px;
+    height: 35px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.suggestion-content {
+    flex: 1;
+}
+
+.suggestion-title {
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.suggestion-subtitle {
+    font-size: 0.75rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.suggestion-subtitle span {
+    background: #e9ecef;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+.suggestion-price {
+    color: #ff4757;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.suggestion-badge {
+    background: #e9ecef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.suggestion-badge.resto {
+    background: #ff4757;
+    color: white;
+}
+
+.suggestion-badge.plat {
+    background: #25D366;
+    color: white;
 }
 
 /* Message "Aucun résultat" */
@@ -312,7 +414,7 @@ footer {
     opacity: 0.5;
 }
 
-/* Suggestions */
+/* Suggestions cliquables */
 .highlight {
     background-color: #f8f9fa;
     color: #495057;
@@ -389,6 +491,24 @@ footer {
     .btn-whatsapp-large {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
+    }
+    
+    .suggestions-list {
+        max-height: 250px;
+    }
+    
+    .suggestion-item {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .suggestion-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .suggestion-title {
+        font-size: 0.85rem;
     }
 }
 
