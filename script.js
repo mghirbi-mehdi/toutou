@@ -93,7 +93,7 @@ function searchSuggestions() {
         }
     });
     
-    // Limiter à 8 suggestions et enlever les doublons
+    // Limiter à 8 suggestions
     suggestions = suggestions.slice(0, 8);
     
     // Afficher les suggestions
