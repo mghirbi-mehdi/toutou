@@ -14,7 +14,7 @@ body {
     background-size: contain;  /* L'image entière visible */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #E3001F;  /* Fond rouge derrière */
+    background-color: #dd0f2b;  /* Fond rouge derrière */
     height: 500px;
     width: 100%;
 }
