@@ -21,6 +21,51 @@
         </a>
     </div>
 
+    <!-- SECTION CATÉGORIES SCROLLABLES -->
+    <div class="categories-section">
+        <div class="categories-header">
+            <h3>Catégories <span class="see-all">Voir tout</span></h3>
+        </div>
+        <div class="categories-scroll">
+            <div class="category-item active" data-category="all">
+                <div class="category-icon">🍽️</div>
+                <span>Tous</span>
+            </div>
+            <div class="category-item" data-category="pizza">
+                <div class="category-icon">🍕</div>
+                <span>Pizza</span>
+            </div>
+            <div class="category-item" data-category="burger">
+                <div class="category-icon">🍔</div>
+                <span>Burger</span>
+            </div>
+            <div class="category-item" data-category="sweet">
+                <div class="category-icon">🍰</div>
+                <span>Sweet</span>
+            </div>
+            <div class="category-item" data-category="chicken">
+                <div class="category-icon">🍗</div>
+                <span>Poulet</span>
+            </div>
+            <div class="category-item" data-category="rice">
+                <div class="category-icon">🍚</div>
+                <span>Riz</span>
+            </div>
+            <div class="category-item" data-category="fish">
+                <div class="category-icon">🐟</div>
+                <span>Poisson</span>
+            </div>
+            <div class="category-item" data-category="oriental">
+                <div class="category-icon">🥙</div>
+                <span>Oriental</span>
+            </div>
+            <div class="category-item" data-category="salad">
+                <div class="category-icon">🥗</div>
+                <span>Salades</span>
+            </div>
+        </div>
+    </div>
+
     <!-- CHAMP DE RECHERCHE -->
     <div class="search-container">
         <input type="text" 
@@ -41,7 +86,7 @@
             
             <div class="menu-grid">
                 <!-- Burger Crispy -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_bnin.PNG')"></div>
                     <div class="plat-info">
                         <h3>Burger Crispy</h3>
@@ -57,7 +102,7 @@
                 </div>
 
                 <!-- Burger Classique -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_classique.PNG')"></div>
                     <div class="plat-info">
                         <h3>Burger Classique</h3>
@@ -73,7 +118,7 @@
                 </div>
 
                 <!-- CRISPY CHEESE -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_bnin.PNG')"></div>
                     <div class="plat-info">
                         <h3>CRISPY CHEESE</h3>
@@ -89,7 +134,7 @@
                 </div>
 
                 <!-- BOEUF CHEESE -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_classique.PNG')"></div>
                     <div class="plat-info">
                         <h3>BOEUF CHEESE</h3>
@@ -105,7 +150,7 @@
                 </div>
 
                 <!-- 2 BOEUF -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_classique.PNG')"></div>
                     <div class="plat-info">
                         <h3>2 BOEUF</h3>
@@ -121,7 +166,7 @@
                 </div>
 
                 <!-- DOUBLE BOEUF CHEESE -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="burger">
                     <div class="plat-image" style="background-image: url('burger_classique.PNG')"></div>
                     <div class="plat-info">
                         <h3>DOUBLE BOEUF CHEESE</h3>
@@ -150,7 +195,7 @@
             
             <div class="menu-grid">
                 <!-- Plat 1 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="chicken">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Chawarma Poulet</h3>
@@ -166,7 +211,7 @@
                 </div>
 
                 <!-- Plat 2 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="salad">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1576363343742-1b2f9b55f5b3?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Assiette Mezzé</h3>
@@ -182,7 +227,7 @@
                 </div>
 
                 <!-- Plat 3 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="chicken">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1631452180519-0140c5983fc6?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Mix Grill</h3>
@@ -211,7 +256,7 @@
             
             <div class="menu-grid">
                 <!-- Plat 1 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="fish">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Poisson Grillé</h3>
@@ -227,7 +272,7 @@
                 </div>
 
                 <!-- Plat 2 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="rice">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1551248429-40975aa4de74?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Couscous Poisson</h3>
@@ -243,7 +288,7 @@
                 </div>
 
                 <!-- Plat 3 -->
-                <div class="plat-card">
+                <div class="plat-card" data-category="rice">
                     <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1627308595171-d1b5d6712b3d?w=400&auto=format&fit=crop')"></div>
                     <div class="plat-info">
                         <h3>Paella Fruits de Mer</h3>
