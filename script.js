@@ -1,9 +1,9 @@
 // Données structurées pour la recherche
 const searchData = {
     restaurants: [
-        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf'] },
-        { id: 'resto2', name: 'Saveurs d\'Orient', logo: '🥙', address: 'Ariana', type: 'restaurant', keywords: ['chawarma', 'mezzé', 'oriental', 'libanais', 'grill'] },
-        { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
+        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf'] },
+        { id: 'resto2', name: 'Saveurs d\'Orient', logo: '🥙', address: 'Ariana', hours: '11h-23h', type: 'restaurant', keywords: ['chawarma', 'mezzé', 'oriental', 'libanais', 'grill'] },
+        { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', hours: '12h-22h', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
     ],
     plats: [
         { name: 'Burger Crispy', resto: 'AL OSTEDH', price: '14,9 DT', logo: '🍔', type: 'plat', keywords: ['burger', 'crispy'] },
@@ -32,6 +32,109 @@ const categoryKeywords = {
     'rice': ['riz', 'couscous', 'paella'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
 };
+
+// ===== SYSTÈME DE VÉRIFICATION DES HORAIRES =====
+function getTunisiaTime() {
+    let now = new Date();
+    let tunisTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Tunis"}));
+    return tunisTime;
+}
+
+function isRestaurantOpen(hoursString) {
+    let hoursMatch = hoursString.match(/(\d+)h[-\s](\d+)h/);
+    if (!hoursMatch) return true;
+    
+    let openHour = parseInt(hoursMatch[1]);
+    let closeHour = parseInt(hoursMatch[2]);
+    
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    let currentMinutes = now.getMinutes();
+    let currentTime = currentHour + (currentMinutes / 60);
+    
+    return (currentTime >= openHour && currentTime < closeHour);
+}
+
+function getClosingTimeMessage(restoName, hoursString) {
+    let hoursMatch = hoursString.match(/(\d+)h[-\s](\d+)h/);
+    if (!hoursMatch) return "";
+    
+    let closeHour = parseInt(hoursMatch[2]);
+    let openHour = parseInt(hoursMatch[1]);
+    let now = getTunisiaTime();
+    let currentHour = now.getHours();
+    
+    if (currentHour >= closeHour) {
+        return `🔴 Fermé • Réouverture demain à ${openHour}h`;
+    } else {
+        return `🟢 Ouvert • Fermeture à ${closeHour}h`;
+    }
+}
+
+function updateRestaurantsStatus() {
+    let restaurants = document.querySelectorAll('.restaurant-section');
+    
+    restaurants.forEach(restaurant => {
+        let restoName = restaurant.querySelector('h2').textContent;
+        let hoursElement = restaurant.querySelector('.restaurant-header p');
+        let hoursText = hoursElement.textContent;
+        
+        let hoursMatch = hoursText.match(/(\d+)h[-\s](\d+)h/);
+        
+        if (hoursMatch) {
+            let isOpen = isRestaurantOpen(hoursMatch[0]);
+            let statusElement = restaurant.querySelector('.restaurant-status');
+            
+            if (!statusElement) {
+                statusElement = document.createElement('div');
+                statusElement.className = 'restaurant-status';
+                restaurant.querySelector('.restaurant-header').appendChild(statusElement);
+            }
+            
+            if (isOpen) {
+                statusElement.innerHTML = `<span class="open-status">🟢 Ouvert jusqu'à ${hoursMatch[2]}h</span>`;
+                enableRestaurantButtons(restaurant);
+            } else {
+                statusElement.innerHTML = `<span class="closed-status">🔴 Fermé • Réouverture ${hoursMatch[1]}h</span>`;
+                disableRestaurantButtons(restaurant);
+            }
+        }
+    });
+}
+
+function enableRestaurantButtons(restaurant) {
+    restaurant.querySelectorAll('.btn-whatsapp').forEach(btn => {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+        btn.style.backgroundColor = '#25D366';
+        btn.innerHTML = '<i class="fab fa-whatsapp"></i> Commander';
+        btn.title = 'Commander';
+    });
+    
+    let closedMessage = restaurant.querySelector('.closed-message');
+    if (closedMessage) closedMessage.remove();
+}
+
+function disableRestaurantButtons(restaurant) {
+    restaurant.querySelectorAll('.btn-whatsapp').forEach(btn => {
+        btn.style.opacity = '0.5';
+        btn.style.pointerEvents = 'none';
+        btn.style.backgroundColor = '#dc3545';
+        btn.innerHTML = '<i class="fas fa-clock"></i> Fermé';
+        btn.title = 'Restaurant fermé';
+    });
+    
+    if (!restaurant.querySelector('.closed-message')) {
+        let message = document.createElement('div');
+        message.className = 'closed-message';
+        
+        let hoursMatch = restaurant.querySelector('.restaurant-header p').textContent.match(/(\d+)h[-\s](\d+)h/);
+        let openHour = hoursMatch ? hoursMatch[1] : '';
+        
+        message.innerHTML = `<span>⏰ Restaurant fermé • Réouverture à ${openHour}h</span>`;
+        restaurant.querySelector('.menu-grid').insertAdjacentElement('beforebegin', message);
+    }
+}
 
 // Fonction pour scroller vers le début du restaurant
 function scrollToRestaurant(restaurant, platName = null) {
@@ -66,6 +169,7 @@ function filterByCategory(category) {
     if (category === 'all') {
         document.querySelectorAll('.plat-card, .restaurant-section').forEach(el => el.style.display = 'block');
         document.getElementById('noResult')?.remove();
+        updateRestaurantsStatus();
         return;
     }
     
@@ -85,6 +189,7 @@ function filterByCategory(category) {
     document.querySelectorAll('.restaurant-section').forEach(resto => {
         let hasVisible = resto.querySelectorAll('.plat-card[style*="block"]').length > 0;
         resto.style.display = hasVisible ? 'block' : 'none';
+        if (hasVisible) updateRestaurantsStatus();
     });
     
     document.getElementById('noResult')?.remove();
@@ -104,18 +209,19 @@ function filterByRestaurant(restoId) {
     
     document.querySelectorAll('.restaurant-section, .plat-card').forEach(el => el.style.display = 'block');
     let targetResto = document.getElementById(restoId);
-    if (targetResto) scrollToRestaurant(targetResto);
+    if (targetResto) {
+        scrollToRestaurant(targetResto);
+        updateRestaurantsStatus();
+    }
 }
 
-// Filtrer par plat (VERSION SIMPLIFIÉE avec scroll vers le début du resto)
+// Filtrer par plat
 function filterByPlat(platName) {
     document.getElementById('searchInput').value = platName;
     document.getElementById('suggestionsList')?.classList.remove('show');
     
-    // Afficher tous les plats
     document.querySelectorAll('.plat-card').forEach(plat => plat.style.display = 'block');
     
-    // Trouver le restaurant du plat
     let targetResto = null;
     document.querySelectorAll('.restaurant-section').forEach(resto => {
         let plats = resto.querySelectorAll('.plat-card');
@@ -126,10 +232,8 @@ function filterByPlat(platName) {
         });
     });
     
-    // Scroller vers le début du restaurant et surligner
     if (targetResto) scrollToRestaurant(targetResto, platName);
     
-    // Filtrer pour n'afficher que les plats similaires
     setTimeout(() => {
         document.querySelectorAll('.plat-card').forEach(plat => {
             let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
@@ -139,6 +243,7 @@ function filterByPlat(platName) {
         document.querySelectorAll('.restaurant-section').forEach(resto => {
             let hasVisible = resto.querySelectorAll('.plat-card[style*="block"]').length > 0;
             resto.style.display = hasVisible ? 'block' : 'none';
+            if (hasVisible) updateRestaurantsStatus();
         });
     }, 600);
 }
@@ -153,7 +258,7 @@ function searchSuggestions() {
     
     searchData.restaurants.forEach(resto => {
         if ([resto.name, resto.address, ...resto.keywords].some(k => k.toLowerCase().includes(input))) {
-            suggestions.push({ type: 'restaurant', icon: resto.logo, title: resto.name, subtitle: `📍 ${resto.address}`, badge: 'Restaurant', action: `filterByRestaurant('${resto.id}')` });
+            suggestions.push({ type: 'restaurant', icon: resto.logo, title: resto.name, subtitle: `📍 ${resto.address} • ${resto.hours}`, badge: 'Restaurant', action: `filterByRestaurant('${resto.id}')` });
         }
     });
     
@@ -230,6 +335,8 @@ function searchRestaurant() {
     
     document.querySelector('.category-item[data-category="all"]').classList.add('active');
     document.querySelectorAll('.category-item:not([data-category="all"])').forEach(i => i.classList.remove('active'));
+    
+    updateRestaurantsStatus();
 }
 
 // Initialisation
@@ -262,4 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     searchRestaurant();
+    
+    // Mise à jour des statuts toutes les minutes
+    setInterval(updateRestaurantsStatus, 60000);
 });
