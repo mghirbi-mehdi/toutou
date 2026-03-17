@@ -549,17 +549,17 @@ function updateCartDisplay() {
     `}).join('');
 }
 
-// Obtenir l'image du produit
+// Obtenir l'image du produit (VERSION CLOUDINARY)
 function getProductImage(productName) {
-    if (productName.includes('Burger Crispy')) return 'burger_crispy.PNG';
-    if (productName.includes('Burger Classique')) return 'alostedh.PNG';
-    if (productName.includes('Burger Double Beef')) return 'burger_double_beef.PNG';
-    if (productName.includes('Burger Super Crispy')) return 'burger_super_cripsy.PNG';
-    if (productName.includes('Burger Mushroom Beef')) return 'burger_mushroom_beef.PNG';
-    if (productName.includes('Truffe Burger Beef')) return 'truffe_burger_beef.PNG';
-    if (productName.includes('Pizza 4 choix')) return 'pizza_4choix_bigmax.PNG';
-    if (productName.includes('Pizza big max Thon')) return 'pizza_bigmax_thon_pepperoni.PNG';
-    if (productName.includes('Pizza Big jambon')) return 'Pizza_Big_jambon_fumé_et_crispy.PNG';
+    if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
+    if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
+    if (productName.includes('Burger Double Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_double_beef_hn1rtw.png';
+    if (productName.includes('Burger Super Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788846/burger_super_cripsy_w5238p.png';
+    if (productName.includes('Burger Mushroom Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
+    if (productName.includes('Truffe Burger Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
+    if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
+    if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
+    if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
     if (productName.includes('Chawarma')) return 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100';
     if (productName.includes('Assiette Mezzé')) return 'https://images.unsplash.com/photo-1576363343742-1b2f9b55f5b3?w=100';
     if (productName.includes('Mix Grill')) return 'https://images.unsplash.com/photo-1631452180519-0140c5983fc6?w=100';
