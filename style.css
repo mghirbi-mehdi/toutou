@@ -124,29 +124,67 @@ header h1 {
     color: #ff4757;
 }
 
-.btn-whatsapp {
+/* ===== STYLES POUR LES DEUX BOUTONS ===== */
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.btn-whatsapp-direct {
     background-color: #25D366;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    cursor: pointer;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: background-color 0.2s;
+    gap: 0.3rem;
+    transition: all 0.2s;
     font-size: 0.9rem;
     text-decoration: none;
 }
 
-.btn-whatsapp:hover {
+.btn-whatsapp-direct:hover {
     background-color: #128C7E;
+    transform: scale(1.05);
 }
 
-.btn-whatsapp i,
-.btn-whatsapp .fab {
-    font-size: 1.1rem;
+.btn-add-to-cart {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.btn-add-to-cart i {
+    font-size: 1rem;
+}
+
+/* Animation quand on ajoute au panier */
+@keyframes addToCartAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.btn-add-to-cart:active {
+    animation: addToCartAnimation 0.3s ease;
 }
 
 .contact-direct {
@@ -411,7 +449,8 @@ footer {
         height: 150px;
     }
     
-    .btn-whatsapp {
+    .btn-whatsapp-direct,
+    .btn-add-to-cart {
         padding: 0.4rem 0.8rem;
         font-size: 0.85rem;
     }
@@ -460,7 +499,13 @@ footer {
         align-items: flex-start;
     }
     
-    .btn-whatsapp {
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-whatsapp-direct,
+    .btn-add-to-cart {
         width: 100%;
         justify-content: center;
     }
