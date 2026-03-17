@@ -10,7 +10,7 @@ const searchData = {
         { name: 'Burger Crispy', resto: 'AL OSTEDH', price: '17,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'crispy', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Classique', resto: 'AL OSTEDH', price: '18,6 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'classique', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Mushroom Beef', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'mushroom', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
-        { name: 'Truffe Burger Beef', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffe', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
+        { name: 'Truffe Burger Beef', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffe', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
         
@@ -65,22 +65,6 @@ function isRestaurantOpen(hoursString) {
     return (currentTime >= openHour && currentTime < closeHour);
 }
 
-function getClosingTimeMessage(restoName, hoursString) {
-    let hoursMatch = hoursString.match(/(\d+)h[-\s](\d+)h/);
-    if (!hoursMatch) return "";
-    
-    let closeHour = parseInt(hoursMatch[2]);
-    let openHour = parseInt(hoursMatch[1]);
-    let now = getTunisiaTime();
-    let currentHour = now.getHours();
-    
-    if (currentHour >= closeHour) {
-        return `🔴 Fermé • Réouverture demain à ${openHour}h`;
-    } else {
-        return `🟢 Ouvert • Fermeture à ${closeHour}h`;
-    }
-}
-
 function updateRestaurantsStatus() {
     let restaurants = document.querySelectorAll('.restaurant-section');
     
@@ -116,8 +100,7 @@ function enableRestaurantButtons(restaurant) {
         btn.style.opacity = '1';
         btn.style.pointerEvents = 'auto';
         btn.style.backgroundColor = '#25D366';
-        btn.innerHTML = '<i class="fab fa-whatsapp"></i> Commander';
-        btn.title = 'Commander';
+        btn.style.cursor = 'pointer';
     });
     
     let closedMessage = restaurant.querySelector('.closed-message');
@@ -129,8 +112,7 @@ function disableRestaurantButtons(restaurant) {
         btn.style.opacity = '0.5';
         btn.style.pointerEvents = 'none';
         btn.style.backgroundColor = '#dc3545';
-        btn.innerHTML = '<i class="fas fa-clock"></i> Fermé';
-        btn.title = 'Restaurant fermé';
+        btn.style.cursor = 'not-allowed';
     });
     
     if (!restaurant.querySelector('.closed-message')) {
@@ -383,23 +365,234 @@ function closeChoiceModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Sélectionner une option et envoyer vers WhatsApp
+// Sélectionner une option
 function selectChoice(choice) {
-    let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
-    
-    let encodedMessage = encodeURIComponent(message);
-    
-    window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
-    
     closeChoiceModal();
+    // Ajouter au panier avec le choix
+    addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'pizza_bigmax_thon_pepperoni.PNG', currentProduct.resto);
 }
 
-// Fermer le modal si on clique en dehors
-window.onclick = function(event) {
-    let modal = document.getElementById('choiceModal');
-    if (event.target == modal) {
-        closeChoiceModal();
+// ===== SYSTÈME DE PANIER =====
+let cart = [];
+const MAX_CART_ITEMS = 5;
+
+// Charger le panier depuis localStorage
+function loadCart() {
+    let savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartDisplay();
     }
+}
+
+// Sauvegarder le panier dans localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+}
+
+// Ajouter au panier
+function addToCart(productName, productPrice, productImage, restoName) {
+    // Vérifier la limite du panier
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+    if (totalItems >= MAX_CART_ITEMS) {
+        showLimitModal();
+        return false;
+    }
+    
+    // Vérifier si le produit existe déjà (avec le même nom et resto)
+    let existingItem = cart.find(item => item.name === productName && item.resto === restoName);
+    
+    if (existingItem) {
+        // Vérifier la limite avec la nouvelle quantité
+        if (totalItems + 1 > MAX_CART_ITEMS) {
+            showLimitModal();
+            return false;
+        }
+        existingItem.quantity += 1;
+    } else {
+        // Créer un ID unique
+        let newId = 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        
+        cart.push({
+            id: newId,
+            name: productName,
+            price: parseFloat(productPrice.replace(',', '.').replace(' DT', '')),
+            priceDisplay: productPrice,
+            image: productImage,
+            resto: restoName,
+            quantity: 1
+        });
+    }
+    
+    saveCart();
+    animateCart();
+    
+    // Afficher le panier automatiquement
+    let panel = document.getElementById('cartPanel');
+    if (!panel.classList.contains('show')) {
+        panel.classList.add('show');
+    }
+    
+    return true;
+}
+
+// Retirer du panier
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    
+    // Si le panier devient vide, fermer le panier après 1 seconde
+    if (cart.length === 0) {
+        setTimeout(() => {
+            document.getElementById('cartPanel').classList.remove('show');
+        }, 1000);
+    }
+}
+
+// Modifier la quantité
+function updateQuantity(productId, change) {
+    // Trouver l'index de l'article
+    let itemIndex = cart.findIndex(item => item.id === productId);
+    if (itemIndex === -1) return;
+    
+    let item = cart[itemIndex];
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    let newTotal = totalItems + change;
+    
+    // Vérifier la limite maximum
+    if (newTotal > MAX_CART_ITEMS) {
+        showLimitModal();
+        return;
+    }
+    
+    // Vérifier si on peut ajouter/retirer
+    if (item.quantity + change <= 0) {
+        // Supprimer l'article si quantité devient 0
+        removeFromCart(productId);
+    } else {
+        // Mettre à jour la quantité
+        item.quantity += change;
+        saveCart();
+    }
+}
+
+// Afficher le panier
+function toggleCart() {
+    let panel = document.getElementById('cartPanel');
+    panel.classList.toggle('show');
+    updateCartDisplay();
+}
+
+// Mettre à jour l'affichage du panier
+function updateCartDisplay() {
+    let cartItems = document.getElementById('cartItems');
+    let cartCount = document.getElementById('cartCount');
+    let cartTotal = document.getElementById('cartTotal');
+    let checkoutBtn = document.getElementById('checkoutBtn');
+    
+    // Mettre à jour le compteur
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
+        cartTotal.textContent = '0 DT';
+        checkoutBtn.disabled = true;
+        return;
+    }
+    
+    // Calculer le total
+    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
+    checkoutBtn.disabled = false;
+    
+    // Afficher les articles avec des IDs uniques et des fonctions correctes
+    cartItems.innerHTML = cart.map(item => {
+        return `
+        <div class="cart-item" data-id="${item.id}">
+            <div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>
+            <div class="cart-item-details">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-resto">${item.resto}</div>
+                <div class="cart-item-price">${item.priceDisplay}</div>
+            </div>
+            <div class="cart-item-actions">
+                <button class="cart-qty-btn minus" onclick="updateQuantity('${item.id}', -1)">-</button>
+                <span class="cart-item-qty">${item.quantity}</span>
+                <button class="cart-qty-btn plus" onclick="updateQuantity('${item.id}', 1)">+</button>
+                <button class="cart-item-remove" onclick="removeFromCart('${item.id}')"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    `}).join('');
+}
+
+// Obtenir l'image du produit
+function getProductImage(productName) {
+    if (productName.includes('Burger Crispy')) return 'burger_crispy.PNG';
+    if (productName.includes('Burger Classique')) return 'alostedh.PNG';
+    if (productName.includes('Burger Double Beef')) return 'burger_double_beef.PNG';
+    if (productName.includes('Burger Super Crispy')) return 'burger_super_cripsy.PNG';
+    if (productName.includes('Burger Mushroom Beef')) return 'burger_mushroom_beef.PNG';
+    if (productName.includes('Truffe Burger Beef')) return 'truffe_burger_beef.PNG';
+    if (productName.includes('Pizza 4 choix')) return 'pizza_4choix_bigmax.PNG';
+    if (productName.includes('Pizza big max Thon')) return 'pizza_bigmax_thon_pepperoni.PNG';
+    if (productName.includes('Pizza Big jambon')) return 'Pizza_Big_jambon_fumé_et_crispy.PNG';
+    if (productName.includes('Chawarma')) return 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100';
+    if (productName.includes('Assiette Mezzé')) return 'https://images.unsplash.com/photo-1576363343742-1b2f9b55f5b3?w=100';
+    if (productName.includes('Mix Grill')) return 'https://images.unsplash.com/photo-1631452180519-0140c5983fc6?w=100';
+    if (productName.includes('Poisson Grillé')) return 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100';
+    if (productName.includes('Couscous Poisson')) return 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=100';
+    if (productName.includes('Paella')) return 'https://images.unsplash.com/photo-1627308595171-d1b5d6712b3d?w=100';
+    return '';
+}
+
+// Animer le panier quand on ajoute un article
+function animateCart() {
+    let cartFloat = document.getElementById('cartFloating');
+    cartFloat.style.transform = 'scale(1.2)';
+    cartFloat.style.transition = 'transform 0.2s';
+    setTimeout(() => {
+        cartFloat.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Afficher le modal de limite
+function showLimitModal() {
+    document.getElementById('limitModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Fermer le modal de limite
+function closeLimitModal() {
+    document.getElementById('limitModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Finaliser la commande
+function checkoutCart() {
+    if (cart.length === 0) return;
+    
+    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
+    
+    let message = "Bonjour je souhaite commander :\n\n";
+    
+    cart.forEach(item => {
+        message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
+    });
+    
+    message += `\nTotal: ${totalFormatted}`;
+    message += `\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    
+    let encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
+    
+    // Vider le panier après commande
+    cart = [];
+    saveCart();
+    toggleCart();
 }
 
 // Initialisation
@@ -434,4 +627,17 @@ document.addEventListener('DOMContentLoaded', function() {
     searchRestaurant();
     
     setInterval(updateRestaurantsStatus, 60000);
+    
+    // Charger le panier
+    loadCart();
+    
+    // Fermer le panier si on clique en dehors
+    document.addEventListener('click', function(event) {
+        let panel = document.getElementById('cartPanel');
+        let float = document.getElementById('cartFloating');
+        
+        if (!panel.contains(event.target) && !float.contains(event.target) && panel.classList.contains('show')) {
+            panel.classList.remove('show');
+        }
+    });
 });
