@@ -96,10 +96,9 @@ function updateRestaurantsStatus() {
 }
 
 function enableRestaurantButtons(restaurant) {
-    restaurant.querySelectorAll('.btn-whatsapp').forEach(btn => {
+    restaurant.querySelectorAll('.btn-whatsapp-direct, .btn-add-to-cart').forEach(btn => {
         btn.style.opacity = '1';
         btn.style.pointerEvents = 'auto';
-        btn.style.backgroundColor = '#25D366';
         btn.style.cursor = 'pointer';
     });
     
@@ -108,10 +107,9 @@ function enableRestaurantButtons(restaurant) {
 }
 
 function disableRestaurantButtons(restaurant) {
-    restaurant.querySelectorAll('.btn-whatsapp').forEach(btn => {
+    restaurant.querySelectorAll('.btn-whatsapp-direct, .btn-add-to-cart').forEach(btn => {
         btn.style.opacity = '0.5';
         btn.style.pointerEvents = 'none';
-        btn.style.backgroundColor = '#dc3545';
         btn.style.cursor = 'not-allowed';
     });
     
@@ -339,15 +337,17 @@ function searchRestaurant() {
 let currentProduct = {
     name: '',
     price: '',
-    resto: ''
+    resto: '',
+    mode: 'direct' // 'direct' ou 'cart'
 };
 
 // Afficher le modal de choix
-function showChoiceModal(productName, productPrice, restoName) {
+function showChoiceModal(productName, productPrice, restoName, mode = 'direct') {
     currentProduct = {
         name: productName,
         price: productPrice,
-        resto: restoName
+        resto: restoName,
+        mode: mode
     };
     
     let modal = document.getElementById('choiceModal');
@@ -368,8 +368,16 @@ function closeChoiceModal() {
 // Sélectionner une option
 function selectChoice(choice) {
     closeChoiceModal();
-    // Ajouter au panier avec le choix
-    addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'pizza_bigmax_thon_pepperoni.PNG', currentProduct.resto);
+    
+    if (currentProduct.mode === 'cart') {
+        // Ajouter au panier
+        addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'pizza_bigmax_thon_pepperoni.PNG', currentProduct.resto);
+    } else {
+        // Commander directement
+        let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        let encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
+    }
 }
 
 // ===== SYSTÈME DE PANIER =====
@@ -391,8 +399,21 @@ function saveCart() {
     updateCartDisplay();
 }
 
-// Ajouter au panier
-function addToCart(productName, productPrice, productImage, restoName) {
+// Ajouter au panier (avec animation du bouton)
+function addToCart(productName, productPrice, productImage, restoName, event) {
+    // Animer le bouton
+    if (event && event.target) {
+        let button = event.target.closest('.btn-add-to-cart');
+        if (button) {
+            button.style.transform = 'scale(0.95)';
+            button.style.backgroundColor = '#25D366';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.style.backgroundColor = '#ff4757';
+            }, 200);
+        }
+    }
+    
     // Vérifier la limite du panier
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
@@ -508,7 +529,7 @@ function updateCartDisplay() {
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
     checkoutBtn.disabled = false;
     
-    // Afficher les articles avec des IDs uniques et des fonctions correctes
+    // Afficher les articles
     cartItems.innerHTML = cart.map(item => {
         return `
         <div class="cart-item" data-id="${item.id}">
