@@ -1132,28 +1132,28 @@ footer {
     }
 }
 
-/* ===== SECTION SPÉCIALE ESCALOPE ===== */
+/* ===== SECTION SPÉCIALE ESCALOPE (MÊME DESIGN QUE LES AUTRES) ===== */
 .special-section {
     margin: 2rem 1.5rem 3rem;
     padding: 1.5rem;
-    background-color: #fafafa;
-    border-radius: 12px;
-    border-left: 4px solid #d4a373;
+    background-color: transparent;
+    border-left: none;
 }
 
 .special-header {
     margin-bottom: 2rem;
+    padding: 0;
 }
 
 .special-header h2 {
     font-size: 1.8rem;
-    color: #2c3e50;
+    color: #2d3436;
     margin: 0 0 0.5rem 0;
     font-weight: 600;
 }
 
 .special-subtitle {
-    color: #7f8c8d;
+    color: #636e72;
     font-size: 1rem;
     margin: 0;
 }
