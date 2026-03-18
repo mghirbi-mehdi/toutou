@@ -439,7 +439,7 @@ footer {
     border-color: #ff4757;
 }
 
-/* ===== STYLES RESPONSIVE POUR MOBILE (VERSION COLONNE) ===== */
+/* ===== STYLES RESPONSIVE POUR MOBILE (VERSION COLONNE CORRIGÉE) ===== */
 @media screen and (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
@@ -472,6 +472,8 @@ footer {
         font-size: 1.3rem;
         margin-bottom: 0;
         line-height: 1.2;
+        white-space: normal;
+        word-break: break-word;
     }
     
     .restaurant-header p {
@@ -482,6 +484,8 @@ footer {
         gap: 0.3rem;
         opacity: 0.9;
         flex-wrap: wrap;
+        white-space: normal;
+        word-break: break-word;
     }
     
     .restaurant-header p .hours-part {
@@ -505,26 +509,9 @@ footer {
         border: 1px solid rgba(255,255,255,0.2);
         display: inline-flex;
         align-items: center;
-        align-self: flex-start;
     }
     
-    .open-status, .closed-status {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-    
-    .open-status::before {
-        content: "🟢";
-        font-size: 0.9rem;
-        margin-right: 0.2rem;
-    }
-    
-    .closed-status::before {
-        content: "🔴";
-        font-size: 0.9rem;
-        margin-right: 0.2rem;
-    }
+    /* PAS DE ::before - l'icône vient du HTML */
     
     .menu-grid {
         grid-template-columns: 1fr;
@@ -606,10 +593,6 @@ footer {
     .restaurant-status {
         font-size: 0.7rem;
         padding: 0.15rem 0.6rem;
-    }
-    
-    .open-status::before, .closed-status::before {
-        font-size: 0.8rem;
     }
     
     .plat-footer {
@@ -828,17 +811,7 @@ footer {
         align-items: center;
     }
     
-    .open-status::before {
-        content: "🟢";
-        font-size: 0.9rem;
-        margin-right: 0.3rem;
-    }
-    
-    .closed-status::before {
-        content: "🔴";
-        font-size: 0.9rem;
-        margin-right: 0.3rem;
-    }
+    /* SUPPRIMÉ : PAS DE ::before POUR ÉVITER LE DOUBLE CERCLE */
     
     .restaurant-header {
         flex-wrap: nowrap;
