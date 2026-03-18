@@ -57,9 +57,9 @@
                 <div class="category-icon">🍔</div>
                 <span>Burger</span>
             </div>
-            <div class="category-item" data-category="sweet">
-                <div class="category-icon">🍰</div>
-                <span>Sweet</span>
+            <div class="category-item" data-category="sandwich">
+                <div class="category-icon">🥪</div>
+                <span>Sandwich</span>
             </div>
             <div class="category-item" data-category="chicken">
                 <div class="category-icon">🍗</div>
@@ -294,31 +294,32 @@
             </div>
         </section>
 
-        <!-- Restaurant Saveurs d'Orient (inchangé) -->
+        <!-- Restaurant CHICK'IN (avec logo) -->
         <section class="restaurant-section" id="resto2">
             <div class="restaurant-header">
-                <div class="restaurant-logo">🥙</div>
+                <!-- LOGO CHICK'IN avec URL Cloudinary -->
+                <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773799035/logo_chickin_snt7ag.png'); background-size: cover; background-position: center 90%; background-repeat: no-repeat;"></div>
                 <div>
-                    <h2>Saveurs d'Orient</h2>
-                    <p>📍 Ariana • Cuisine orientale & libanaise • Ouvert 11h-23h</p>
+                    <h2>CHICK'IN</h2>
+                    <p>📍 Tunis • Centre Urbain Nord • Ouvert 11h-23h</p>
                 </div>
             </div>
             
             <div class="menu-grid">
-                <!-- Chawarma Poulet (12 DT) -->
+                <!-- Crispy Chicken (15 DT) -->
                 <div class="plat-card" data-category="chicken">
-                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=400&auto=format&fit=crop')"></div>
+                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=400&auto=format&fit=crop'); background-position: center 55%; background-size: cover;"></div>
                     <div class="plat-info">
-                        <h3>Chawarma Poulet</h3>
-                        <p class="plat-description">Pain libanais, poulet mariné, pickles, ail, frites</p>
+                        <h3>Crispy Chicken</h3>
+                        <p class="plat-description">Filet de poulet croustillant, sauce spicy, salade, tomates, frites</p>
                         <div class="plat-footer">
-                            <span class="prix">12 DT</span>
+                            <span class="prix">15 DT</span>
                             <div class="btn-group">
-                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20le%20Chawarma%20Poulet%20(12%20DT)%20de%20Saveurs%20d'Orient.%20Merci%20de%20me%20confirmer%20la%20disponibilité%20et%20les%20frais%20de%20livraison." 
+                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20le%20Crispy%20Chicken%20(15%20DT)%20chez%20CHICK'IN.%20Merci%20de%20me%20confirmer%20la%20disponibilit%C3%A9%20et%20les%20frais%20de%20livraison." 
                                    class="btn-whatsapp-direct" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Commander
                                 </a>
-                                <button class="btn-add-to-cart" onclick="addToCart('Chawarma Poulet', '12 DT', 'chawarma', 'Saveurs d\'Orient', event)">
+                                <button class="btn-add-to-cart" onclick="addToCart('Crispy Chicken', '15 DT', 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=100', 'CHICK\'IN', event)">
                                     <i class="fas fa-cart-plus"></i> Ajouter
                                 </button>
                             </div>
@@ -326,20 +327,20 @@
                     </div>
                 </div>
 
-                <!-- Assiette Mezzé (28 DT) -->
-                <div class="plat-card" data-category="salad">
-                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1576363343742-1b2f9b55f5b3?w=400&auto=format&fit=crop')"></div>
+                <!-- Chicken Burger (18 DT) -->
+                <div class="plat-card" data-category="burger">
+                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=400&auto=format&fit=crop'); background-position: center 50%; background-size: cover;"></div>
                     <div class="plat-info">
-                        <h3>Assiette Mezzé</h3>
-                        <p class="plat-description">Hoummous, mutabbal, taboulé, falafels, fromage halloumi</p>
+                        <h3>Chicken Burger</h3>
+                        <p class="plat-description">Pavé de poulet grillé, salade, tomates, oignons, sauce barbecue, frites</p>
                         <div class="plat-footer">
-                            <span class="prix">28 DT</span>
+                            <span class="prix">18 DT</span>
                             <div class="btn-group">
-                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20l'Assiette%20Mezzé%20(28%20DT)%20de%20Saveurs%20d'Orient.%20Merci%20de%20me%20confirmer%20la%20disponibilité%20et%20les%20frais%20de%20livraison." 
+                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20le%20Chicken%20Burger%20(18%20DT)%20chez%20CHICK'IN.%20Merci%20de%20me%20confirmer%20la%20disponibilit%C3%A9%20et%20les%20frais%20de%20livraison." 
                                    class="btn-whatsapp-direct" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Commander
                                 </a>
-                                <button class="btn-add-to-cart" onclick="addToCart('Assiette Mezzé', '28 DT', 'mezzé', 'Saveurs d\'Orient', event)">
+                                <button class="btn-add-to-cart" onclick="addToCart('Chicken Burger', '18 DT', 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100', 'CHICK\'IN', event)">
                                     <i class="fas fa-cart-plus"></i> Ajouter
                                 </button>
                             </div>
@@ -347,20 +348,20 @@
                     </div>
                 </div>
 
-                <!-- Mix Grill (32 DT) -->
+                <!-- Chicken Wings (22 DT) -->
                 <div class="plat-card" data-category="chicken">
-                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1631452180519-0140c5983fc6?w=400&auto=format&fit=crop')"></div>
+                    <div class="plat-image" style="background-image: url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&auto=format&fit=crop'); background-position: center 50%; background-size: cover;"></div>
                     <div class="plat-info">
-                        <h3>Mix Grill</h3>
-                        <p class="plat-description">Brochettes poulet et agneau, kefta, riz épicé, grillades</p>
+                        <h3>Chicken Wings</h3>
+                        <p class="plat-description">8 ailes de poulet marinées, sauce au choix (barbecue, spicy, fromagère), frites</p>
                         <div class="plat-footer">
-                            <span class="prix">32 DT</span>
+                            <span class="prix">22 DT</span>
                             <div class="btn-group">
-                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20le%20Mix%20Grill%20(32%20DT)%20de%20Saveurs%20d'Orient.%20Merci%20de%20me%20confirmer%20la%20disponibilité%20et%20les%20frais%20de%20livraison." 
+                                <a href="https://wa.me/21651924385?text=Bonjour%20je%20souhaite%20commander%20les%20Chicken%20Wings%20(22%20DT)%20chez%20CHICK'IN.%20Merci%20de%20me%20confirmer%20la%20disponibilit%C3%A9%20et%20les%20frais%20de%20livraison." 
                                    class="btn-whatsapp-direct" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Commander
                                 </a>
-                                <button class="btn-add-to-cart" onclick="addToCart('Mix Grill', '32 DT', 'mixgrill', 'Saveurs d\'Orient', event)">
+                                <button class="btn-add-to-cart" onclick="addToCart('Chicken Wings', '22 DT', 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=100', 'CHICK\'IN', event)">
                                     <i class="fas fa-cart-plus"></i> Ajouter
                                 </button>
                             </div>
@@ -370,7 +371,7 @@
             </div>
         </section>
 
-        <!-- Restaurant Poisson & Cie (inchangé) -->
+        <!-- Restaurant Poisson & Cie -->
         <section class="restaurant-section" id="resto3">
             <div class="restaurant-header">
                 <div class="restaurant-logo">🐟</div>
