@@ -64,26 +64,6 @@ header h1 {
 
 .restaurant-header p {
     opacity: 0.9;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    flex-wrap: wrap;
-}
-
-.restaurant-header p .address-part {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-.restaurant-header p .hours-part {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    background: rgba(255,255,255,0.15);
-    padding: 0.1rem 0.5rem;
-    border-radius: 20px;
-    font-weight: 500;
 }
 
 .menu-grid {
@@ -194,17 +174,6 @@ header h1 {
 
 .btn-add-to-cart i {
     font-size: 1rem;
-}
-
-/* Animation quand on ajoute au panier */
-@keyframes addToCartAnimation {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.btn-add-to-cart:active {
-    animation: addToCartAnimation 0.3s ease;
 }
 
 .contact-direct {
@@ -395,7 +364,6 @@ footer {
     color: white;
 }
 
-/* Message "Aucun résultat" */
 .no-result {
     text-align: center;
     padding: 2rem;
@@ -419,27 +387,7 @@ footer {
     opacity: 0.5;
 }
 
-.highlight {
-    background-color: #f8f9fa;
-    color: #495057;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-weight: normal;
-    display: inline-block;
-    margin: 0.2rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid #e9ecef;
-    font-size: 0.9rem;
-}
-
-.highlight:hover {
-    background-color: #ff4757;
-    color: white;
-    border-color: #ff4757;
-}
-
-/* ===== STYLES RESPONSIVE POUR MOBILE (VERSION COLONNE CORRIGÉE) ===== */
+/* ===== STYLES RESPONSIVE POUR MOBILE ===== */
 @media screen and (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
@@ -448,70 +396,17 @@ footer {
     .restaurant-header {
         padding: 1rem;
         gap: 1rem;
-        display: flex;
-        align-items: flex-start;
-        flex-wrap: nowrap;
     }
     
     .restaurant-logo {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
-        flex-shrink: 0;
-        margin-top: 0.2rem;
-    }
-    
-    .restaurant-header > div {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
     }
     
     .restaurant-header h2 {
         font-size: 1.3rem;
-        margin-bottom: 0;
-        line-height: 1.2;
-        white-space: normal;
-        word-break: break-word;
     }
-    
-    .restaurant-header p {
-        font-size: 0.85rem;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        opacity: 0.9;
-        flex-wrap: wrap;
-        white-space: normal;
-        word-break: break-word;
-    }
-    
-    .restaurant-header p .hours-part {
-        background: rgba(255,255,255,0.2);
-        padding: 0.1rem 0.5rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        display: inline-block;
-    }
-    
-    .restaurant-status {
-        font-size: 0.8rem;
-        padding: 0.2rem 0.8rem;
-        margin-left: 0;
-        margin-top: 0.2rem;
-        width: fit-content;
-        background: rgba(255,255,255,0.25);
-        border-radius: 30px;
-        font-weight: 600;
-        border: 1px solid rgba(255,255,255,0.2);
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    /* PAS DE ::before - l'icône vient du HTML */
     
     .menu-grid {
         grid-template-columns: 1fr;
@@ -545,56 +440,9 @@ footer {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
-    
-    .suggestions-list {
-        max-height: 250px;
-    }
-    
-    .suggestion-item {
-        padding: 0.6rem 0.8rem;
-    }
-    
-    .suggestion-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-    
-    .suggestion-title {
-        font-size: 0.85rem;
-    }
 }
 
 @media screen and (max-width: 480px) {
-    .restaurant-header {
-        padding: 0.8rem;
-        gap: 0.8rem;
-    }
-    
-    .restaurant-logo {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }
-    
-    .restaurant-header h2 {
-        font-size: 1.2rem;
-    }
-    
-    .restaurant-header p {
-        font-size: 0.75rem;
-    }
-    
-    .restaurant-header p .hours-part {
-        font-size: 0.7rem;
-        padding: 0.1rem 0.4rem;
-    }
-    
-    .restaurant-status {
-        font-size: 0.7rem;
-        padding: 0.15rem 0.6rem;
-    }
-    
     .plat-footer {
         flex-direction: column;
         gap: 0.5rem;
@@ -710,16 +558,6 @@ footer {
     color: white;
 }
 
-/* Animation pour le filtrage */
-.plat-card {
-    transition: opacity 0.3s ease, transform 0.2s;
-}
-
-.plat-card[style*="display: none"] {
-    display: none !important;
-}
-
-/* Version responsive pour catégories */
 @media screen and (max-width: 768px) {
     .categories-section {
         margin: 0.5rem;
@@ -778,13 +616,6 @@ footer {
     animation: slideDown 0.3s ease;
 }
 
-/* Style pour les boutons désactivés */
-.btn-whatsapp[style*="pointer-events: none"] {
-    background-color: #dc3545 !important;
-    cursor: not-allowed;
-}
-
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -795,28 +626,17 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Version responsive statuts */
 @media screen and (max-width: 768px) {
     .restaurant-status {
         font-size: 0.8rem;
         padding: 0.2rem 0.8rem;
         margin-left: 0;
-        margin-top: 0.3rem;
+        margin-top: 0.5rem;
         width: fit-content;
-        background: rgba(255,255,255,0.25);
-        border-radius: 30px;
-        font-weight: 600;
-        border: 1px solid rgba(255,255,255,0.2);
-        display: inline-flex;
-        align-items: center;
     }
     
-    /* SUPPRIMÉ : PAS DE ::before POUR ÉVITER LE DOUBLE CERCLE */
-    
     .restaurant-header {
-        flex-wrap: nowrap;
-        gap: 1rem;
-        align-items: flex-start;
+        flex-wrap: wrap;
     }
     
     .closed-message {
@@ -936,7 +756,6 @@ footer {
     color: #2d3436;
 }
 
-/* Responsive modal */
 @media screen and (max-width: 480px) {
     .modal-content {
         margin: 30% auto;
@@ -1295,7 +1114,6 @@ footer {
     transform: scale(1.05);
 }
 
-/* Responsive panier */
 @media screen and (max-width: 480px) {
     .cart-panel {
         width: 100%;
@@ -1305,22 +1123,59 @@ footer {
     .cart-floating {
         bottom: 20px;
         right: 20px;
-        width: 50px;
-        height: 50px;
-    }
-    
-    .cart-floating i {
-        font-size: 1.5rem;
-    }
-    
-    .cart-count {
-        width: 20px;
-        height: 20px;
-        font-size: 0.75rem;
+        width: 55px;
+        height: 55px;
     }
     
     .limit-modal-content {
         margin: 40% auto;
+    }
+}
+
+/* ===== SECTION SPÉCIALE ESCALOPE ===== */
+.special-section {
+    margin: 2rem 1.5rem 3rem;
+    padding: 1.5rem;
+    background-color: #fafafa;
+    border-radius: 12px;
+    border-left: 4px solid #d4a373;
+}
+
+.special-header {
+    margin-bottom: 2rem;
+}
+
+.special-header h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.special-subtitle {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.supplements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .special-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .special-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .supplements-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1329,7 +1184,6 @@ footer {
     display: block;
 }
 
-/* Cacher toute la section spéciale quand on filtre par burger */
 body.filtering-burger .special-section.category-sandwich,
 body.filtering-pizza .special-section.category-sandwich,
 body.filtering-tacos .special-section.category-sandwich,
@@ -1338,7 +1192,6 @@ body.filtering-fish .special-section.category-sandwich {
     display: none !important;
 }
 
-/* Afficher la section spéciale quand on filtre par sandwich ou tous */
 body.filtering-sandwich .special-section.category-sandwich,
 body.filtering-all .special-section.category-sandwich {
     display: block;
