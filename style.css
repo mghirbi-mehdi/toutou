@@ -428,16 +428,30 @@ footer {
     .restaurant-header {
         padding: 1rem;
         gap: 1rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
     }
     
     .restaurant-logo {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
+        flex-shrink: 0;
     }
     
     .restaurant-header h2 {
         font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+        white-space: nowrap;
+    }
+    
+    .restaurant-header p {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
     }
     
     .menu-grid {
@@ -493,6 +507,10 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+    .restaurant-header p {
+        max-width: 150px;
+    }
+    
     .plat-footer {
         flex-direction: column;
         gap: 0.5rem;
@@ -698,13 +716,15 @@ footer {
     .restaurant-status {
         font-size: 0.8rem;
         padding: 0.2rem 0.8rem;
-        margin-left: 0;
-        margin-top: 0.5rem;
-        width: fit-content;
+        margin-left: 0.5rem;
+        margin-top: 0;
+        width: auto;
+        flex-shrink: 0;
     }
     
     .restaurant-header {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 0.8rem;
     }
     
     .closed-message {
