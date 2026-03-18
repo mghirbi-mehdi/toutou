@@ -1,8 +1,8 @@
 // Données structurées pour la recherche
 const searchData = {
     restaurants: [
-        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf'] },
-        { id: 'resto2', name: 'CHICK\'IN', logo: '🍗', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['poulet', 'chicken', 'crispy', 'wings', 'burger'] },
+        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
+        { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet'] },
         { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', hours: '12h-22h', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
     ],
     plats: [
@@ -14,15 +14,23 @@ const searchData = {
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
         
+        // Nouveaux sandwichs AL OSTEDH (SPÉCIAL ESCALOPE)
+        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '8,500 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'frites', 'base'] },
+        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + steak haché dinde', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🦃', category: 'sandwich', type: 'plat', keywords: ['escalope', 'steak', 'dinde', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + raclette', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'raclette', 'fromage', 'fondant', 'sandwich'] },
+        { name: 'Spécial escalope + cheddar Irlandais', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🇮🇪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'cheddar', 'irlandais', 'fromage', 'sandwich'] },
+        { name: 'Spécial escalope + mozzarella', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🥛', category: 'sandwich', type: 'plat', keywords: ['escalope', 'mozzarella', 'fromage', 'filant', 'sandwich'] },
+        
         // Pizza AL OSTEDH
         { name: 'Pizza 4 choix big max', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big max', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
         { name: 'Pizza big max Thon / pepperoni', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big max', 'thon', 'pepperoni', 'spicy', '6 fromages'] },
         { name: 'Pizza Big jambon fumé & crispy', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big', 'jambon', 'fumé', 'crispy', 'spicy', '6 fromages'] },
         
-        // CHICK'IN
-        { name: 'Crispy Chicken', resto: 'CHICK\'IN', price: '15 DT', logo: '🍗', category: 'chicken', type: 'plat', keywords: ['poulet', 'chicken', 'crispy', 'frites'] },
-        { name: 'Chicken Burger', resto: 'CHICK\'IN', price: '18 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['poulet', 'chicken', 'burger', 'grillé'] },
-        { name: 'Chicken Wings', resto: 'CHICK\'IN', price: '22 DT', logo: '🍗', category: 'chicken', type: 'plat', keywords: ['poulet', 'chicken', 'wings', 'ailes'] },
+        // CHICK'IN (Tacos & Burrito)
+        { name: 'Frenchy Tacos', resto: 'CHICK\'IN', price: '22 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'frenchy', 'poulet', 'tenders', 'lava', 'kewpie'] },
+        { name: 'Cheesy Burrito', resto: 'CHICK\'IN', price: '25 DT', logo: '🌯', category: 'tacos', type: 'plat', keywords: ['burrito', 'cheesy', 'poulet', 'cheddar', 'mozzarella', 'frite', 'boisson'] },
         
         // Poisson & Cie
         { name: 'Poisson Grillé', resto: 'Poisson & Cie', price: '35 DT', logo: '🐟', category: 'fish', type: 'plat', keywords: ['poisson', 'grillé'] },
@@ -33,12 +41,12 @@ const searchData = {
 
 let selectedSuggestionIndex = -1;
 
-// Catégories (avec SANDWICH ajouté)
+// Catégories
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double'],
-    'sandwich': ['sandwich', 'panini', 'baguette', 'pain'],
-    'chicken': ['poulet', 'chicken', 'crispy', 'wings'],
+    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope'],
+    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar'],
     'fish': ['poisson', 'fish', 'fruits de mer'],
     'rice': ['riz', 'couscous', 'paella'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
@@ -151,13 +159,17 @@ function scrollToRestaurant(restaurant, platName = null) {
     setTimeout(() => restaurant.style.boxShadow = '', 2000);
 }
 
-// Filtrer par catégorie
+// ===== FILTRER PAR CATÉGORIE =====
 function filterByCategory(category) {
     document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
     document.querySelector(`.category-item[data-category="${category}"]`).classList.add('active');
     
+    // Ajouter une classe au body pour le CSS
+    document.body.className = '';
+    document.body.classList.add(`filtering-${category}`);
+    
     if (category === 'all') {
-        document.querySelectorAll('.plat-card, .restaurant-section').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.plat-card, .restaurant-section, .special-section').forEach(el => el.style.display = 'block');
         document.getElementById('noResult')?.remove();
         updateRestaurantsStatus();
         return;
@@ -165,7 +177,8 @@ function filterByCategory(category) {
     
     let resultCount = 0;
     
-    document.querySelectorAll('.plat-card').forEach(plat => {
+    // Filtrer les cartes normales (dans menu-grid)
+    document.querySelectorAll('.menu-grid .plat-card').forEach(plat => {
         let platCategory = plat.getAttribute('data-category');
         
         if (platCategory === category) {
@@ -174,6 +187,24 @@ function filterByCategory(category) {
         } else {
             plat.style.display = 'none';
         }
+    });
+    
+    // Gérer la section spéciale
+    document.querySelectorAll('.special-section').forEach(section => {
+        let hasVisible = false;
+        section.querySelectorAll('.plat-card').forEach(plat => {
+            let platCategory = plat.getAttribute('data-category');
+            if (platCategory === category) {
+                plat.style.display = 'block';
+                hasVisible = true;
+                resultCount++;
+            } else {
+                plat.style.display = 'none';
+            }
+        });
+        
+        // Afficher ou cacher toute la section
+        section.style.display = hasVisible ? 'block' : 'none';
     });
     
     document.querySelectorAll('.restaurant-section').forEach(resto => {
@@ -197,12 +228,12 @@ function filterByCategory(category) {
     }
 }
 
-// Filtrer par restaurant
+// ===== FILTRER PAR RESTAURANT =====
 function filterByRestaurant(restoId) {
     document.getElementById('searchInput').value = '';
     document.getElementById('suggestionsList')?.classList.remove('show');
     
-    document.querySelectorAll('.restaurant-section, .plat-card').forEach(el => el.style.display = 'block');
+    document.querySelectorAll('.restaurant-section, .plat-card, .special-section').forEach(el => el.style.display = 'block');
     let targetResto = document.getElementById(restoId);
     if (targetResto) {
         scrollToRestaurant(targetResto);
@@ -210,12 +241,12 @@ function filterByRestaurant(restoId) {
     }
 }
 
-// Filtrer par plat
+// ===== FILTRER PAR PLAT =====
 function filterByPlat(platName) {
     document.getElementById('searchInput').value = platName;
     document.getElementById('suggestionsList')?.classList.remove('show');
     
-    document.querySelectorAll('.plat-card').forEach(plat => plat.style.display = 'block');
+    document.querySelectorAll('.plat-card, .special-section').forEach(plat => plat.style.display = 'block');
     
     let targetResto = null;
     document.querySelectorAll('.restaurant-section').forEach(resto => {
@@ -232,7 +263,28 @@ function filterByPlat(platName) {
     setTimeout(() => {
         document.querySelectorAll('.plat-card').forEach(plat => {
             let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
-            plat.style.display = nomPlat.includes(platName.toLowerCase()) ? 'block' : 'none';
+            let categorie = plat.getAttribute('data-category').toLowerCase();
+            
+            // Vérifier aussi dans les mots-clés
+            let matchMotsCles = false;
+            searchData.plats.forEach(p => {
+                if (p.name.toLowerCase() === nomPlat) {
+                    if (p.keywords.some(keyword => keyword.toLowerCase().includes(platName.toLowerCase()))) {
+                        matchMotsCles = true;
+                    }
+                }
+            });
+            
+            let match = nomPlat.includes(platName.toLowerCase()) || 
+                        categorie.includes(platName.toLowerCase()) || 
+                        matchMotsCles;
+            
+            plat.style.display = match ? 'block' : 'none';
+        });
+        
+        document.querySelectorAll('.special-section').forEach(section => {
+            let hasVisible = section.querySelectorAll('.plat-card[style*="block"]').length > 0;
+            section.style.display = hasVisible ? 'block' : 'none';
         });
         
         document.querySelectorAll('.restaurant-section').forEach(resto => {
@@ -243,7 +295,7 @@ function filterByPlat(platName) {
     }, 600);
 }
 
-// Suggestions de recherche
+// ===== SUGGESTIONS DE RECHERCHE =====
 function searchSuggestions() {
     let input = document.getElementById('searchInput').value.toLowerCase().trim();
     let suggestionsList = document.getElementById('suggestionsList');
@@ -289,7 +341,7 @@ function displaySuggestions(suggestions) {
     list.classList.add('show');
 }
 
-// Recherche principale
+// ===== RECHERCHE PRINCIPALE (VERSION FINALE CORRIGÉE) =====
 function searchRestaurant() {
     let input = document.getElementById('searchInput').value.toLowerCase().trim();
     let restaurants = document.querySelectorAll('.restaurant-section');
@@ -297,26 +349,99 @@ function searchRestaurant() {
     
     document.getElementById('noResult')?.remove();
     
+    // Si l'input est vide, tout afficher
+    if (input === '') {
+        document.querySelectorAll('.plat-card, .special-section, .restaurant-section').forEach(el => el.style.display = 'block');
+        updateRestaurantsStatus();
+        return;
+    }
+    
     restaurants.forEach(resto => {
         let nomResto = resto.querySelector('h2').textContent.toLowerCase();
         let adresse = resto.querySelector('.restaurant-header p').textContent.toLowerCase();
-        let plats = resto.querySelectorAll('.plat-card');
+        let aUnResultat = false;
         
-        if (nomResto.includes(input) || adresse.includes(input)) {
-            resto.style.display = 'block';
-            plats.forEach(p => p.style.display = 'block');
-            resultCount++;
-        } else {
-            let hasMatch = false;
-            plats.forEach(p => {
+        // Chercher dans les cartes normales (burgers, pizzas dans menu-grid)
+        let platsNormaux = resto.querySelectorAll('.menu-grid .plat-card');
+        platsNormaux.forEach(p => {
+            let nom = p.querySelector('h3').textContent.toLowerCase();
+            let desc = p.querySelector('.plat-description').textContent.toLowerCase();
+            let prix = p.querySelector('.prix').textContent.toLowerCase();
+            let categorie = p.getAttribute('data-category').toLowerCase();
+            
+            // Chercher dans les mots-clés
+            let matchMotsCles = false;
+            searchData.plats.forEach(plat => {
+                if (plat.name.toLowerCase() === p.querySelector('h3').textContent.toLowerCase()) {
+                    if (plat.keywords.some(keyword => keyword.toLowerCase().includes(input))) {
+                        matchMotsCles = true;
+                    }
+                }
+            });
+            
+            let match = nom.includes(input) || 
+                       desc.includes(input) || 
+                       prix.includes(input) || 
+                       categorie.includes(input) || 
+                       matchMotsCles;
+            
+            p.style.display = match ? 'block' : 'none';
+            if (match) aUnResultat = true;
+        });
+        
+        // Chercher dans la section spéciale escalope
+        let specialSection = resto.querySelector('.special-section');
+        if (specialSection) {
+            let platsSpeciaux = specialSection.querySelectorAll('.plat-card');
+            let aUnResultatSpecial = false;
+            
+            platsSpeciaux.forEach(p => {
                 let nom = p.querySelector('h3').textContent.toLowerCase();
                 let desc = p.querySelector('.plat-description').textContent.toLowerCase();
-                let match = nom.includes(input) || desc.includes(input) || p.querySelector('.prix').textContent.toLowerCase().includes(input);
+                let prix = p.querySelector('.prix').textContent.toLowerCase();
+                let categorie = p.getAttribute('data-category').toLowerCase();
+                
+                // Chercher dans les mots-clés
+                let matchMotsCles = false;
+                searchData.plats.forEach(plat => {
+                    if (plat.name.toLowerCase() === p.querySelector('h3').textContent.toLowerCase()) {
+                        if (plat.keywords.some(keyword => keyword.toLowerCase().includes(input))) {
+                            matchMotsCles = true;
+                        }
+                    }
+                });
+                
+                let match = nom.includes(input) || 
+                           desc.includes(input) || 
+                           prix.includes(input) || 
+                           categorie.includes(input) || 
+                           matchMotsCles;
+                
                 p.style.display = match ? 'block' : 'none';
-                if (match) hasMatch = true;
+                if (match) {
+                    aUnResultatSpecial = true;
+                    aUnResultat = true;
+                }
             });
-            resto.style.display = hasMatch ? 'block' : 'none';
-            if (hasMatch) resultCount++;
+            
+            // Afficher ou cacher la section spéciale selon les résultats
+            specialSection.style.display = aUnResultatSpecial ? 'block' : 'none';
+        }
+        
+        // Vérifier si le nom du resto correspond
+        if (nomResto.includes(input) || adresse.includes(input)) {
+            aUnResultat = true;
+            // Afficher tous les plats de ce resto
+            resto.querySelectorAll('.plat-card').forEach(p => p.style.display = 'block');
+            if (specialSection) specialSection.style.display = 'block';
+        }
+        
+        // Afficher ou cacher le resto
+        if (aUnResultat) {
+            resto.style.display = 'block';
+            resultCount++;
+        } else {
+            resto.style.display = 'none';
         }
     });
     
@@ -328,8 +453,9 @@ function searchRestaurant() {
         document.querySelector('.container').prepend(noResult);
     }
     
+    // Réinitialiser la classe de filtrage
+    document.body.className = '';
     document.querySelector('.category-item[data-category="all"]').classList.add('active');
-    document.querySelectorAll('.category-item:not([data-category="all"])').forEach(i => i.classList.remove('active'));
     
     updateRestaurantsStatus();
 }
@@ -342,7 +468,6 @@ let currentProduct = {
     mode: 'direct' // 'direct' ou 'cart'
 };
 
-// Afficher le modal de choix
 function showChoiceModal(productName, productPrice, restoName, mode = 'direct') {
     currentProduct = {
         name: productName,
@@ -360,21 +485,17 @@ function showChoiceModal(productName, productPrice, restoName, mode = 'direct') 
     document.body.style.overflow = 'hidden';
 }
 
-// Fermer le modal
 function closeChoiceModal() {
     document.getElementById('choiceModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Sélectionner une option
 function selectChoice(choice) {
     closeChoiceModal();
     
     if (currentProduct.mode === 'cart') {
-        // Ajouter au panier
         addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', currentProduct.resto);
     } else {
-        // Commander directement
         let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
         let encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
@@ -385,7 +506,6 @@ function selectChoice(choice) {
 let cart = [];
 const MAX_CART_ITEMS = 5;
 
-// Charger le panier depuis localStorage
 function loadCart() {
     let savedCart = localStorage.getItem('cart');
     if (savedCart) {
@@ -394,15 +514,12 @@ function loadCart() {
     }
 }
 
-// Sauvegarder le panier dans localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartDisplay();
 }
 
-// Ajouter au panier (avec animation du bouton)
 function addToCart(productName, productPrice, productImage, restoName, event) {
-    // Animer le bouton
     if (event && event.target) {
         let button = event.target.closest('.btn-add-to-cart');
         if (button) {
@@ -415,7 +532,6 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
         }
     }
     
-    // Vérifier la limite du panier
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     if (totalItems >= MAX_CART_ITEMS) {
@@ -423,18 +539,15 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
         return false;
     }
     
-    // Vérifier si le produit existe déjà (avec le même nom et resto)
     let existingItem = cart.find(item => item.name === productName && item.resto === restoName);
     
     if (existingItem) {
-        // Vérifier la limite avec la nouvelle quantité
         if (totalItems + 1 > MAX_CART_ITEMS) {
             showLimitModal();
             return false;
         }
         existingItem.quantity += 1;
     } else {
-        // Créer un ID unique
         let newId = 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         
         cart.push({
@@ -451,7 +564,6 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
     saveCart();
     animateCart();
     
-    // Afficher le panier automatiquement
     let panel = document.getElementById('cartPanel');
     if (!panel.classList.contains('show')) {
         panel.classList.add('show');
@@ -460,12 +572,10 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
     return true;
 }
 
-// Retirer du panier
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     saveCart();
     
-    // Si le panier devient vide, fermer le panier après 1 seconde
     if (cart.length === 0) {
         setTimeout(() => {
             document.getElementById('cartPanel').classList.remove('show');
@@ -473,9 +583,7 @@ function removeFromCart(productId) {
     }
 }
 
-// Modifier la quantité
 function updateQuantity(productId, change) {
-    // Trouver l'index de l'article
     let itemIndex = cart.findIndex(item => item.id === productId);
     if (itemIndex === -1) return;
     
@@ -483,38 +591,31 @@ function updateQuantity(productId, change) {
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     let newTotal = totalItems + change;
     
-    // Vérifier la limite maximum
     if (newTotal > MAX_CART_ITEMS) {
         showLimitModal();
         return;
     }
     
-    // Vérifier si on peut ajouter/retirer
     if (item.quantity + change <= 0) {
-        // Supprimer l'article si quantité devient 0
         removeFromCart(productId);
     } else {
-        // Mettre à jour la quantité
         item.quantity += change;
         saveCart();
     }
 }
 
-// Afficher le panier
 function toggleCart() {
     let panel = document.getElementById('cartPanel');
     panel.classList.toggle('show');
     updateCartDisplay();
 }
 
-// Mettre à jour l'affichage du panier
 function updateCartDisplay() {
     let cartItems = document.getElementById('cartItems');
     let cartCount = document.getElementById('cartCount');
     let cartTotal = document.getElementById('cartTotal');
     let checkoutBtn = document.getElementById('checkoutBtn');
     
-    // Mettre à jour le compteur
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
     
@@ -525,12 +626,10 @@ function updateCartDisplay() {
         return;
     }
     
-    // Calculer le total
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
     checkoutBtn.disabled = false;
     
-    // Afficher les articles
     cartItems.innerHTML = cart.map(item => {
         return `
         <div class="cart-item" data-id="${item.id}">
@@ -550,7 +649,6 @@ function updateCartDisplay() {
     `}).join('');
 }
 
-// Obtenir l'image du produit (VERSION CLOUDINARY)
 function getProductImage(productName) {
     // AL OSTEDH
     if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
@@ -563,10 +661,18 @@ function getProductImage(productName) {
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
     
+    // Sandwichs escalope
+    if (productName.includes('Spécial escalope + Gruyère')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900001/escalope_gruyere.png';
+    if (productName.includes('Spécial escalope + Pepperoni')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900002/escalope_pepperoni.png';
+    if (productName.includes('Spécial escalope + steak haché dinde')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900003/escalope_dinde.png';
+    if (productName.includes('Spécial escalope + raclette')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900004/escalope_raclette.png';
+    if (productName.includes('Spécial escalope + cheddar Irlandais')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900005/escalope_cheddar.png';
+    if (productName.includes('Spécial escalope + mozzarella')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900006/escalope_mozza.png';
+    if (productName.includes('Spécial escalope') && !productName.includes('+')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900000/escalope_base.png';
+    
     // CHICK'IN
-    if (productName.includes('Crispy Chicken')) return 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=100';
-    if (productName.includes('Chicken Burger')) return 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100';
-    if (productName.includes('Chicken Wings')) return 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=100';
+    if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
+    if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
     
     // Poisson & Cie
     if (productName.includes('Poisson Grillé')) return 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100';
@@ -576,7 +682,6 @@ function getProductImage(productName) {
     return '';
 }
 
-// Animer le panier quand on ajoute un article
 function animateCart() {
     let cartFloat = document.getElementById('cartFloating');
     cartFloat.style.transform = 'scale(1.2)';
@@ -586,19 +691,16 @@ function animateCart() {
     }, 200);
 }
 
-// Afficher le modal de limite
 function showLimitModal() {
     document.getElementById('limitModal').style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
-// Fermer le modal de limite
 function closeLimitModal() {
     document.getElementById('limitModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Finaliser la commande
 function checkoutCart() {
     if (cart.length === 0) return;
     
@@ -617,13 +719,12 @@ function checkoutCart() {
     let encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
     
-    // Vider le panier après commande
     cart = [];
     saveCart();
     toggleCart();
 }
 
-// Initialisation
+// ===== INITIALISATION =====
 document.addEventListener('DOMContentLoaded', function() {
     let searchInput = document.getElementById('searchInput');
     
@@ -656,10 +757,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setInterval(updateRestaurantsStatus, 60000);
     
-    // Charger le panier
     loadCart();
     
-    // Fermer le panier si on clique en dehors
     document.addEventListener('click', function(event) {
         let panel = document.getElementById('cartPanel');
         let float = document.getElementById('cartFloating');
