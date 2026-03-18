@@ -1201,3 +1201,129 @@ footer {
         margin: 40% auto;
     }
 }
+
+/* ===== SECTION SPÉCIALE ESCALOPE - Version Épurée ===== */
+.special-section {
+    margin: 2rem 1.5rem 3rem;
+    padding: 1.5rem;
+    background-color: #fafafa;
+    border-radius: 12px;
+    border-left: 4px solid #d4a373;
+}
+
+.special-header {
+    margin-bottom: 2rem;
+}
+
+.special-header h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.special-subtitle {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Carte Base */
+.base-card {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+
+/* Grille des suppléments */
+.supplements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.supplement-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.supplement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.supplement-price {
+    display: inline-block;
+    color: #e67e22;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    background-color: #fef5e7;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Ajustement du footer pour inclure le prix supplément */
+.special-section .plat-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.special-section .plat-footer .prix {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.special-section .btn-group {
+    margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .special-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .special-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .supplements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .special-section .btn-group {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .special-section .btn-group .btn-whatsapp-direct,
+    .special-section .btn-group .btn-add-to-cart {
+        flex: 1;
+    }
+}
+/* ===== GESTION DU FILTRAGE POUR LA SECTION SPÉCIALE ===== */
+.special-section.category-sandwich {
+    display: block;
+}
+
+/* Cacher toute la section spéciale quand on filtre par burger */
+body.filtering-burger .special-section.category-sandwich,
+body.filtering-pizza .special-section.category-sandwich,
+body.filtering-tacos .special-section.category-sandwich,
+body.filtering-rice .special-section.category-sandwich,
+body.filtering-fish .special-section.category-sandwich {
+    display: none !important;
+}
+
+/* Afficher la section spéciale quand on filtre par sandwich ou tous */
+body.filtering-sandwich .special-section.category-sandwich,
+body.filtering-all .special-section.category-sandwich {
+    display: block;
+}
