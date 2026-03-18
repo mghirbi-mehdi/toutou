@@ -2,7 +2,7 @@
 const searchData = {
     restaurants: [
         { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf'] },
-        { id: 'resto2', name: 'Saveurs d\'Orient', logo: '🥙', address: 'Ariana', hours: '11h-23h', type: 'restaurant', keywords: ['chawarma', 'mezzé', 'oriental', 'libanais', 'grill'] },
+        { id: 'resto2', name: 'CHICK\'IN', logo: '🍗', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['poulet', 'chicken', 'crispy', 'wings', 'burger'] },
         { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', hours: '12h-22h', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
     ],
     plats: [
@@ -19,10 +19,10 @@ const searchData = {
         { name: 'Pizza big max Thon / pepperoni', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big max', 'thon', 'pepperoni', 'spicy', '6 fromages'] },
         { name: 'Pizza Big jambon fumé & crispy', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big', 'jambon', 'fumé', 'crispy', 'spicy', '6 fromages'] },
         
-        // Saveurs d'Orient
-        { name: 'Chawarma Poulet', resto: 'Saveurs d\'Orient', price: '12 DT', logo: '🥙', category: 'chicken', type: 'plat', keywords: ['chawarma', 'poulet'] },
-        { name: 'Assiette Mezzé', resto: 'Saveurs d\'Orient', price: '28 DT', logo: '🥗', category: 'salad', type: 'plat', keywords: ['mezzé', 'assiette', 'hoummous'] },
-        { name: 'Mix Grill', resto: 'Saveurs d\'Orient', price: '32 DT', logo: '🍢', category: 'chicken', type: 'plat', keywords: ['grill', 'mix', 'brochettes'] },
+        // CHICK'IN
+        { name: 'Crispy Chicken', resto: 'CHICK\'IN', price: '15 DT', logo: '🍗', category: 'chicken', type: 'plat', keywords: ['poulet', 'chicken', 'crispy', 'frites'] },
+        { name: 'Chicken Burger', resto: 'CHICK\'IN', price: '18 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['poulet', 'chicken', 'burger', 'grillé'] },
+        { name: 'Chicken Wings', resto: 'CHICK\'IN', price: '22 DT', logo: '🍗', category: 'chicken', type: 'plat', keywords: ['poulet', 'chicken', 'wings', 'ailes'] },
         
         // Poisson & Cie
         { name: 'Poisson Grillé', resto: 'Poisson & Cie', price: '35 DT', logo: '🐟', category: 'fish', type: 'plat', keywords: ['poisson', 'grillé'] },
@@ -33,11 +33,12 @@ const searchData = {
 
 let selectedSuggestionIndex = -1;
 
-// Catégories
+// Catégories (avec SANDWICH ajouté)
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double'],
-    'chicken': ['poulet', 'chicken', 'chawarma'],
+    'sandwich': ['sandwich', 'panini', 'baguette', 'pain'],
+    'chicken': ['poulet', 'chicken', 'crispy', 'wings'],
     'fish': ['poisson', 'fish', 'fruits de mer'],
     'rice': ['riz', 'couscous', 'paella'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
@@ -371,7 +372,7 @@ function selectChoice(choice) {
     
     if (currentProduct.mode === 'cart') {
         // Ajouter au panier
-        addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'pizza_bigmax_thon_pepperoni.PNG', currentProduct.resto);
+        addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', currentProduct.resto);
     } else {
         // Commander directement
         let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
@@ -551,6 +552,7 @@ function updateCartDisplay() {
 
 // Obtenir l'image du produit (VERSION CLOUDINARY)
 function getProductImage(productName) {
+    // AL OSTEDH
     if (productName.includes('Burger Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_crispy_zu7tsq.png';
     if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
     if (productName.includes('Burger Double Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_double_beef_hn1rtw.png';
@@ -560,12 +562,17 @@ function getProductImage(productName) {
     if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
-    if (productName.includes('Chawarma')) return 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100';
-    if (productName.includes('Assiette Mezzé')) return 'https://images.unsplash.com/photo-1576363343742-1b2f9b55f5b3?w=100';
-    if (productName.includes('Mix Grill')) return 'https://images.unsplash.com/photo-1631452180519-0140c5983fc6?w=100';
+    
+    // CHICK'IN
+    if (productName.includes('Crispy Chicken')) return 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=100';
+    if (productName.includes('Chicken Burger')) return 'https://images.unsplash.com/photo-1606755456206-b25206cde27e?w=100';
+    if (productName.includes('Chicken Wings')) return 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=100';
+    
+    // Poisson & Cie
     if (productName.includes('Poisson Grillé')) return 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100';
     if (productName.includes('Couscous Poisson')) return 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=100';
     if (productName.includes('Paella')) return 'https://images.unsplash.com/photo-1627308595171-d1b5d6712b3d?w=100';
+    
     return '';
 }
 
