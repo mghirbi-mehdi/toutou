@@ -2,7 +2,7 @@
 const searchData = {
     restaurants: [
         { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
-        { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha'] },
+        { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box'] },
         { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', hours: '12h-22h', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
     ],
     plats: [
@@ -13,26 +13,32 @@ const searchData = {
         { name: 'Truffe Burger Beef', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffe', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
+        { name: 'Burger Trufflow', resto: 'AL OSTEDH', price: '17,4 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffle', 'truffe', 'champignon', 'poulet', 'pané', 'emmental', 'mayonnaise', 'frites', 'boisson'] },
         
         // Sandwichs escalope AL OSTEDH
-        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '8,500 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'frites', 'base'] },
-        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + steak haché dinde', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🦃', category: 'sandwich', type: 'plat', keywords: ['escalope', 'steak', 'dinde', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + raclette', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'raclette', 'fromage', 'fondant', 'sandwich'] },
-        { name: 'Spécial escalope + cheddar Irlandais', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🇮🇪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'cheddar', 'irlandais', 'fromage', 'sandwich'] },
-        { name: 'Spécial escalope + mozzarella', resto: 'AL OSTEDH', price: '9,900 DT', logo: '🥛', category: 'sandwich', type: 'plat', keywords: ['escalope', 'mozzarella', 'fromage', 'filant', 'sandwich'] },
+        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'frites', 'base'] },
+        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + steak haché dinde', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🦃', category: 'sandwich', type: 'plat', keywords: ['escalope', 'steak', 'dinde', 'sandwich', 'frites'] },
+        { name: 'Spécial escalope + raclette', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'raclette', 'fromage', 'fondant', 'sandwich'] },
+        { name: 'Spécial escalope + cheddar Irlandais', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🇮🇪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'cheddar', 'irlandais', 'fromage', 'sandwich'] },
+        { name: 'Spécial escalope + mozzarella', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🥛', category: 'sandwich', type: 'plat', keywords: ['escalope', 'mozzarella', 'fromage', 'filant', 'sandwich'] },
         
         // Pizza AL OSTEDH
         { name: 'Pizza 4 choix big max', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big max', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
         { name: 'Pizza big max Thon / pepperoni', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big max', 'thon', 'pepperoni', 'spicy', '6 fromages'] },
         { name: 'Pizza Big jambon fumé & crispy', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big', 'jambon', 'fumé', 'crispy', 'spicy', '6 fromages'] },
         
-        // CHICK'IN (Tacos & Burrito & Burger)
+        // CHICK'IN (Tacos & Burrito & Burger & Box)
         { name: 'Frenchy Tacos', resto: 'CHICK\'IN', price: '22 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'frenchy', 'poulet', 'tenders', 'lava', 'kewpie'] },
         { name: 'Cheesy Burrito', resto: 'CHICK\'IN', price: '25 DT', logo: '🌯', category: 'tacos', type: 'plat', keywords: ['burrito', 'cheesy', 'poulet', 'cheddar', 'mozzarella', 'frite', 'boisson'] },
         { name: 'Burger Maple Sriracha', resto: 'CHICK\'IN', price: '14,4 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'maple', 'sriracha', 'poulet', 'pané', 'épicé', 'sucré', 'cheddar', 'kewpie'] },
-        
+        { name: 'Box Original', resto: 'CHICK\'IN', price: '18,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'original', 'burger', 'chicky', 'sub', 'wings', 'chicken pops', 'messy fries', 'lava', 'kewpie', 'frites', 'boisson'] },
+         // CHICK'IN - Nouveaux produits
+        { name: 'Box Canada', resto: 'CHICK\'IN', price: '19,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'canada', 'maple', 'sriracha', 'burger', 'wings', 'chicken pops', 'frites', 'boisson'] },
+        { name: 'Box The crisper', resto: 'CHICK\'IN', price: '24,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'crisper', 'filet', 'tenders', 'wings', 'popcorns', 'messy fries', 'coleslaw', 'frites', 'boisson'] },
+        { name: 'Box Tex-Mex', resto: 'CHICK\'IN', price: '18,9 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['box', 'tex mex', 'french taco', 'cheesy burrito', 'chicky wrap', 'wings', 'chicken pops', 'frites', 'boisson'] },
+        { name: 'OG sub', resto: 'CHICK\'IN', price: '12,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['og', 'sub', 'tenders', 'cheddar', 'kewpie', 'harissa', 'sandwich', 'frites', 'boisson'] },
         // Poisson & Cie
         { name: 'Poisson Grillé', resto: 'Poisson & Cie', price: '35 DT', logo: '🐟', category: 'fish', type: 'plat', keywords: ['poisson', 'grillé'] },
         { name: 'Couscous Poisson', resto: 'Poisson & Cie', price: '38 DT', logo: '🍚', category: 'rice', type: 'plat', keywords: ['couscous', 'poisson'] },
@@ -45,9 +51,9 @@ let selectedSuggestionIndex = -1;
 // Catégories
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé'],
-    'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha'],
+    'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
     'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope'],
-    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar'],
+    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box'],
     'fish': ['poisson', 'fish', 'fruits de mer'],
     'rice': ['riz', 'couscous', 'paella'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
@@ -646,6 +652,7 @@ function getProductImage(productName) {
     if (productName.includes('Burger Super Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788846/burger_super_cripsy_w5238p.png';
     if (productName.includes('Burger Mushroom Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
     if (productName.includes('Truffe Burger Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
+    if (productName.includes('Burger Trufflow')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774098227/Burger_Trufflow_Truffe_et_champignon_j9ddz4.png';
     if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
@@ -663,6 +670,11 @@ function getProductImage(productName) {
     if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
     if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
     if (productName.includes('Burger Maple Sriracha')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774095344/Burger_Maple_sriracha_hcj6qu.png';
+    if (productName.includes('Box Original')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774099274/Box_original_b1mgt2.png';
+    if (productName.includes('Box Canada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129079/Box_canada_z91li8.png';
+    if (productName.includes('Box The crisper')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129687/Box_the_crisper_xwx58h.png';
+    if (productName.includes('Box Tex-Mex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129851/Box_tex_mex_dkiwne.png';
+    if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
     
     // Poisson & Cie
     if (productName.includes('Poisson Grillé')) return 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100';
