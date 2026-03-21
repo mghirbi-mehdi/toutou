@@ -662,7 +662,7 @@ function getProductImage(productName) {
     // CHICK'IN
     if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
     if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
-    if (productName.includes('Burger Maple Sriracha')) return 'Burger_Maple_sriracha.PNG';
+    if (productName.includes('Burger Maple Sriracha')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774095344/Burger_Maple_sriracha_hcj6qu.png';
     
     // Poisson & Cie
     if (productName.includes('Poisson Grillé')) return 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100';
