@@ -6,35 +6,29 @@ const searchData = {
         { id: 'resto3', name: 'Poisson & Cie', logo: '🐟', address: 'La Marsa', hours: '12h-22h', type: 'restaurant', keywords: ['poisson', 'couscous', 'paella', 'fruits de mer', 'grillé'] }
     ],
     plats: [
-        // Burgers AL OSTEDH
+        // AL OSTEDH
         { name: 'Burger Crispy', resto: 'AL OSTEDH', price: '17,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'crispy', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Classique', resto: 'AL OSTEDH', price: '18,6 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'classique', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Mushroom Beef', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'mushroom', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Truffe Burger Beef', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffe', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
-        { name: 'Burger Trufflow', resto: 'AL OSTEDH', price: '17,4 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffle', 'truffe', 'champignon', 'poulet', 'pané', 'emmental', 'mayonnaise', 'frites', 'boisson'] },
-        
         // Sandwichs escalope AL OSTEDH
-        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'frites', 'base'] },
-        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + steak haché dinde', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🦃', category: 'sandwich', type: 'plat', keywords: ['escalope', 'steak', 'dinde', 'sandwich', 'frites'] },
-        { name: 'Spécial escalope + raclette', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'raclette', 'fromage', 'fondant', 'sandwich'] },
+        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'base'] },
+        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich'] },
+        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich'] },
         { name: 'Spécial escalope + cheddar Irlandais', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🇮🇪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'cheddar', 'irlandais', 'fromage', 'sandwich'] },
         { name: 'Spécial escalope + mozzarella', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🥛', category: 'sandwich', type: 'plat', keywords: ['escalope', 'mozzarella', 'fromage', 'filant', 'sandwich'] },
-        
         // Pizza AL OSTEDH
         { name: 'Pizza 4 choix big max', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big max', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
         { name: 'Pizza big max Thon / pepperoni', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big max', 'thon', 'pepperoni', 'spicy', '6 fromages'] },
         { name: 'Pizza Big jambon fumé & crispy', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big', 'jambon', 'fumé', 'crispy', 'spicy', '6 fromages'] },
-        
-        // CHICK'IN (Tacos & Burrito & Burger & Box)
+        // CHICK'IN
         { name: 'Frenchy Tacos', resto: 'CHICK\'IN', price: '22 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'frenchy', 'poulet', 'tenders', 'lava', 'kewpie'] },
         { name: 'Cheesy Burrito', resto: 'CHICK\'IN', price: '25 DT', logo: '🌯', category: 'tacos', type: 'plat', keywords: ['burrito', 'cheesy', 'poulet', 'cheddar', 'mozzarella', 'frite', 'boisson'] },
         { name: 'Burger Maple Sriracha', resto: 'CHICK\'IN', price: '14,4 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'maple', 'sriracha', 'poulet', 'pané', 'épicé', 'sucré', 'cheddar', 'kewpie'] },
+        { name: 'Burger Trufflow', resto: 'CHICK\'IN', price: '17,4 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'truffle', 'truffe', 'champignon', 'poulet', 'pané', 'emmental', 'mayonnaise', 'frites', 'boisson'] },
         { name: 'Box Original', resto: 'CHICK\'IN', price: '18,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'original', 'burger', 'chicky', 'sub', 'wings', 'chicken pops', 'messy fries', 'lava', 'kewpie', 'frites', 'boisson'] },
-         // CHICK'IN - Nouveaux produits
         { name: 'Box Canada', resto: 'CHICK\'IN', price: '19,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'canada', 'maple', 'sriracha', 'burger', 'wings', 'chicken pops', 'frites', 'boisson'] },
         { name: 'Box The crisper', resto: 'CHICK\'IN', price: '24,9 DT', logo: '📦', category: 'burger', type: 'plat', keywords: ['box', 'crisper', 'filet', 'tenders', 'wings', 'popcorns', 'messy fries', 'coleslaw', 'frites', 'boisson'] },
         { name: 'Box Tex-Mex', resto: 'CHICK\'IN', price: '18,9 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['box', 'tex mex', 'french taco', 'cheesy burrito', 'chicky wrap', 'wings', 'chicken pops', 'frites', 'boisson'] },
@@ -61,8 +55,10 @@ const categoryKeywords = {
 
 // ===== SYSTÈME DE VÉRIFICATION DES HORAIRES =====
 function getTunisiaTime() {
-    let now = new Date();
-    let tunisTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Tunis"}));
+    const now = new Date();
+    const tunisOffset = 1;
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const tunisTime = new Date(utc + (3600000 * tunisOffset));
     return tunisTime;
 }
 
@@ -87,7 +83,6 @@ function updateRestaurantsStatus() {
     restaurants.forEach(restaurant => {
         let hoursElement = restaurant.querySelector('.restaurant-header p');
         let hoursText = hoursElement.textContent;
-        
         let hoursMatch = hoursText.match(/(\d+)h[-\s](\d+)h/);
         
         if (hoursMatch) {
@@ -132,16 +127,13 @@ function disableRestaurantButtons(restaurant) {
     if (!restaurant.querySelector('.closed-message')) {
         let message = document.createElement('div');
         message.className = 'closed-message';
-        
         let hoursMatch = restaurant.querySelector('.restaurant-header p').textContent.match(/(\d+)h[-\s](\d+)h/);
         let openHour = hoursMatch ? hoursMatch[1] : '';
-        
         message.innerHTML = `<span>⏰ Restaurant fermé • Réouverture à ${openHour}h</span>`;
         restaurant.querySelector('.menu-grid').insertAdjacentElement('beforebegin', message);
     }
 }
 
-// Fonction pour scroller vers le début du restaurant
 function scrollToRestaurant(restaurant, platName = null) {
     if (!restaurant) return;
     
@@ -166,11 +158,10 @@ function scrollToRestaurant(restaurant, platName = null) {
     setTimeout(() => restaurant.style.boxShadow = '', 2000);
 }
 
-// ===== FILTRER PAR CATÉGORIE =====
+// ===== FILTRES =====
 function filterByCategory(category) {
     document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
     document.querySelector(`.category-item[data-category="${category}"]`).classList.add('active');
-    
     document.body.className = '';
     document.body.classList.add(`filtering-${category}`);
     
@@ -183,10 +174,8 @@ function filterByCategory(category) {
     
     let resultCount = 0;
     
-    // Filtrer les cartes normales
     document.querySelectorAll('.menu-grid .plat-card').forEach(plat => {
         let platCategory = plat.getAttribute('data-category');
-        
         if (platCategory === category) {
             plat.style.display = 'block';
             resultCount++;
@@ -195,7 +184,6 @@ function filterByCategory(category) {
         }
     });
     
-    // Gérer la section spéciale
     document.querySelectorAll('.special-section').forEach(section => {
         let hasVisible = false;
         section.querySelectorAll('.plat-card').forEach(plat => {
@@ -208,18 +196,13 @@ function filterByCategory(category) {
                 plat.style.display = 'none';
             }
         });
-        
         section.style.display = hasVisible ? 'block' : 'none';
     });
     
     document.querySelectorAll('.restaurant-section').forEach(resto => {
         let hasVisible = resto.querySelectorAll('.plat-card[style*="block"]').length > 0;
-        if (hasVisible) {
-            resto.style.display = 'block';
-            updateRestaurantsStatus();
-        } else {
-            resto.style.display = 'none';
-        }
+        resto.style.display = hasVisible ? 'block' : 'none';
+        if (hasVisible) updateRestaurantsStatus();
     });
     
     document.getElementById('noResult')?.remove();
@@ -233,11 +216,9 @@ function filterByCategory(category) {
     }
 }
 
-// ===== FILTRER PAR RESTAURANT =====
 function filterByRestaurant(restoId) {
     document.getElementById('searchInput').value = '';
     document.getElementById('suggestionsList')?.classList.remove('show');
-    
     document.querySelectorAll('.restaurant-section, .plat-card, .special-section').forEach(el => el.style.display = 'block');
     let targetResto = document.getElementById(restoId);
     if (targetResto) {
@@ -246,11 +227,9 @@ function filterByRestaurant(restoId) {
     }
 }
 
-// ===== FILTRER PAR PLAT =====
 function filterByPlat(platName) {
     document.getElementById('searchInput').value = platName;
     document.getElementById('suggestionsList')?.classList.remove('show');
-    
     document.querySelectorAll('.plat-card, .special-section').forEach(plat => plat.style.display = 'block');
     
     let targetResto = null;
@@ -269,7 +248,6 @@ function filterByPlat(platName) {
         document.querySelectorAll('.plat-card').forEach(plat => {
             let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
             let categorie = plat.getAttribute('data-category').toLowerCase();
-            
             let matchMotsCles = false;
             searchData.plats.forEach(p => {
                 if (p.name.toLowerCase() === nomPlat) {
@@ -278,11 +256,7 @@ function filterByPlat(platName) {
                     }
                 }
             });
-            
-            let match = nomPlat.includes(platName.toLowerCase()) || 
-                        categorie.includes(platName.toLowerCase()) || 
-                        matchMotsCles;
-            
+            let match = nomPlat.includes(platName.toLowerCase()) || categorie.includes(platName.toLowerCase()) || matchMotsCles;
             plat.style.display = match ? 'block' : 'none';
         });
         
@@ -345,12 +319,10 @@ function displaySuggestions(suggestions) {
     list.classList.add('show');
 }
 
-// ===== RECHERCHE PRINCIPALE =====
 function searchRestaurant() {
     let input = document.getElementById('searchInput').value.toLowerCase().trim();
     let restaurants = document.querySelectorAll('.restaurant-section');
     let resultCount = 0;
-    
     document.getElementById('noResult')?.remove();
     
     if (input === '') {
@@ -364,7 +336,6 @@ function searchRestaurant() {
         let adresse = resto.querySelector('.restaurant-header p').textContent.toLowerCase();
         let aUnResultat = false;
         
-        // Chercher dans les cartes normales
         let platsNormaux = resto.querySelectorAll('.menu-grid .plat-card');
         platsNormaux.forEach(p => {
             let nom = p.querySelector('h3').textContent.toLowerCase();
@@ -381,17 +352,11 @@ function searchRestaurant() {
                 }
             });
             
-            let match = nom.includes(input) || 
-                       desc.includes(input) || 
-                       prix.includes(input) || 
-                       categorie.includes(input) || 
-                       matchMotsCles;
-            
+            let match = nom.includes(input) || desc.includes(input) || prix.includes(input) || categorie.includes(input) || matchMotsCles;
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
         });
         
-        // Chercher dans la section spéciale escalope
         let specialSection = resto.querySelector('.special-section');
         if (specialSection) {
             let platsSpeciaux = specialSection.querySelectorAll('.plat-card');
@@ -412,12 +377,7 @@ function searchRestaurant() {
                     }
                 });
                 
-                let match = nom.includes(input) || 
-                           desc.includes(input) || 
-                           prix.includes(input) || 
-                           categorie.includes(input) || 
-                           matchMotsCles;
-                
+                let match = nom.includes(input) || desc.includes(input) || prix.includes(input) || categorie.includes(input) || matchMotsCles;
                 p.style.display = match ? 'block' : 'none';
                 if (match) {
                     aUnResultatSpecial = true;
@@ -451,32 +411,18 @@ function searchRestaurant() {
     }
     
     document.querySelector('.category-item[data-category="all"]').classList.add('active');
-    
     updateRestaurantsStatus();
 }
 
-// ===== SYSTÈME DE CHOIX POUR PIZZAS =====
-let currentProduct = {
-    name: '',
-    price: '',
-    resto: '',
-    mode: 'direct'
-};
+// ===== MODAL PIZZA =====
+let currentProduct = { name: '', price: '', resto: '', mode: 'direct' };
 
 function showChoiceModal(productName, productPrice, restoName, mode = 'direct') {
-    currentProduct = {
-        name: productName,
-        price: productPrice,
-        resto: restoName,
-        mode: mode
-    };
-    
+    currentProduct = { name: productName, price: productPrice, resto: restoName, mode: mode };
     let modal = document.getElementById('choiceModal');
     let productInfo = document.getElementById('modalProductInfo');
-    
     productInfo.innerHTML = `<strong>${productName}</strong> - ${productPrice}`;
     modal.style.display = 'block';
-    
     document.body.style.overflow = 'hidden';
 }
 
@@ -487,17 +433,63 @@ function closeChoiceModal() {
 
 function selectChoice(choice) {
     closeChoiceModal();
-    
     if (currentProduct.mode === 'cart') {
         addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', currentProduct.resto);
     } else {
         let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
-        let encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
-// ===== SYSTÈME DE PANIER =====
+// ===== MODAL ESCALOPE =====
+const escalopeOptionsList = [
+    { name: "Spécial escalope", price: "9,4 DT" },
+    { name: "Spécial escalope + Gruyère", price: "10,9 DT" },
+    { name: "Spécial escalope + Pepperoni", price: "10,9 DT" },
+    { name: "Spécial escalope + cheddar Irlandais", price: "10,9 DT" },
+    { name: "Spécial escalope + mozzarella", price: "10,9 DT" }
+];
+
+let currentEscalopeMode = null;
+
+function showEscalopeModal(mode) {
+    currentEscalopeMode = mode;
+    const modal = document.getElementById('escalopeModal');
+    const optionsContainer = document.getElementById('escalopeOptions');
+    
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = escalopeOptionsList.map(opt => `
+        <div class="escalope-option-btn" onclick="selectEscalopeOption('${opt.name.replace(/'/g, "\\'")}', '${opt.price}')">
+            <div class="escalope-option-name">${opt.name}</div>
+            <div class="escalope-option-price">${opt.price}</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeEscalopeModal() {
+    const modal = document.getElementById('escalopeModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectEscalopeOption(productName, productPrice) {
+    closeEscalopeModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
+    const restoName = 'AL OSTEDH';
+    
+    if (currentEscalopeMode === 'cart') {
+        addToCart(productName, productPrice, imageUrl, restoName);
+    } else {
+        const message = `Bonjour je souhaite commander le ${productName} (${productPrice}) chez ${restoName}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ===== PANIER =====
 let cart = [];
 const MAX_CART_ITEMS = 5;
 
@@ -528,14 +520,12 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
     }
     
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
     if (totalItems >= MAX_CART_ITEMS) {
         showLimitModal();
         return false;
     }
     
     let existingItem = cart.find(item => item.name === productName && item.resto === restoName);
-    
     if (existingItem) {
         if (totalItems + 1 > MAX_CART_ITEMS) {
             showLimitModal();
@@ -544,7 +534,6 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
         existingItem.quantity += 1;
     } else {
         let newId = 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        
         cart.push({
             id: newId,
             name: productName,
@@ -570,11 +559,8 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     saveCart();
-    
     if (cart.length === 0) {
-        setTimeout(() => {
-            document.getElementById('cartPanel').classList.remove('show');
-        }, 1000);
+        setTimeout(() => document.getElementById('cartPanel').classList.remove('show'), 1000);
     }
 }
 
@@ -625,8 +611,7 @@ function updateCartDisplay() {
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
     checkoutBtn.disabled = false;
     
-    cartItems.innerHTML = cart.map(item => {
-        return `
+    cartItems.innerHTML = cart.map(item => `
         <div class="cart-item" data-id="${item.id}">
             <div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>
             <div class="cart-item-details">
@@ -641,7 +626,7 @@ function updateCartDisplay() {
                 <button class="cart-item-remove" onclick="removeFromCart('${item.id}')"><i class="fas fa-trash"></i></button>
             </div>
         </div>
-    `}).join('');
+    `).join('');
 }
 
 function getProductImage(productName) {
@@ -652,24 +637,18 @@ function getProductImage(productName) {
     if (productName.includes('Burger Super Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788846/burger_super_cripsy_w5238p.png';
     if (productName.includes('Burger Mushroom Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
     if (productName.includes('Truffe Burger Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
-    if (productName.includes('Burger Trufflow')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774098227/Burger_Trufflow_Truffe_et_champignon_j9ddz4.png';
     if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
     
     // Sandwichs escalope
-    if (productName.includes('Spécial escalope + Gruyère')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900001/escalope_gruyere.png';
-    if (productName.includes('Spécial escalope + Pepperoni')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900002/escalope_pepperoni.png';
-    if (productName.includes('Spécial escalope + steak haché dinde')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900003/escalope_dinde.png';
-    if (productName.includes('Spécial escalope + raclette')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900004/escalope_raclette.png';
-    if (productName.includes('Spécial escalope + cheddar Irlandais')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900005/escalope_cheddar.png';
-    if (productName.includes('Spécial escalope + mozzarella')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900006/escalope_mozza.png';
-    if (productName.includes('Spécial escalope') && !productName.includes('+')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773900000/escalope_base.png';
+    if (productName.includes('Spécial escalope')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
     
     // CHICK'IN
     if (productName.includes('Frenchy Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png';
     if (productName.includes('Cheesy Burrito')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png';
     if (productName.includes('Burger Maple Sriracha')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774095344/Burger_Maple_sriracha_hcj6qu.png';
+    if (productName.includes('Burger Trufflow')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774098227/Burger_Trufflow_Truffe_et_champignon_j9ddz4.png';
     if (productName.includes('Box Original')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774099274/Box_original_b1mgt2.png';
     if (productName.includes('Box Canada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129079/Box_canada_z91li8.png';
     if (productName.includes('Box The crisper')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129687/Box_the_crisper_xwx58h.png';
@@ -687,10 +666,7 @@ function getProductImage(productName) {
 function animateCart() {
     let cartFloat = document.getElementById('cartFloating');
     cartFloat.style.transform = 'scale(1.2)';
-    cartFloat.style.transition = 'transform 0.2s';
-    setTimeout(() => {
-        cartFloat.style.transform = 'scale(1)';
-    }, 200);
+    setTimeout(() => cartFloat.style.transform = 'scale(1)', 200);
 }
 
 function showLimitModal() {
@@ -710,16 +686,12 @@ function checkoutCart() {
     let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
     
     let message = "Bonjour je souhaite commander :\n\n";
-    
     cart.forEach(item => {
         message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
     });
+    message += `\nTotal: ${totalFormatted}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
     
-    message += `\nTotal: ${totalFormatted}`;
-    message += `\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-    
-    let encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/21651924385?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     
     cart = [];
     saveCart();
@@ -756,15 +728,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     searchRestaurant();
-    
     setInterval(updateRestaurantsStatus, 60000);
-    
     loadCart();
     
     document.addEventListener('click', function(event) {
         let panel = document.getElementById('cartPanel');
         let float = document.getElementById('cartFloating');
-        
         if (!panel.contains(event.target) && !float.contains(event.target) && panel.classList.contains('show')) {
             panel.classList.remove('show');
         }
