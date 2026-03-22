@@ -14,11 +14,7 @@ const searchData = {
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
         // Sandwichs escalope AL OSTEDH
-        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'base'] },
-        { name: 'Spécial escalope + Gruyère', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🧀', category: 'sandwich', type: 'plat', keywords: ['escalope', 'gruyère', 'fromage', 'sandwich'] },
-        { name: 'Spécial escalope + Pepperoni', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🍖', category: 'sandwich', type: 'plat', keywords: ['escalope', 'pepperoni', 'épicé', 'sandwich'] },
-        { name: 'Spécial escalope + cheddar Irlandais', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🇮🇪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'cheddar', 'irlandais', 'fromage', 'sandwich'] },
-        { name: 'Spécial escalope + mozzarella', resto: 'AL OSTEDH', price: '10,9 DT', logo: '🥛', category: 'sandwich', type: 'plat', keywords: ['escalope', 'mozzarella', 'fromage', 'filant', 'sandwich'] },
+        { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'base', 'gruyère', 'pepperoni', 'mozzarella', 'cheddar', 'raclette'] },
         // Pizza AL OSTEDH
         { name: 'Pizza 4 choix big max', resto: 'AL OSTEDH', price: '38,5 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big max', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
         { name: 'Pizza big max Thon / pepperoni', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'big max', 'thon', 'pepperoni', 'spicy', '6 fromages'] },
@@ -230,7 +226,7 @@ function filterByRestaurant(restoId) {
 function filterByPlat(platName) {
     document.getElementById('searchInput').value = platName;
     document.getElementById('suggestionsList')?.classList.remove('show');
-    document.querySelectorAll('.plat-card, .special-section').forEach(plat => plat.style.display = 'block');
+    document.querySelectorAll('.plat-card').forEach(plat => plat.style.display = 'block');
     
     let targetResto = null;
     document.querySelectorAll('.restaurant-section').forEach(resto => {
@@ -248,6 +244,7 @@ function filterByPlat(platName) {
         document.querySelectorAll('.plat-card').forEach(plat => {
             let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
             let categorie = plat.getAttribute('data-category').toLowerCase();
+            
             let matchMotsCles = false;
             searchData.plats.forEach(p => {
                 if (p.name.toLowerCase() === nomPlat) {
@@ -256,7 +253,37 @@ function filterByPlat(platName) {
                     }
                 }
             });
-            let match = nomPlat.includes(platName.toLowerCase()) || categorie.includes(platName.toLowerCase()) || matchMotsCles;
+            
+            // Vérification spéciale pour l'escalope et ses suppléments
+            let isEscalopeSupplement = false;
+            const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'steak', 'raclette'];
+            
+            // Si la recherche contient "escalope" ET un supplément
+            if (platName.toLowerCase().includes('escalope')) {
+                // Vérifie si c'est la carte escalope
+                if (nomPlat === 'spécial escalope') {
+                    isEscalopeSupplement = true;
+                }
+                // Vérifie aussi si la recherche contient un supplément
+                if (escalopeSupplements.some(sup => platName.toLowerCase().includes(sup))) {
+                    if (nomPlat === 'spécial escalope') {
+                        isEscalopeSupplement = true;
+                    }
+                }
+            }
+            
+            // Si la recherche contient explicitement "escalope + quelque chose"
+            if (platName.toLowerCase().includes('escalope') && platName.toLowerCase().includes('+')) {
+                if (nomPlat === 'spécial escalope') {
+                    isEscalopeSupplement = true;
+                }
+            }
+            
+            let match = nomPlat.includes(platName.toLowerCase()) || 
+                        categorie.includes(platName.toLowerCase()) || 
+                        matchMotsCles ||
+                        isEscalopeSupplement;
+            
             plat.style.display = match ? 'block' : 'none';
         });
         
@@ -293,6 +320,12 @@ function searchSuggestions() {
         }
     });
     
+    // Ajout de suggestions pour les suppléments d'escalope
+    const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'raclette'];
+    if (escalopeSupplements.some(sup => input.includes(sup)) || (input.includes('escalope') && input.includes('+'))) {
+        suggestions.push({ type: 'plat', icon: '🥪', title: 'Spécial escalope', subtitle: 'AL OSTEDH', price: '9,4 DT', badge: 'Plat', action: `filterByPlat('Spécial escalope')` });
+    }
+    
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -305,7 +338,18 @@ function displaySuggestions(suggestions) {
         document.querySelector('.search-container').appendChild(list);
     }
     
-    list.innerHTML = suggestions.length ? suggestions.map(s => `
+    // Éviter les doublons en utilisant un Set
+    const uniqueSuggestions = [];
+    const seen = new Set();
+    for (const s of suggestions) {
+        const key = s.title + s.subtitle;
+        if (!seen.has(key)) {
+            seen.add(key);
+            uniqueSuggestions.push(s);
+        }
+    }
+    
+    list.innerHTML = uniqueSuggestions.length ? uniqueSuggestions.map(s => `
         <div class="suggestion-item" onclick="${s.action}">
             <div class="suggestion-icon">${s.icon}</div>
             <div class="suggestion-content">
@@ -352,7 +396,34 @@ function searchRestaurant() {
                 }
             });
             
-            let match = nom.includes(input) || desc.includes(input) || prix.includes(input) || categorie.includes(input) || matchMotsCles;
+            let match = nom.includes(input) || 
+                       desc.includes(input) || 
+                       prix.includes(input) || 
+                       categorie.includes(input) || 
+                       matchMotsCles;
+            
+            // Vérification spéciale pour l'escalope et ses suppléments
+            const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'steak', 'raclette'];
+            
+            // Si la recherche contient "escalope" ET un supplément
+            if (input.includes('escalope')) {
+                if (nom === 'spécial escalope') {
+                    match = true;
+                }
+                if (escalopeSupplements.some(sup => input.includes(sup))) {
+                    if (nom === 'spécial escalope') {
+                        match = true;
+                    }
+                }
+            }
+            
+            // Si la recherche contient explicitement "escalope + quelque chose"
+            if (input.includes('escalope') && input.includes('+')) {
+                if (nom === 'spécial escalope') {
+                    match = true;
+                }
+            }
+            
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
         });
@@ -377,7 +448,30 @@ function searchRestaurant() {
                     }
                 });
                 
-                let match = nom.includes(input) || desc.includes(input) || prix.includes(input) || categorie.includes(input) || matchMotsCles;
+                let match = nom.includes(input) || 
+                           desc.includes(input) || 
+                           prix.includes(input) || 
+                           categorie.includes(input) || 
+                           matchMotsCles;
+                
+                // Vérification spéciale pour l'escalope et ses suppléments
+                const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'steak', 'raclette'];
+                if (input.includes('escalope')) {
+                    if (nom === 'spécial escalope') {
+                        match = true;
+                    }
+                    if (escalopeSupplements.some(sup => input.includes(sup))) {
+                        if (nom === 'spécial escalope') {
+                            match = true;
+                        }
+                    }
+                }
+                if (input.includes('escalope') && input.includes('+')) {
+                    if (nom === 'spécial escalope') {
+                        match = true;
+                    }
+                }
+                
                 p.style.display = match ? 'block' : 'none';
                 if (match) {
                     aUnResultatSpecial = true;
