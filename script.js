@@ -3,7 +3,8 @@ const searchData = {
     restaurants: [
         { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
         { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
-        { id: 'resto3', name: 'King Street', logo: '👑', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] }
+        { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
+        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -34,11 +35,14 @@ const searchData = {
         { name: 'OG sub', resto: 'CHICK\'IN', price: '12,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['og', 'sub', 'tenders', 'cheddar', 'kewpie', 'harissa', 'sandwich'] },
         
         // ==================== KING STREET - MAKLOUB ====================
-        { name: 'Makloub', resto: 'King Street', price: '8,5 DT', logo: '🍚', category: 'makloub', type: 'plat', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'riz'] },
-        { name: 'Makloub Mahboul', resto: 'King Street', price: '13,9 DT', logo: '🍚', category: 'makloub', type: 'plat', keywords: ['makloub', 'mahboul', 'poulet', 'crème', 'mozzarella', 'gruyère', 'cheddar', 'harissa', 'big love', 'riz'] },
+        { name: 'Makloub', resto: 'King Street', price: '8,5 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'riz'] },
+        { name: 'Makloub Mahboul', resto: 'King Street', price: '13,9 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'mahboul', 'poulet', 'crème', 'mozzarella', 'gruyère', 'cheddar', 'harissa', 'big love', 'riz'] },
         
         // ==================== KING STREET - PIZZA ====================
-        { name: 'Pizza Triplex', resto: 'King Street', price: '20,9 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'jambon', 'escalope', 'pepperoni', 'mozzarella', 'cheddar', 'basilic', 'tomates cerises'] }
+        { name: 'Pizza Triplex', resto: 'King Street', price: '20,9 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'jambon', 'escalope', 'pepperoni', 'mozzarella', 'cheddar', 'basilic', 'tomates cerises'] },
+        
+        // ==================== LA CASA DE MAMA ====================
+        { name: '4 Feux', resto: 'La Casa De Mama', price: '15 DT', logo: '🔥', category: 'sandwich', type: 'plat', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'frites'] }
     ]
 };
 
@@ -48,7 +52,7 @@ let selectedSuggestionIndex = -1;
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
-    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap'],
+    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux'],
     'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets'],
     'fish': ['poisson', 'fish', 'fruits de mer'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
@@ -59,7 +63,8 @@ const categoryKeywords = {
 const forceClosed = {
     'resto1': false,
     'resto2': false,
-    'resto3': false
+    'resto3': false,
+    'resto4': false
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
@@ -111,7 +116,6 @@ function updateRestaurantsStatus() {
         }
     });
     
-    // Mettre à jour l'affichage du panier si ouvert
     if (cart.length > 0) {
         updateCartDisplay();
     }
@@ -343,11 +347,15 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🥪', title: 'Spécial escalope', subtitle: 'AL OSTEDH', price: '9,4 DT', badge: 'Plat', action: `filterByPlat('Spécial escalope')` });
     }
     if (input.includes('makloub') || input.includes('jambon') || input.includes('thon') || input.includes('poulet') || input.includes('mahboul') || input.includes('crème')) {
-        suggestions.push({ type: 'plat', icon: '🍚', title: 'Makloub Mahboul', subtitle: 'King Street', price: '13,9 DT', badge: 'Plat', action: `filterByPlat('Makloub Mahboul')` });
-        suggestions.push({ type: 'plat', icon: '🍚', title: 'Classics - Makloubs', subtitle: 'King Street', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Makloub')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Mahboul', subtitle: 'King Street', price: '13,9 DT', badge: 'Plat', action: `filterByPlat('Makloub Mahboul')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Classics - Makloubs', subtitle: 'King Street', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Makloub')` });
     }
     if (input.includes('pizza') || input.includes('triplex') || input.includes('double pâtes')) {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Triplex (Double Pâtes)', subtitle: 'King Street', price: 'À partir de 20,9 DT', badge: 'Plat', action: `filterByPlat('Pizza Triplex')` });
+    }
+    if (input.includes('4 feux') || input.includes('la casa') || input.includes('mama') || input.includes('italien')) {
+        suggestions.push({ type: 'plat', icon: '🔥', title: '4 Feux', subtitle: 'La Casa De Mama', price: '15 DT', badge: 'Plat', action: `filterByPlat('4 Feux')` });
+        suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
     }
     displaySuggestions(suggestions.slice(0, 8));
 }
@@ -427,6 +435,9 @@ function searchRestaurant() {
             }
             if (input.includes('pizza') || input.includes('triplex') || input.includes('double pâtes')) {
                 if (nom === 'pizza triplex (double pâtes)') match = true;
+            }
+            if (input.includes('4 feux') || input.includes('la casa') || input.includes('mama')) {
+                if (nom === '4 feux') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -509,10 +520,14 @@ function closeChoiceModal() {
 
 function selectChoice(choice) {
     closeChoiceModal();
+    let productName = `${currentProduct.name} (${choice})`;
+    let price = currentProduct.price;
+    let resto = currentProduct.resto;
+    
     if (currentProduct.mode === 'cart') {
-        addToCart(`${currentProduct.name} (${choice})`, currentProduct.price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', currentProduct.resto);
+        addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
     } else {
-        let message = `Bonjour je souhaite commander ${currentProduct.name} (${currentProduct.price}) avec ${choice} chez ${currentProduct.resto}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${productName} x1 - ${price}\nTotal : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -558,7 +573,7 @@ function selectEscalopeOption(productName, productPrice) {
     if (currentEscalopeMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
     } else {
-        const message = `Bonjour je souhaite commander le ${productName} (${productPrice}) chez ${restoName}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${productName} x1 - ${productPrice}\nTotal : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -609,7 +624,7 @@ function selectMakloubOption(productName, productPrice, ingredients) {
     if (currentMakloubMode === 'cart') {
         addToCart(fullProductName, productPrice, imageUrl, restoName);
     } else {
-        const message = `Bonjour je souhaite commander ${fullProductName} (${productPrice}) chez ${restoName}. Ingrédients: ${ingredients}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${fullProductName} x1 - ${productPrice}\nTotal : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -657,9 +672,15 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     if (currentPizzaTriplexMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
-        const message = `Bonjour je souhaite commander ${fullProductName} (${price}) chez ${restoName}. Taille: ${size} (${pizzaSize}) - ${description}. Merci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${fullProductName} x1 - ${price}\nTotal : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
+}
+
+// ==================== COMMANDE DIRECTE ====================
+function commanderDirect(produit, prix, resto) {
+    let message = `Ma commande :\n• ${produit} x1 - ${prix}\nTotal : ${prix}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 // ==================== SYSTÈME DE PANIER AVEC VÉRIFICATION DES HORAIRES ====================
@@ -772,6 +793,7 @@ function checkCartRestaurantsStatus() {
             if (restoName === 'AL OSTEDH') restoSection = document.getElementById('resto1');
             else if (restoName === 'CHICK\'IN') restoSection = document.getElementById('resto2');
             else if (restoName === 'King Street') restoSection = document.getElementById('resto3');
+            else if (restoName === 'La Casa De Mama') restoSection = document.getElementById('resto4');
             
             if (restoSection) {
                 const hoursElement = restoSection.querySelector('.restaurant-header p');
@@ -810,7 +832,8 @@ function showRestaurantClosedModal(closedRestos) {
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">⏰ Horaires d'ouverture :<br>
                 • AL OSTEDH : 10h - 22h<br>
                 • CHICK'IN : 11h - 23h<br>
-                • King Street : 11h - 23h</p>
+                • King Street : 11h - 23h<br>
+                • La Casa De Mama : 11h - 23h</p>
             </div>
             <div class="restaurant-closed-footer">
                 <button class="restaurant-closed-btn" onclick="this.closest('.restaurant-closed-modal').remove(); document.body.style.overflow = 'auto';">Compris</button>
@@ -848,7 +871,6 @@ function updateCartDisplay() {
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
     
-    // Vérifier le statut des restaurants
     const { allOpen, closedRestos } = checkCartRestaurantsStatus();
     
     if (!allOpen) {
@@ -863,7 +885,6 @@ function updateCartDisplay() {
         checkoutBtn.title = '';
     }
     
-    // Générer le HTML des articles
     let itemsHtml = cart.map(item => `
         <div class="cart-item" data-id="${item.id}">
             <div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>
@@ -881,7 +902,6 @@ function updateCartDisplay() {
         </div>
     `).join('');
     
-    // Ajouter un message d'avertissement si des restaurants sont fermés
     if (!allOpen && closedRestos.length > 0) {
         itemsHtml = `
             <div class="cart-warning">
@@ -896,7 +916,7 @@ function updateCartDisplay() {
     cartItems.innerHTML = itemsHtml;
 }
 
-// ==================== CHECKOUT CART AVEC VÉRIFICATION ====================
+// ==================== CHECKOUT CART AVEC NOUVEAU MESSAGE ====================
 function checkoutCart() {
     if (cart.length === 0) return;
     
@@ -909,11 +929,14 @@ function checkoutCart() {
     
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
-    let message = "Bonjour je souhaite commander :\n\n";
+    
+    let message = "Ma commande :\n";
     cart.forEach(item => {
         message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
     });
-    message += `\nTotal: ${totalFormatted}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    message += `Total : ${totalFormatted}\n\n`;
+    message += `Merci de me confirmer la disponibilité et les frais de livraison.`;
+    
     window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     cart = [];
     saveCart();
@@ -947,6 +970,8 @@ function getProductImage(productName) {
     if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
     if (productName.includes('Makloub') && !productName.includes('Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
     if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
+    // La Casa De Mama
+    if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
     return '';
 }
 
