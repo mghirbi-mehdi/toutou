@@ -527,7 +527,7 @@ function selectChoice(choice) {
     if (currentProduct.mode === 'cart') {
         addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
     } else {
-        let message = `Ma commande :\n• ${productName} x1 - ${price}\nTotal : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${productName} (${resto}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -573,7 +573,7 @@ function selectEscalopeOption(productName, productPrice) {
     if (currentEscalopeMode === 'cart') {
         addToCart(productName, productPrice, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${productName} x1 - ${productPrice}\nTotal : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -624,7 +624,7 @@ function selectMakloubOption(productName, productPrice, ingredients) {
     if (currentMakloubMode === 'cart') {
         addToCart(fullProductName, productPrice, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} x1 - ${productPrice}\nTotal : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -672,14 +672,14 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     if (currentPizzaTriplexMode === 'cart') {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
-        let message = `Ma commande :\n• ${fullProductName} x1 - ${price}\nTotal : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
 // ==================== COMMANDE DIRECTE ====================
 function commanderDirect(produit, prix, resto) {
-    let message = `Ma commande :\n• ${produit} x1 - ${prix}\nTotal : ${prix}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    let message = `Ma commande :\n• ${produit} (${resto}) x1 - ${prix}\nTotal (hors livraison) : ${prix}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
     window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
 }
 
@@ -932,9 +932,9 @@ function checkoutCart() {
     
     let message = "Ma commande :\n";
     cart.forEach(item => {
-        message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
+        message += `• ${item.name} (${item.resto}) x${item.quantity} - ${item.priceDisplay}\n`;
     });
-    message += `Total : ${totalFormatted}\n\n`;
+    message += `Total (hors livraison) : ${totalFormatted}\n\n`;
     message += `Merci de me confirmer la disponibilité et les frais de livraison.`;
     
     window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
