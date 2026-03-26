@@ -110,6 +110,11 @@ function updateRestaurantsStatus() {
             }
         }
     });
+    
+    // Mettre à jour l'affichage du panier si ouvert
+    if (cart.length > 0) {
+        updateCartDisplay();
+    }
 }
 
 function enableRestaurantButtons(restaurant) {
@@ -657,7 +662,7 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
     }
 }
 
-// ==================== SYSTÈME DE PANIER ====================
+// ==================== SYSTÈME DE PANIER AVEC VÉRIFICATION DES HORAIRES ====================
 let cart = [];
 const MAX_CART_ITEMS = 5;
 
@@ -751,6 +756,79 @@ function toggleCart() {
     updateCartDisplay();
 }
 
+// ==================== VÉRIFICATION DES RESTAURANTS DU PANIER ====================
+function checkCartRestaurantsStatus() {
+    if (cart.length === 0) return { allOpen: true, closedRestos: [] };
+    
+    const closedRestos = [];
+    const checkedRestos = new Set();
+    
+    cart.forEach(item => {
+        const restoName = item.resto;
+        if (!checkedRestos.has(restoName)) {
+            checkedRestos.add(restoName);
+            
+            let restoSection = null;
+            if (restoName === 'AL OSTEDH') restoSection = document.getElementById('resto1');
+            else if (restoName === 'CHICK\'IN') restoSection = document.getElementById('resto2');
+            else if (restoName === 'King Street') restoSection = document.getElementById('resto3');
+            
+            if (restoSection) {
+                const hoursElement = restoSection.querySelector('.restaurant-header p');
+                const hoursText = hoursElement.textContent;
+                const hoursMatch = hoursText.match(/(\d+)h[-\s](\d+)h/);
+                
+                if (hoursMatch) {
+                    const isOpen = isRestaurantOpen(restoSection.id, hoursMatch[0]);
+                    if (!isOpen) {
+                        closedRestos.push(restoName);
+                    }
+                }
+            }
+        }
+    });
+    
+    return { allOpen: closedRestos.length === 0, closedRestos };
+}
+
+// ==================== MODAL POUR RESTAURANT FERMÉ ====================
+function showRestaurantClosedModal(closedRestos) {
+    const modal = document.createElement('div');
+    modal.className = 'restaurant-closed-modal';
+    modal.innerHTML = `
+        <div class="restaurant-closed-content">
+            <div class="restaurant-closed-header">
+                <span class="restaurant-closed-icon">🔴</span>
+                <h3>Restaurant fermé</h3>
+            </div>
+            <div class="restaurant-closed-body">
+                <p>Le(s) restaurant(s) suivant(s) est/sont fermé(s) actuellement :</p>
+                <ul>
+                    ${closedRestos.map(resto => `<li><strong>${resto}</strong></li>`).join('')}
+                </ul>
+                <p>Veuillez retirer les articles de ces restaurants ou attendre leur réouverture pour finaliser votre commande.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">⏰ Horaires d'ouverture :<br>
+                • AL OSTEDH : 10h - 22h<br>
+                • CHICK'IN : 11h - 23h<br>
+                • King Street : 11h - 23h</p>
+            </div>
+            <div class="restaurant-closed-footer">
+                <button class="restaurant-closed-btn" onclick="this.closest('.restaurant-closed-modal').remove(); document.body.style.overflow = 'auto';">Compris</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.remove();
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// ==================== UPDATE CART DISPLAY AVEC VÉRIFICATION ====================
 function updateCartDisplay() {
     let cartItems = document.getElementById('cartItems');
     let cartCount = document.getElementById('cartCount');
@@ -758,16 +836,35 @@ function updateCartDisplay() {
     let checkoutBtn = document.getElementById('checkoutBtn');
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
+    
     if (cart.length === 0) {
         cartItems.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
         cartTotal.textContent = '0 DT';
         checkoutBtn.disabled = true;
+        checkoutBtn.style.opacity = '0.5';
         return;
     }
+    
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
-    checkoutBtn.disabled = false;
-    cartItems.innerHTML = cart.map(item => `
+    
+    // Vérifier le statut des restaurants
+    const { allOpen, closedRestos } = checkCartRestaurantsStatus();
+    
+    if (!allOpen) {
+        checkoutBtn.disabled = true;
+        checkoutBtn.style.opacity = '0.5';
+        checkoutBtn.style.cursor = 'not-allowed';
+        checkoutBtn.title = 'Restaurant(s) fermé(s) actuellement';
+    } else {
+        checkoutBtn.disabled = false;
+        checkoutBtn.style.opacity = '1';
+        checkoutBtn.style.cursor = 'pointer';
+        checkoutBtn.title = '';
+    }
+    
+    // Générer le HTML des articles
+    let itemsHtml = cart.map(item => `
         <div class="cart-item" data-id="${item.id}">
             <div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>
             <div class="cart-item-details">
@@ -783,6 +880,44 @@ function updateCartDisplay() {
             </div>
         </div>
     `).join('');
+    
+    // Ajouter un message d'avertissement si des restaurants sont fermés
+    if (!allOpen && closedRestos.length > 0) {
+        itemsHtml = `
+            <div class="cart-warning">
+                <div style="background: #fff3cd; color: #856404; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>⚠️</span>
+                    <span>Le restaurant <strong>${closedRestos.join(', ')}</strong> est fermé. Retirez ses articles pour commander.</span>
+                </div>
+            </div>
+        ` + itemsHtml;
+    }
+    
+    cartItems.innerHTML = itemsHtml;
+}
+
+// ==================== CHECKOUT CART AVEC VÉRIFICATION ====================
+function checkoutCart() {
+    if (cart.length === 0) return;
+    
+    const { allOpen, closedRestos } = checkCartRestaurantsStatus();
+    
+    if (!allOpen) {
+        showRestaurantClosedModal(closedRestos);
+        return;
+    }
+    
+    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
+    let message = "Bonjour je souhaite commander :\n\n";
+    cart.forEach(item => {
+        message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
+    });
+    message += `\nTotal: ${totalFormatted}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    cart = [];
+    saveCart();
+    toggleCart();
 }
 
 function getProductImage(productName) {
@@ -829,21 +964,6 @@ function showLimitModal() {
 function closeLimitModal() {
     document.getElementById('limitModal').style.display = 'none';
     document.body.style.overflow = 'auto';
-}
-
-function checkoutCart() {
-    if (cart.length === 0) return;
-    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    let totalFormatted = total.toFixed(1).replace('.', ',') + ' DT';
-    let message = "Bonjour je souhaite commander :\n\n";
-    cart.forEach(item => {
-        message += `• ${item.name} x${item.quantity} - ${item.priceDisplay}\n`;
-    });
-    message += `\nTotal: ${totalFormatted}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
-    cart = [];
-    saveCart();
-    toggleCart();
 }
 
 // ==================== INITIALISATION ====================
