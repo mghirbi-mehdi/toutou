@@ -812,7 +812,7 @@ function getProductImage(productName) {
     // King Street
     if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
     if (productName.includes('Makloub') && !productName.includes('Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
-    if (productName.includes('Pizza Triplex')) return 'pizza_triplex.png';
+    if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
     return '';
 }
 
