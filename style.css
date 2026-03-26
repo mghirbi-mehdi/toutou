@@ -1142,3 +1142,109 @@ footer {
         font-size: 1rem;
     }
 }
+/* ==================== MODAL RESTAURANT FERMÉ ==================== */
+.restaurant-closed-modal {
+    position: fixed;
+    z-index: 2002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.restaurant-closed-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.restaurant-closed-header {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.restaurant-closed-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-closed-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.restaurant-closed-body {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.restaurant-closed-body ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.restaurant-closed-body li {
+    margin: 0.5rem 0;
+    color: #ff4757;
+}
+
+.restaurant-closed-footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #f1f1f1;
+}
+
+.restaurant-closed-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.restaurant-closed-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Message d'avertissement dans le panier */
+.cart-warning {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
