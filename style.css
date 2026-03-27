@@ -1142,6 +1142,7 @@ footer {
         font-size: 1rem;
     }
 }
+
 /* ==================== MODAL RESTAURANT FERMÉ ==================== */
 .restaurant-closed-modal {
     position: fixed;
@@ -1248,35 +1249,47 @@ footer {
         transform: translateY(0);
     }
 }
-/* ==================== MODAL BAGUETTE FARCIE ==================== */
+
+/* ==================== MODAL BAGUETTE FARCIE - VERSION CORRIGÉE ==================== */
+#baguetteModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#baguetteModal .modal-body {
+    padding: 1rem;
+}
+
 .baguette-options-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .baguette-step-title {
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     color: #2d3436;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .baguette-size-grid,
 .baguette-viande-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.6rem;
 }
 
 .baguette-size-btn,
 .baguette-viande-btn {
     flex: 1;
-    min-width: 100px;
+    min-width: 85px;
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    padding: 0.8rem;
+    padding: 0.7rem 0.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
@@ -1301,14 +1314,14 @@ footer {
 .baguette-size-name,
 .baguette-viande-name {
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
 }
 
 .baguette-size-price {
     font-weight: 700;
     color: #ff4757;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .baguette-size-btn:hover .baguette-size-price,
@@ -1320,19 +1333,47 @@ footer {
 .baguette-viande-btn.selected .baguette-viande-name {
     color: white;
 }
+
 .baguette-confirm-btn {
     background: linear-gradient(135deg, #ff4757, #ff6b6b);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     width: 100%;
+    font-size: 0.95rem;
     margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s;
 }
 
 .baguette-confirm-btn:hover {
     transform: scale(1.02);
-    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+/* Correction pour tous les modales sur petits écrans */
+@media (max-width: 480px) {
+    #baguetteModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .baguette-size-grid,
+    .baguette-viande-grid {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .baguette-size-btn,
+    .baguette-viande-btn {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .choice-modal .modal-content {
+        margin: 10% auto;
+        max-height: 90vh;
+    }
 }
