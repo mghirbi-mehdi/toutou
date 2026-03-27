@@ -51,7 +51,7 @@
             <div class="category-item" data-category="sandwich"><div class="category-icon">🥪</div><span>Sandwich</span></div>
             <div class="category-item" data-category="tacos"><div class="category-icon">🌮</div><span>Tacos</span></div>
             <div class="category-item" data-category="makloub"><div class="category-icon">🥙</div><span>Makloub</span></div>
-            <div class="category-item" data-category="fish"><div class="category-icon">🐟</div><span>Poisson</span></div>
+            <div class="category-item" data-category="baguette"><div class="category-icon">🥖</div><span>Baguette</span></div>
             <div class="category-item" data-category="oriental"><div class="category-icon">🥙</div><span>Oriental</span></div>
             <div class="category-item" data-category="salad"><div class="category-icon">🥗</div><span>Salades</span></div>
         </div>
@@ -461,34 +461,98 @@
             </div>
         </section>
 
-        <!-- ========== RESTAURANT LA CASA DE MAMA ========== -->
-        <section class="restaurant-section" id="resto4">
-            <div class="restaurant-header">
-                <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774541009/logo_lacasa_de_mama_aw5r6e.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat;"></div>
-                <div>
-                    <h2>La Casa De Mama</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 11h-23h</p>
+               <!-- ========== RESTAURANT LA CASA DE MAMA ========== -->
+               <section class="restaurant-section" id="resto4">
+                <div class="restaurant-header">
+                    <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774541009/logo_lacasa_de_mama_aw5r6e.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat;"></div>
+                    <div>
+                        <h2>La Casa De Mama</h2>
+                        <p>📍 Tunis • Lafayette • Ouvert 11h-23h</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="menu-grid">
-                <!-- 4 Feux -->
-                <div class="plat-card" data-category="sandwich">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png'); background-position: center 80%; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>4 Feux</h3>
-                        <p class="plat-description">Taille standard : Escalope / Jambon / Pepperoni</p>
-                        <div class="plat-footer">
-                            <span class="prix">15 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="commanderDirect('4 Feux', '15 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="addToCart('4 Feux', '15 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                
+                <div class="menu-grid">
+                    <!-- 4 Feux -->
+                    <div class="plat-card" data-category="sandwich">
+                        <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png'); background-position: center 80%; background-size: cover;"></div>
+                        <div class="plat-info">
+                            <h3>4 Feux</h3>
+                            <p class="plat-description">Taille standard : Escalope / Jambon / Pepperoni</p>
+                            <div class="plat-footer">
+                                <span class="prix">15 DT</span>
+                                <div class="btn-group">
+                                    <button class="btn-whatsapp-direct" onclick="commanderDirect('4 Feux', '15 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                    <button class="btn-add-to-cart" onclick="addToCart('4 Feux', '15 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Pizza Thon -->
+                    <div class="plat-card" data-category="pizza">
+                        <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png'); background-position: center; background-size: cover;"></div>
+                        <div class="plat-info">
+                            <h3>Pizza Thon</h3>
+                            <p class="plat-description">Sauce tomate, mozzarella, thon</p>
+                            <div class="plat-footer">
+                                <span class="prix">À partir de 7 DT</span>
+                                <div class="btn-group">
+                                    <button class="btn-whatsapp-direct" onclick="showPizzaThonModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                    <button class="btn-add-to-cart" onclick="showPizzaThonModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Pizza Exacatory -->
+                    <div class="plat-card" data-category="pizza">
+                        <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png'); background-position: center; background-size: cover;"></div>
+                        <div class="plat-info">
+                            <h3>Pizza Exacatory</h3>
+                            <p class="plat-description">Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate</p>
+                            <div class="plat-footer">
+                                <span class="prix">À partir de 15 DT</span>
+                                <div class="btn-group">
+                                    <button class="btn-whatsapp-direct" onclick="showPizzaExacatoryModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                    <button class="btn-add-to-cart" onclick="showPizzaExacatoryModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Pizza Mitro -->
+                    <div class="plat-card" data-category="pizza">
+                        <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png'); background-position: center; background-size: cover;"></div>
+                        <div class="plat-info">
+                            <h3>Pizza Mitro</h3>
+                            <p class="plat-description">Sauce tomate, mozzarella, escalope, shawarma, jambon, champignons, thon</p>
+                            <div class="plat-footer">
+                                <span class="prix">25 DT</span>
+                                <div class="btn-group">
+                                    <button class="btn-whatsapp-direct" onclick="commanderDirect('Pizza Mitro', '25 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                    <button class="btn-add-to-cart" onclick="addToCart('Pizza Mitro', '25 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Baguette Farcie -->
+                    <div class="plat-card" data-category="baguette">
+                        <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png'); background-position: center; background-size: cover;"></div>
+                        <div class="plat-info">
+                            <h3>Baguette Farcie</h3>
+                            <p class="plat-description">Escalope / Shawarma / Mixte, Jambon, Fromage</p>
+                            <div class="plat-footer">
+                                <span class="prix">À partir de 10 DT</span>
+                                <div class="btn-group">
+                                    <button class="btn-whatsapp-direct" onclick="showBaguetteModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                    <button class="btn-add-to-cart" onclick="showBaguetteModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <div class="contact-direct">
             <h3>🚚 Service Livraison Rapide</h3>
@@ -544,6 +608,48 @@
             <div class="modal-body">
                 <p>Veuillez sélectionner la taille de votre Pizza Triplex (Double Pâtes) :</p>
                 <div id="pizzaTriplexOptions" class="pizza-options-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POUR PIZZA THON (LA CASA DE MAMA) -->
+    <div id="pizzaThonModal" class="choice-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Choisissez votre taille</h3>
+                <span class="close-modal" onclick="closePizzaThonModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Veuillez sélectionner la taille de votre Pizza Thon :</p>
+                <div id="pizzaThonOptions" class="pizza-options-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POUR PIZZA EXACATORY (LA CASA DE MAMA) -->
+    <div id="pizzaExacatoryModal" class="choice-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Choisissez votre taille</h3>
+                <span class="close-modal" onclick="closePizzaExacatoryModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Veuillez sélectionner la taille de votre Pizza Exacatory :</p>
+                <div id="pizzaExacatoryOptions" class="pizza-options-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POUR BAGUETTE FARCIE (LA CASA DE MAMA) -->
+    <div id="baguetteModal" class="choice-modal">
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header">
+                <h3>Choisissez votre Baguette Farcie</h3>
+                <span class="close-modal" onclick="closeBaguetteModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Veuillez sélectionner la taille et la viande :</p>
+                <div id="baguetteOptions" class="baguette-options-grid"></div>
             </div>
         </div>
     </div>
