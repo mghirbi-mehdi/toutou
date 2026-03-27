@@ -4,7 +4,7 @@ const searchData = {
         { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
         { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
         { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
-        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien'] }
+        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -42,7 +42,11 @@ const searchData = {
         { name: 'Pizza Triplex', resto: 'King Street', price: '20,9 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'jambon', 'escalope', 'pepperoni', 'mozzarella', 'cheddar', 'basilic', 'tomates cerises'] },
         
         // ==================== LA CASA DE MAMA ====================
-        { name: '4 Feux', resto: 'La Casa De Mama', price: '15 DT', logo: '🔥', category: 'sandwich', type: 'plat', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'frites'] }
+        { name: '4 Feux', resto: 'La Casa De Mama', price: '15 DT', logo: '🔥', category: 'sandwich', type: 'plat', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'frites'] },
+        { name: 'Pizza Thon', resto: 'La Casa De Mama', price: '7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'tomate', 'mozzarella', 'mini', 'moy', 'maxi', 'xl'] },
+        { name: 'Pizza Exacatory', resto: 'La Casa De Mama', price: '15 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'exacatory', 'double pâte', 'escalope', 'shawarma', 'champignons', 'pepperoni', 'sauce blanche', 'tomate', 'moyenne', 'maxi', 'xl'] },
+        { name: 'Pizza Mitro', resto: 'La Casa De Mama', price: '25 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'mitro', 'sauce tomate', 'mozzarella', 'escalope', 'shawarma', 'jambon', 'champignons', 'thon'] },
+        { name: 'Baguette Farcie', resto: 'La Casa De Mama', price: '10 DT', logo: '🥖', category: 'baguette', type: 'plat', keywords: ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'] }
     ]
 };
 
@@ -50,11 +54,11 @@ let selectedSuggestionIndex = -1;
 
 // ==================== CATÉGORIES POUR LE FILTRAGE ====================
 const categoryKeywords = {
-    'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic'],
+    'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic', 'mini', 'moy', 'maxi', 'xl', 'exacatory', 'shawarma', 'champignons', 'mitro'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
     'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux'],
     'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets'],
-    'fish': ['poisson', 'fish', 'fruits de mer'],
+    'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
 };
@@ -84,7 +88,13 @@ function isRestaurantOpen(restaurantId, hoursString) {
     let currentHour = now.getHours();
     let currentMinutes = now.getMinutes();
     let currentTime = currentHour + (currentMinutes / 60);
-    return (currentTime >= openHour && currentTime < closeHour);
+    
+    // Gestion des horaires qui dépassent minuit
+    if (closeHour < openHour) {
+        return (currentTime >= openHour || currentTime < closeHour);
+    } else {
+        return (currentTime >= openHour && currentTime < closeHour);
+    }
 }
 
 function updateRestaurantsStatus() {
@@ -357,6 +367,18 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🔥', title: '4 Feux', subtitle: 'La Casa De Mama', price: '15 DT', badge: 'Plat', action: `filterByPlat('4 Feux')` });
         suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
     }
+    if (input.includes('pizza thon') || (input.includes('pizza') && input.includes('thon')) || input.includes('thon')) {
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon', subtitle: 'La Casa De Mama', price: 'À partir de 7 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon')` });
+    }
+    if (input.includes('pizza exacatory') || (input.includes('pizza') && input.includes('exacatory')) || input.includes('exacatory')) {
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Exacatory', subtitle: 'La Casa De Mama', price: 'À partir de 15 DT', badge: 'Plat', action: `filterByPlat('Pizza Exacatory')` });
+    }
+    if (input.includes('pizza mitro') || (input.includes('pizza') && input.includes('mitro')) || input.includes('mitro')) {
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Mitro', subtitle: 'La Casa De Mama', price: '25 DT', badge: 'Plat', action: `filterByPlat('Pizza Mitro')` });
+    }
+    if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
+        suggestions.push({ type: 'plat', icon: '🥖', title: 'Baguette Farcie', subtitle: 'La Casa De Mama', price: 'À partir de 10 DT', badge: 'Plat', action: `filterByPlat('Baguette Farcie')` });
+    }
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -438,6 +460,18 @@ function searchRestaurant() {
             }
             if (input.includes('4 feux') || input.includes('la casa') || input.includes('mama')) {
                 if (nom === '4 feux') match = true;
+            }
+            if (input.includes('pizza thon') || (input.includes('pizza') && input.includes('thon'))) {
+                if (nom === 'pizza thon') match = true;
+            }
+            if (input.includes('pizza exacatory') || (input.includes('pizza') && input.includes('exacatory'))) {
+                if (nom === 'pizza exacatory') match = true;
+            }
+            if (input.includes('pizza mitro') || (input.includes('pizza') && input.includes('mitro'))) {
+                if (nom === 'pizza mitro') match = true;
+            }
+            if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
+                if (nom === 'baguette farcie') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -675,6 +709,195 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
+}
+
+// ==================== MODAL PIZZA THON (LA CASA DE MAMA) ====================
+const pizzaThonOptionsList = [
+    { name: "Mini", price: "7 DT", size: "Mini", description: "Sauce tomate, mozzarella, thon" },
+    { name: "MOY", price: "10 DT", size: "Moyenne", description: "Sauce tomate, mozzarella, thon" },
+    { name: "MAXI", price: "14,5 DT", size: "Maxi", description: "Sauce tomate, mozzarella, thon" },
+    { name: "XL", price: "18 DT", size: "XL", description: "Sauce tomate, mozzarella, thon" }
+];
+
+let currentPizzaThonMode = null;
+
+function showPizzaThonModal(mode) {
+    currentPizzaThonMode = mode;
+    const modal = document.getElementById('pizzaThonModal');
+    const optionsContainer = document.getElementById('pizzaThonOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = pizzaThonOptionsList.map(opt => `
+        <div class="pizza-option-btn" onclick="selectPizzaThonOption('${opt.name}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="pizza-option-name">${opt.name} (${opt.size})</div>
+                <div class="pizza-option-desc">${opt.description}</div>
+            </div>
+            <div class="pizza-option-price">${opt.price}</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePizzaThonModal() {
+    const modal = document.getElementById('pizzaThonModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectPizzaThonOption(size, price, pizzaSize, description) {
+    closePizzaThonModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
+    const restoName = 'La Casa De Mama';
+    const fullProductName = `Pizza Thon ${size} (${pizzaSize})`;
+    if (currentPizzaThonMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+    } else {
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MODAL PIZZA EXACATORY (LA CASA DE MAMA) ====================
+const pizzaExacatoryOptionsList = [
+    { name: "Moyenne", price: "15 DT", size: "Moyenne", description: "Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate" },
+    { name: "Maxi", price: "20 DT", size: "Maxi", description: "Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate" },
+    { name: "XL", price: "25 DT", size: "XL", description: "Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate" }
+];
+
+let currentPizzaExacatoryMode = null;
+
+function showPizzaExacatoryModal(mode) {
+    currentPizzaExacatoryMode = mode;
+    const modal = document.getElementById('pizzaExacatoryModal');
+    const optionsContainer = document.getElementById('pizzaExacatoryOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = pizzaExacatoryOptionsList.map(opt => `
+        <div class="pizza-option-btn" onclick="selectPizzaExacatoryOption('${opt.name}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="pizza-option-name">${opt.name}</div>
+                <div class="pizza-option-desc">${opt.description}</div>
+            </div>
+            <div class="pizza-option-price">${opt.price}</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePizzaExacatoryModal() {
+    const modal = document.getElementById('pizzaExacatoryModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
+    closePizzaExacatoryModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
+    const restoName = 'La Casa De Mama';
+    const fullProductName = `Pizza Exacatory ${size} (${pizzaSize})`;
+    if (currentPizzaExacatoryMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+    } else {
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MODAL BAGUETTE FARCIE (LA CASA DE MAMA) ====================
+const baguetteTailleOptions = [
+    { name: "Moy", price: "10 DT" },
+    { name: "Maxi", price: "16 DT" },
+    { name: "1 Mètre", price: "25 DT" }
+];
+
+const baguetteViandeOptions = [
+    { name: "Escalope" },
+    { name: "Shawarma" },
+    { name: "Mixte (Escalope + Shawarma)" }
+];
+
+let currentBaguetteMode = null;
+let selectedBaguetteTaille = null;
+let selectedBaguetteViande = null;
+
+function showBaguetteModal(mode) {
+    currentBaguetteMode = mode;
+    selectedBaguetteTaille = null;
+    selectedBaguetteViande = null;
+    
+    const modal = document.getElementById('baguetteModal');
+    const optionsContainer = document.getElementById('baguetteOptions');
+    if (!modal || !optionsContainer) return;
+    
+    let html = '<div class="baguette-step"><div class="baguette-step-title">1. Choisissez la taille :</div><div class="baguette-size-grid">';
+    baguetteTailleOptions.forEach(opt => {
+        html += `<div class="baguette-size-btn" onclick="selectTailleBaguette('${opt.name}', '${opt.price}')">
+                    <div class="baguette-size-name">${opt.name}</div>
+                    <div class="baguette-size-price">${opt.price}</div>
+                </div>`;
+    });
+    html += '</div></div>';
+    html += '<div id="baguetteViandeStep" style="display: none;"><div class="baguette-step-title">2. Choisissez la viande :</div><div class="baguette-viande-grid">';
+    baguetteViandeOptions.forEach(opt => {
+        html += `<div class="baguette-viande-btn" onclick="selectViandeBaguette('${opt.name}')">
+                    <div class="baguette-viande-name">${opt.name}</div>
+                </div>`;
+    });
+    html += '</div></div>';
+    html += '<div id="baguetteConfirmDiv" style="display: none; margin-top: 1rem;"><button class="baguette-confirm-btn" onclick="confirmerBaguette()">✅ Valider la commande</button></div>';
+    
+    optionsContainer.innerHTML = html;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function selectTailleBaguette(taille, prix) {
+    selectedBaguetteTaille = { taille, prix };
+    document.querySelectorAll('.baguette-size-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.baguette-size-btn').classList.add('selected');
+    document.getElementById('baguetteViandeStep').style.display = 'block';
+}
+
+function selectViandeBaguette(viandeName) {
+    selectedBaguetteViande = { viandeName };
+    document.querySelectorAll('.baguette-viande-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.baguette-viande-btn').classList.add('selected');
+    document.getElementById('baguetteConfirmDiv').style.display = 'block';
+}
+
+function confirmerBaguette() {
+    if (!selectedBaguetteTaille || !selectedBaguetteViande) {
+        alert("Veuillez d'abord choisir la taille et la viande !");
+        return;
+    }
+    
+    const productName = `Baguette Farcie ${selectedBaguetteTaille.taille} (${selectedBaguetteViande.viandeName} + Jambon + Fromage)`;
+    const productPrice = selectedBaguetteTaille.prix;
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
+    const restoName = 'La Casa De Mama';
+    
+    closeBaguetteModal();
+    
+    if (currentBaguetteMode === 'cart') {
+        addToCart(productName, productPrice, imageUrl, restoName, null);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+function closeBaguetteModal() {
+    const modal = document.getElementById('baguetteModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    selectedBaguetteTaille = null;
+    selectedBaguetteViande = null;
 }
 
 // ==================== COMMANDE DIRECTE ====================
@@ -972,6 +1195,10 @@ function getProductImage(productName) {
     if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
     // La Casa De Mama
     if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
+    if (productName.includes('Pizza Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png';
+    if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
+    if (productName.includes('Pizza Mitro')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png';
+    if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
     return '';
 }
 
