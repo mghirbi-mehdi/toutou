@@ -4,7 +4,8 @@ const searchData = {
         { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
         { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
         { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
-        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte'] }
+        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte'] },
+        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -46,7 +47,10 @@ const searchData = {
         { name: 'Pizza Thon', resto: 'La Casa De Mama', price: '7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'tomate', 'mozzarella', 'mini', 'moy', 'maxi', 'xl'] },
         { name: 'Pizza Exacatory', resto: 'La Casa De Mama', price: '15 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'exacatory', 'double pâte', 'escalope', 'shawarma', 'champignons', 'pepperoni', 'sauce blanche', 'tomate', 'moyenne', 'maxi', 'xl'] },
         { name: 'Pizza Mitro', resto: 'La Casa De Mama', price: '25 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'mitro', 'sauce tomate', 'mozzarella', 'escalope', 'shawarma', 'jambon', 'champignons', 'thon'] },
-        { name: 'Baguette Farcie', resto: 'La Casa De Mama', price: '10 DT', logo: '🥖', category: 'baguette', type: 'plat', keywords: ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'] }
+        { name: 'Baguette Farcie', resto: 'La Casa De Mama', price: '10 DT', logo: '🥖', category: 'baguette', type: 'plat', keywords: ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'] },
+        
+        // ==================== ZAKIA ====================
+        { name: 'Poulet Rôti', resto: 'ZAKIA', price: '8,5 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'] }
     ]
 };
 
@@ -60,6 +64,7 @@ const categoryKeywords = {
     'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets'],
     'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
+    'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'],
     'salad': ['salade', 'salad', 'mezzé', 'taboulé']
 };
 
@@ -68,7 +73,8 @@ const forceClosed = {
     'resto1': false,
     'resto2': false,
     'resto3': false,
-    'resto4': false
+    'resto4': false,
+    'resto5': false
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
@@ -89,7 +95,6 @@ function isRestaurantOpen(restaurantId, hoursString) {
     let currentMinutes = now.getMinutes();
     let currentTime = currentHour + (currentMinutes / 60);
     
-    // Gestion des horaires qui dépassent minuit
     if (closeHour < openHour) {
         return (currentTime >= openHour || currentTime < closeHour);
     } else {
@@ -379,6 +384,10 @@ function searchSuggestions() {
     if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
         suggestions.push({ type: 'plat', icon: '🥖', title: 'Baguette Farcie', subtitle: 'La Casa De Mama', price: 'À partir de 10 DT', badge: 'Plat', action: `filterByPlat('Baguette Farcie')` });
     }
+    if (input.includes('zakia') || input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
+        suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
+        suggestions.push({ type: 'plat', icon: '🍗', title: 'Poulet Rôti', subtitle: 'ZAKIA', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Poulet Rôti')` });
+    }
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -472,6 +481,9 @@ function searchRestaurant() {
             }
             if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
                 if (nom === 'baguette farcie') match = true;
+            }
+            if (input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
+                if (nom === 'poulet rôti') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -810,9 +822,9 @@ function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
 
 // ==================== MODAL BAGUETTE FARCIE (LA CASA DE MAMA) ====================
 const baguetteTailleOptions = [
-    { name: "Moy", price: "10 DT" },
-    { name: "Maxi", price: "16 DT" },
-    { name: "1 Mètre", price: "25 DT" }
+    { name: "Moy", price: "10" },
+    { name: "Maxi", price: "16" },
+    { name: "1 Mètre", price: "25" }
 ];
 
 const baguetteViandeOptions = [
@@ -838,7 +850,7 @@ function showBaguetteModal(mode) {
     baguetteTailleOptions.forEach(opt => {
         html += `<div class="baguette-size-btn" onclick="selectTailleBaguette('${opt.name}', '${opt.price}')">
                     <div class="baguette-size-name">${opt.name}</div>
-                    <div class="baguette-size-price">${opt.price}</div>
+                    <div class="baguette-size-price">${opt.price} DT</div>
                 </div>`;
     });
     html += '</div></div>';
@@ -857,7 +869,7 @@ function showBaguetteModal(mode) {
 }
 
 function selectTailleBaguette(taille, prix) {
-    selectedBaguetteTaille = { taille, prix };
+    selectedBaguetteTaille = { taille, prix: prix };
     document.querySelectorAll('.baguette-size-btn').forEach(btn => btn.classList.remove('selected'));
     event.target.closest('.baguette-size-btn').classList.add('selected');
     document.getElementById('baguetteViandeStep').style.display = 'block';
@@ -887,7 +899,7 @@ function confirmerBaguette() {
         addToCart(productName, productPrice, imageUrl, restoName, null);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -900,15 +912,198 @@ function closeBaguetteModal() {
     selectedBaguetteViande = null;
 }
 
+// ==================== MODAL POULET (ZAKIA) ====================
+const pouletTailleOptions = [
+    { name: "Quart de poulet", prices: { tastira: "9", makrouna: "8.5", loubia: "8.5" } },
+    { name: "Demi poulet", prices: { tastira: "15", makrouna: "14", loubia: "14" } },
+    { name: "Poulet entier", prices: { tastira: "23", makrouna: "22", loubia: "22" } }
+];
+
+const pouletAccompagnementOptions = [
+    { name: "Tastira" },
+    { name: "Makrouna" },
+    { name: "Loubia" }
+];
+
+let currentPouletMode = null;
+let selectedPouletTaille = null;
+let selectedPouletAccompagnement = null;
+let selectedPouletPrice = null;
+
+function showPouletModal(mode) {
+    currentPouletMode = mode;
+    selectedPouletTaille = null;
+    selectedPouletAccompagnement = null;
+    selectedPouletPrice = null;
+    
+    const modal = document.getElementById('pouletModal');
+    const optionsContainer = document.getElementById('pouletOptions');
+    if (!modal || !optionsContainer) return;
+    
+    let html = '<div class="poulet-step"><div class="poulet-step-title">1. Choisissez la taille :</div><div class="poulet-size-grid">';
+    pouletTailleOptions.forEach(opt => {
+        html += `<div class="poulet-size-btn" onclick="selectTaillePoulet('${opt.name}')">
+                    <div class="poulet-size-name">${opt.name}</div>
+                </div>`;
+    });
+    html += '</div></div>';
+    html += '<div id="pouletAccompagnementStep" style="display: none;"><div class="poulet-step-title">2. Choisissez l\'accompagnement :</div><div class="poulet-accompagnement-grid">';
+    
+    if (selectedPouletTaille) {
+        const tailleObj = pouletTailleOptions.find(t => t.name === selectedPouletTaille);
+        pouletAccompagnementOptions.forEach(opt => {
+            let price = '';
+            if (opt.name === 'Tastira') price = tailleObj.prices.tastira;
+            else if (opt.name === 'Makrouna') price = tailleObj.prices.makrouna;
+            else price = tailleObj.prices.loubia;
+            
+            html += `<div class="poulet-accompagnement-btn" onclick="selectAccompagnementPoulet('${opt.name}', '${price}')">
+                        <div class="poulet-accompagnement-name">${opt.name}</div>
+                        <div class="poulet-accompagnement-price">${price} DT</div>
+                    </div>`;
+        });
+    } else {
+        pouletAccompagnementOptions.forEach(opt => {
+            html += `<div class="poulet-accompagnement-btn" onclick="selectAccompagnementPoulet('${opt.name}', '')">
+                        <div class="poulet-accompagnement-name">${opt.name}</div>
+                        <div class="poulet-accompagnement-price">- DT</div>
+                    </div>`;
+        });
+    }
+    
+    html += '</div></div>';
+    html += '<div id="pouletConfirmDiv" style="display: none; margin-top: 1rem;"><button class="poulet-confirm-btn" onclick="confirmerPoulet()">✅ Valider la commande</button></div>';
+    
+    optionsContainer.innerHTML = html;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function selectTaillePoulet(taille) {
+    selectedPouletTaille = taille;
+    document.querySelectorAll('.poulet-size-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.poulet-size-btn').classList.add('selected');
+    
+    const tailleObj = pouletTailleOptions.find(t => t.name === selectedPouletTaille);
+    const accompagnementGrid = document.querySelector('.poulet-accompagnement-grid');
+    
+    if (accompagnementGrid) {
+        let newHtml = '';
+        pouletAccompagnementOptions.forEach(opt => {
+            let price = '';
+            if (opt.name === 'Tastira') price = tailleObj.prices.tastira;
+            else if (opt.name === 'Makrouna') price = tailleObj.prices.makrouna;
+            else price = tailleObj.prices.loubia;
+            
+            newHtml += `<div class="poulet-accompagnement-btn" onclick="selectAccompagnementPoulet('${opt.name}', '${price}')">
+                            <div class="poulet-accompagnement-name">${opt.name}</div>
+                            <div class="poulet-accompagnement-price">${price} DT</div>
+                        </div>`;
+        });
+        accompagnementGrid.innerHTML = newHtml;
+    }
+    
+    document.getElementById('pouletAccompagnementStep').style.display = 'block';
+}
+
+function selectAccompagnementPoulet(accompagnement, price) {
+    selectedPouletAccompagnement = accompagnement;
+    selectedPouletPrice = price;
+    document.querySelectorAll('.poulet-accompagnement-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.poulet-accompagnement-btn').classList.add('selected');
+    document.getElementById('pouletConfirmDiv').style.display = 'block';
+}
+
+function confirmerPoulet() {
+    if (!selectedPouletTaille || !selectedPouletAccompagnement) {
+        alert("Veuillez d'abord choisir la taille et l'accompagnement !");
+        return;
+    }
+    
+    const productName = `${selectedPouletTaille} - ${selectedPouletAccompagnement}`;
+    const price = selectedPouletPrice;
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+    const restoName = 'ZAKIA';
+    
+    closePouletModal();
+    
+    if (currentPouletMode === 'cart') {
+        addToCart(productName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+function closePouletModal() {
+    const modal = document.getElementById('pouletModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    selectedPouletTaille = null;
+    selectedPouletAccompagnement = null;
+    selectedPouletPrice = null;
+}
+
 // ==================== COMMANDE DIRECTE ====================
 function commanderDirect(produit, prix, resto) {
-    let message = `Ma commande :\n• ${produit} (${resto}) x1 - ${prix}\nTotal (hors livraison) : ${prix}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+    let cleanPrice = prix.toString().replace(' DT', '').trim();
+    let message = `Ma commande :\n• ${produit} (${resto}) x1 - ${cleanPrice} DT\nTotal (hors livraison) : ${cleanPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
     window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
 }
 
-// ==================== SYSTÈME DE PANIER AVEC VÉRIFICATION DES HORAIRES ====================
+// ==================== SYSTÈME DE PANIER AVEC FRITES ====================
 let cart = [];
 const MAX_CART_ITEMS = 5;
+const FRITES_PRICE = 2.5;
+const FRITES_NAME = "🍟 Frites supplémentaires";
+
+function addFritesToCart() {
+    if (cart.length === 0) {
+        alert("Veuillez d'abord ajouter un plat avant d'ajouter des frites !");
+        return;
+    }
+    
+    const restoName = cart[0].resto;
+    const existingFrites = cart.find(item => item.name === FRITES_NAME && item.resto === restoName);
+    
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if (totalItems >= MAX_CART_ITEMS) {
+        showLimitModal();
+        return;
+    }
+    
+    if (existingFrites) {
+        if (totalItems + 1 > MAX_CART_ITEMS) {
+            showLimitModal();
+            return;
+        }
+        existingFrites.quantity += 1;
+        existingFrites.priceDisplay = (existingFrites.price * existingFrites.quantity).toFixed(1).replace('.', ',') + ' DT';
+    } else {
+        cart.push({
+            id: 'frites_' + Date.now(),
+            name: FRITES_NAME,
+            price: FRITES_PRICE,
+            priceDisplay: FRITES_PRICE.toFixed(1).replace('.', ',') + ' DT',
+            image: '🍟',
+            resto: restoName,
+            quantity: 1,
+            isEmoji: true
+        });
+    }
+    
+    saveCart();
+    animateCart();
+    
+    const fritesBtn = document.getElementById('addFritesBtn');
+    if (fritesBtn) {
+        fritesBtn.style.animation = 'fritesPulse 0.3s ease';
+        setTimeout(() => {
+            fritesBtn.style.animation = '';
+        }, 300);
+    }
+}
 
 function loadCart() {
     let savedCart = localStorage.getItem('cart');
@@ -940,6 +1135,11 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
         showLimitModal();
         return false;
     }
+    
+    let cleanPrice = productPrice.toString().replace(' DT', '').replace(',', '.').trim();
+    let priceNumber = parseFloat(cleanPrice);
+    let priceDisplay = priceNumber.toFixed(1).replace('.', ',') + ' DT';
+    
     let existingItem = cart.find(item => item.name === productName && item.resto === restoName);
     if (existingItem) {
         if (totalItems + 1 > MAX_CART_ITEMS) {
@@ -947,16 +1147,18 @@ function addToCart(productName, productPrice, productImage, restoName, event) {
             return false;
         }
         existingItem.quantity += 1;
+        existingItem.priceDisplay = (existingItem.price * existingItem.quantity).toFixed(1).replace('.', ',') + ' DT';
     } else {
         let newId = 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         cart.push({
             id: newId,
             name: productName,
-            price: parseFloat(productPrice.replace(',', '.').replace(' DT', '')),
-            priceDisplay: productPrice,
+            price: priceNumber,
+            priceDisplay: priceDisplay,
             image: productImage,
             resto: restoName,
-            quantity: 1
+            quantity: 1,
+            isEmoji: false
         });
     }
     saveCart();
@@ -990,6 +1192,7 @@ function updateQuantity(productId, change) {
         removeFromCart(productId);
     } else {
         item.quantity += change;
+        item.priceDisplay = (item.price * item.quantity).toFixed(1).replace('.', ',') + ' DT';
         saveCart();
     }
 }
@@ -1000,7 +1203,6 @@ function toggleCart() {
     updateCartDisplay();
 }
 
-// ==================== VÉRIFICATION DES RESTAURANTS DU PANIER ====================
 function checkCartRestaurantsStatus() {
     if (cart.length === 0) return { allOpen: true, closedRestos: [] };
     
@@ -1017,6 +1219,7 @@ function checkCartRestaurantsStatus() {
             else if (restoName === 'CHICK\'IN') restoSection = document.getElementById('resto2');
             else if (restoName === 'King Street') restoSection = document.getElementById('resto3');
             else if (restoName === 'La Casa De Mama') restoSection = document.getElementById('resto4');
+            else if (restoName === 'ZAKIA') restoSection = document.getElementById('resto5');
             
             if (restoSection) {
                 const hoursElement = restoSection.querySelector('.restaurant-header p');
@@ -1036,7 +1239,6 @@ function checkCartRestaurantsStatus() {
     return { allOpen: closedRestos.length === 0, closedRestos };
 }
 
-// ==================== MODAL POUR RESTAURANT FERMÉ ====================
 function showRestaurantClosedModal(closedRestos) {
     const modal = document.createElement('div');
     modal.className = 'restaurant-closed-modal';
@@ -1056,7 +1258,8 @@ function showRestaurantClosedModal(closedRestos) {
                 • AL OSTEDH : 10h - 22h<br>
                 • CHICK'IN : 11h - 23h<br>
                 • King Street : 11h - 23h<br>
-                • La Casa De Mama : 11h - 23h</p>
+                • La Casa De Mama : 11h - 23h<br>
+                • ZAKIA : 11h - 23h</p>
             </div>
             <div class="restaurant-closed-footer">
                 <button class="restaurant-closed-btn" onclick="this.closest('.restaurant-closed-modal').remove(); document.body.style.overflow = 'auto';">Compris</button>
@@ -1074,12 +1277,12 @@ function showRestaurantClosedModal(closedRestos) {
     });
 }
 
-// ==================== UPDATE CART DISPLAY AVEC VÉRIFICATION ====================
 function updateCartDisplay() {
     let cartItems = document.getElementById('cartItems');
     let cartCount = document.getElementById('cartCount');
     let cartTotal = document.getElementById('cartTotal');
     let checkoutBtn = document.getElementById('checkoutBtn');
+    let fritesBtn = document.getElementById('addFritesBtn');
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
     
@@ -1088,8 +1291,11 @@ function updateCartDisplay() {
         cartTotal.textContent = '0 DT';
         checkoutBtn.disabled = true;
         checkoutBtn.style.opacity = '0.5';
+        if (fritesBtn) fritesBtn.style.display = 'none';
         return;
     }
+    
+    if (fritesBtn) fritesBtn.style.display = 'flex';
     
     let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(1).replace('.', ',') + ' DT';
@@ -1108,12 +1314,23 @@ function updateCartDisplay() {
         checkoutBtn.title = '';
     }
     
-    let itemsHtml = cart.map(item => `
+    let itemsHtml = cart.map(item => {
+        const isEmoji = item.isEmoji || item.image === '🍟';
+        const imageContent = isEmoji ? 
+            `<div class="cart-item-img emoji-img" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🍟</div>` :
+            `<div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>`;
+        
+        // Ne pas afficher le restaurant pour les frites
+        const restoHtml = item.name === "🍟 Frites supplémentaires" ? 
+            '' : 
+            `<div class="cart-item-resto">${item.resto}</div>`;
+        
+        return `
         <div class="cart-item" data-id="${item.id}">
-            <div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>
+            ${imageContent}
             <div class="cart-item-details">
                 <div class="cart-item-name">${item.name}</div>
-                <div class="cart-item-resto">${item.resto}</div>
+                ${restoHtml}
                 <div class="cart-item-price">${item.priceDisplay}</div>
             </div>
             <div class="cart-item-actions">
@@ -1123,7 +1340,7 @@ function updateCartDisplay() {
                 <button class="cart-item-remove" onclick="removeFromCart('${item.id}')"><i class="fas fa-trash"></i></button>
             </div>
         </div>
-    `).join('');
+    `}).join('');
     
     if (!allOpen && closedRestos.length > 0) {
         itemsHtml = `
@@ -1139,7 +1356,6 @@ function updateCartDisplay() {
     cartItems.innerHTML = itemsHtml;
 }
 
-// ==================== CHECKOUT CART AVEC NOUVEAU MESSAGE ====================
 function checkoutCart() {
     if (cart.length === 0) return;
     
@@ -1199,6 +1415,9 @@ function getProductImage(productName) {
     if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
     if (productName.includes('Pizza Mitro')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png';
     if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
+    // ZAKIA
+    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+    if (productName.includes('ZAKIA') || productName.includes('Zakia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png';
     return '';
 }
 
