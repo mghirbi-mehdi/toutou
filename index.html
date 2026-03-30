@@ -33,6 +33,10 @@
                 <span>Total:</span>
                 <span class="total-price" id="cartTotal">0 DT</span>
             </div>
+            <!-- BOUTON AJOUTER FRITES -->
+            <button class="btn-add-frites" id="addFritesBtn" onclick="addFritesToCart()" style="display: none; margin-bottom: 0.8rem; padding: 0.6rem; background: #ffa502; color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%;">
+                🍟 Ajouter des frites (+2,5 DT)
+            </button>
             <button class="btn-whatsapp-checkout" onclick="checkoutCart()" id="checkoutBtn" disabled>
                 <i class="fab fa-whatsapp"></i> Commander via WhatsApp
             </button>
@@ -51,8 +55,8 @@
             <div class="category-item" data-category="sandwich"><div class="category-icon">🥪</div><span>Sandwich</span></div>
             <div class="category-item" data-category="tacos"><div class="category-icon">🌮</div><span>Tacos</span></div>
             <div class="category-item" data-category="makloub"><div class="category-icon">🥙</div><span>Makloub</span></div>
-            <div class="category-item" data-category="baguette"><div class="category-icon">🥖</div><span>Baguette</span></div>
-            <div class="category-item" data-category="oriental"><div class="category-icon">🥙</div><span>Oriental</span></div>
+            <div class="category-item" data-category="baguette"><div class="category-icon">🥖</div><span>Baguette Farcie</span></div>
+            <div class="category-item" data-category="poulet"><div class="category-icon">🍗</div><span>Poulet</span></div>
             <div class="category-item" data-category="salad"><div class="category-icon">🥗</div><span>Salades</span></div>
         </div>
     </div>
@@ -554,6 +558,35 @@
             </div>
         </section>
 
+        <!-- ========== RESTAURANT ZAKIA ========== -->
+        <section class="restaurant-section" id="resto5">
+            <div class="restaurant-header">
+                <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png'); background-size: 150%; background-position: center 50%; background-repeat: no-repeat; background-color: white;"></div>
+                <div>
+                    <h2>ZAKIA</h2>
+                    <p>📍 Tunis • Beb Jdid • Ouvert 11h-23h</p>
+                </div>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Poulet Rôti -->
+                <div class="plat-card" data-category="poulet">
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png'); background-position: center; background-size: cover;"></div>
+                    <div class="plat-info">
+                        <h3>Poulet Rôti</h3>
+                        <p class="plat-description">Poulet rôti à la perfection, servi avec accompagnement au choix</p>
+                        <div class="plat-footer">
+                            <span class="prix">À partir de 8,5 DT</span>
+                            <div class="btn-group">
+                                <button class="btn-whatsapp-direct" onclick="showPouletModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                <button class="btn-add-to-cart" onclick="showPouletModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="contact-direct">
             <h3>🚚 Service Livraison Rapide</h3>
             <p>Contactez directement le responsable livraison pour toute information sur :</p>
@@ -653,6 +686,19 @@
             </div>
         </div>
     </div>
+
+   <!-- MODAL POUR POULET (ZAKIA) - VERSION 2 ÉTAPES -->
+<div id="pouletModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 550px;">
+        <div class="modal-header">
+            <h3>Choisissez votre Poulet</h3>
+            <span class="close-modal" onclick="closePouletModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div id="pouletOptions" class="poulet-options-grid"></div>
+        </div>
+    </div>
+</div>
 
     <div id="limitModal" class="limit-modal">
         <div class="limit-modal-content">
