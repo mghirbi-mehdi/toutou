@@ -5,7 +5,7 @@ const searchData = {
         { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
         { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
         { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte'] },
-        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie'] }
+        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie', 'pasta', 'ojja'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -50,7 +50,13 @@ const searchData = {
         { name: 'Baguette Farcie', resto: 'La Casa De Mama', price: '10 DT', logo: '🥖', category: 'baguette', type: 'plat', keywords: ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'] },
         
         // ==================== ZAKIA ====================
-        { name: 'Poulet Rôti', resto: 'ZAKIA', price: '8,5 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'] }
+        { name: 'Poulet Rôti', resto: 'ZAKIA', price: '8,5 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'] },
+        { name: 'Pasta fruit de mer', resto: 'ZAKIA', price: '30 DT', logo: '🍝', category: 'pasta', type: 'plat', keywords: ['pasta', 'fruit de mer', 'spaghetti', 'creme', 'tomate'] },
+        { name: 'Pasta escalope', resto: 'ZAKIA', price: '14 DT', logo: '🍝', category: 'pasta', type: 'plat', keywords: ['pasta', 'escalope', 'pané', 'creme'] },
+        { name: 'Pasta Merguez', resto: 'ZAKIA', price: '14 DT', logo: '🍝', category: 'pasta', type: 'plat', keywords: ['pasta', 'merguez', 'épicé', 'tomate'] },
+        { name: 'Ojja fruit de mer', resto: 'ZAKIA', price: '23 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'fruit de mer', 'oeuf', 'tomate'] },
+        { name: 'Ojja escalope', resto: 'ZAKIA', price: '14 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'escalope', 'oeuf', 'tomate'] },
+        { name: 'Ojja merguez', resto: 'ZAKIA', price: '14 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'merguez', 'oeuf', 'tomate', 'épicé'] }
     ]
 };
 
@@ -65,7 +71,8 @@ const categoryKeywords = {
     'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
     'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'],
-    'salad': ['salade', 'salad', 'mezzé', 'taboulé']
+    'pasta': ['pasta', 'spaghetti', 'fruit de mer', 'escalope', 'merguez', 'creme', 'tomate'],
+    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez']
 };
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
@@ -388,6 +395,18 @@ function searchSuggestions() {
         suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
         suggestions.push({ type: 'plat', icon: '🍗', title: 'Poulet Rôti', subtitle: 'ZAKIA', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Poulet Rôti')` });
     }
+    if (input.includes('pasta') || input.includes('fruit de mer') || input.includes('escalope') || input.includes('merguez')) {
+        suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
+        suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta fruit de mer', subtitle: 'ZAKIA', price: '30 DT', badge: 'Plat', action: `filterByPlat('Pasta fruit de mer')` });
+        suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Pasta escalope')` });
+        suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta Merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Pasta Merguez')` });
+    }
+    if (input.includes('ojja') || input.includes('oeuf') || input.includes('tomate')) {
+        suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
+        suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja fruit de mer', subtitle: 'ZAKIA', price: '23 DT', badge: 'Plat', action: `filterByPlat('Ojja fruit de mer')` });
+        suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja escalope')` });
+        suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja merguez')` });
+    }
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -484,6 +503,16 @@ function searchRestaurant() {
             }
             if (input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
                 if (nom === 'poulet rôti') match = true;
+            }
+            if (input.includes('pasta') || input.includes('fruit de mer') || input.includes('escalope') || input.includes('merguez')) {
+                if (nom === 'pasta fruit de mer') match = true;
+                if (nom === 'pasta escalope') match = true;
+                if (nom === 'pasta merguez') match = true;
+            }
+            if (input.includes('ojja') || input.includes('oeuf') || input.includes('tomate')) {
+                if (nom === 'ojja fruit de mer') match = true;
+                if (nom === 'ojja escalope') match = true;
+                if (nom === 'ojja merguez') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -1045,6 +1074,98 @@ function closePouletModal() {
     selectedPouletPrice = null;
 }
 
+// ==================== MODAL PASTA (ZAKIA) - VERSION SIMPLIFIÉE ====================
+const pastaOptionsList = [
+    { name: "Pasta fruit de mer", price: "30" },
+    { name: "Pasta escalope", price: "14" },
+    { name: "Pasta Merguez", price: "14" }
+];
+
+let currentPastaMode = null;
+
+function showPastaModal(mode) {
+    currentPastaMode = mode;
+    const modal = document.getElementById('pastaModal');
+    const optionsContainer = document.getElementById('pastaOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = pastaOptionsList.map(opt => `
+        <div class="pasta-option-btn" onclick="selectPastaOption('${opt.name}', '${opt.price}')">
+            <span class="pasta-option-name">${opt.name}</span>
+            <span class="pasta-option-price">${opt.price} DT</span>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePastaModal() {
+    const modal = document.getElementById('pastaModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectPastaOption(productName, price) {
+    closePastaModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
+    const restoName = 'ZAKIA';
+    
+    if (currentPastaMode === 'cart') {
+        addToCart(productName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MODAL OJJA (ZAKIA) ====================
+const ojjaOptionsList = [
+    { name: "Ojja fruit de mer", price: "23" },
+    { name: "Ojja escalope", price: "14" },
+    { name: "Ojja merguez", price: "14" }
+];
+
+let currentOjjaMode = null;
+
+function showOjjaModal(mode) {
+    currentOjjaMode = mode;
+    const modal = document.getElementById('ojjaModal');
+    const optionsContainer = document.getElementById('ojjaOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = ojjaOptionsList.map(opt => `
+        <div class="ojja-option-btn" onclick="selectOjjaOption('${opt.name}', '${opt.price}')">
+            <span class="ojja-option-name">${opt.name}</span>
+            <span class="ojja-option-price">${opt.price} DT</span>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeOjjaModal() {
+    const modal = document.getElementById('ojjaModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectOjjaOption(productName, price) {
+    closeOjjaModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
+    const restoName = 'ZAKIA';
+    
+    if (currentOjjaMode === 'cart') {
+        addToCart(productName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
 // ==================== COMMANDE DIRECTE ====================
 function commanderDirect(produit, prix, resto) {
     let cleanPrice = prix.toString().replace(' DT', '').trim();
@@ -1320,7 +1441,6 @@ function updateCartDisplay() {
             `<div class="cart-item-img emoji-img" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🍟</div>` :
             `<div class="cart-item-img" style="background-image: url('${getProductImage(item.name)}');"></div>`;
         
-        // Ne pas afficher le restaurant pour les frites
         const restoHtml = item.name === "🍟 Frites supplémentaires" ? 
             '' : 
             `<div class="cart-item-resto">${item.resto}</div>`;
@@ -1417,6 +1537,8 @@ function getProductImage(productName) {
     if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
     // ZAKIA
     if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
+    if (productName.includes('Pasta') || productName.includes('fruit de mer') || productName.includes('escalope') || productName.includes('Merguez')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
+    if (productName.includes('Ojja') || productName.includes('oeuf')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
     if (productName.includes('ZAKIA') || productName.includes('Zakia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png';
     return '';
 }
