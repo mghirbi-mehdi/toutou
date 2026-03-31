@@ -1673,3 +1673,118 @@ footer {
     font-size: 1.8rem;
     border-radius: 8px;
 }
+/* Pasta Modal Styles - Version simplifiée (comme les autres modales) */
+.pasta-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pasta-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.pasta-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.pasta-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+}
+
+.pasta-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.pasta-option-btn:hover .pasta-option-name {
+    color: white;
+}
+
+.pasta-option-btn:hover .pasta-option-price {
+    color: white;
+}
+
+/* Pour que le modal Pasta soit plus en haut comme la baguette */
+#pastaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#pastaModal .modal-body {
+    padding: 1rem;
+}
+/* Ojja Modal Styles */
+.ojja-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.ojja-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ojja-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.ojja-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+}
+
+.ojja-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.ojja-option-btn:hover .ojja-option-name,
+.ojja-option-btn:hover .ojja-option-price {
+    color: white;
+}
+
+#ojjaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#ojjaModal .modal-body {
+    padding: 1rem;
+}
