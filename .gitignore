@@ -1,0 +1,19 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-*
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.cache
+
+# Fichiers de configuration (si tu en as un jour)
+config.js
+.env
+.env.local
