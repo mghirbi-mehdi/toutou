@@ -479,7 +479,7 @@
                     <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png'); background-position: center 80%; background-size: cover;"></div>
                     <div class="plat-info">
                         <h3>4 Feux</h3>
-                        <p class="plat-description">Taille standard : Escalope / Jambon / Pepperoni</p>
+                        <p class="plat-description">Taille standard : Escalope, Jambon et Pepperoni</p>
                         <div class="plat-footer">
                             <span class="prix">15 DT</span>
                             <div class="btn-group">
@@ -537,7 +537,21 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Pizza 4 Fromage -->
+<div class="plat-card" data-category="pizza">
+    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png'); background-position: center; background-size: cover;"></div>
+    <div class="plat-info">
+        <h3>Pizza 4 Fromage</h3>
+        <p class="plat-description">Mozzarella, cheddar, gruyère, roquefort</p>
+        <div class="plat-footer">
+            <span class="prix">À partir de 9 DT</span>
+            <div class="btn-group">
+                <button class="btn-whatsapp-direct" onclick="showPizzaQuatreFromagesModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                <button class="btn-add-to-cart" onclick="showPizzaQuatreFromagesModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+            </div>
+        </div>
+    </div>
+</div>
                 <!-- Baguette Farcie -->
                 <div class="plat-card" data-category="baguette">
                     <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png'); background-position: center; background-size: cover;"></div>
@@ -587,8 +601,8 @@
                 <div class="plat-card" data-category="poulet">
                     <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png'); background-position: center; background-size: cover;"></div>
                     <div class="plat-info">
-                        <h3>Poulet Rôti</h3>
-                        <p class="plat-description">Poulet rôti à la perfection, servi avec accompagnement au choix</p>
+                        <h3>Poulet Mechwi</h3>
+                        <p class="plat-description">Poulet mechwi à la perfection, servi avec accompagnement au choix</p>
                         <div class="plat-footer">
                             <span class="prix">À partir de 8,5 DT</span>
                             <div class="btn-group">
@@ -787,6 +801,19 @@
             </div>
         </div>
     </div>
+    <!-- MODAL POUR PIZZA 4 FROMAGE (LA CASA DE MAMA) -->
+<div id="pizzaQuatreFromagesModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+            <h3>Choisissez votre taille</h3>
+            <span class="close-modal" onclick="closePizzaQuatreFromagesModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>Veuillez sélectionner la taille de votre Pizza 4 Fromage :</p>
+            <div id="pizzaQuatreFromagesOptions" class="pizza-options-grid"></div>
+        </div>
+    </div>
+</div>
 
     <div id="limitModal" class="limit-modal">
         <div class="limit-modal-content">
