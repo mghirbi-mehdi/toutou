@@ -11,8 +11,8 @@ const searchData = {
         // ==================== AL OSTEDH ====================
         { name: 'Burger Crispy', resto: 'AL OSTEDH', price: '17,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'crispy', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Classique', resto: 'AL OSTEDH', price: '18,6 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'classique', 'steak', 'cheddar', 'frites'] },
-        { name: 'Burger Mushroom Beef', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger mushroom beef', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
-        { name: 'Truff Burger Beef', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['truff burger beef', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
+        { name: 'Cheddar cheese', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
+        { name: 'Cheddar cheese', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
         
@@ -48,9 +48,9 @@ const searchData = {
         { name: 'Pizza Exacatory', resto: 'La Casa De Mama', price: '15 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'exacatory', 'double pâte', 'escalope', 'shawarma', 'champignons', 'pepperoni', 'sauce blanche', 'tomate', 'moyenne', 'maxi', 'xl'] },
         { name: 'Pizza Mitro', resto: 'La Casa De Mama', price: '25 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'mitro', 'sauce tomate', 'mozzarella', 'escalope', 'shawarma', 'jambon', 'champignons', 'thon'] },
         { name: 'Baguette Farcie', resto: 'La Casa De Mama', price: '10 DT', logo: '🥖', category: 'baguette', type: 'plat', keywords: ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'] },
-        { name: 'Anchilada escalope grillée', resto: 'La Casa De Mama', price: '8 DT', logo: '🌯', category: 'anchilada', type: 'plat', keywords: ['anchilada', 'escalope', 'grillée', 'mexicain'] },
-        { name: 'Anchilada escalope panée', resto: 'La Casa De Mama', price: '9 DT', logo: '🌯', category: 'anchilada', type: 'plat', keywords: ['anchilada', 'escalope', 'panée', 'mexicain'] },
-        { name: 'Anchilada cordon bleu', resto: 'La Casa De Mama', price: '10 DT', logo: '🌯', category: 'anchilada', type: 'plat', keywords: ['anchilada', 'cordon bleu', 'mexicain'] },
+        { name: 'Anchilada escalope grillée', resto: 'La Casa De Mama', price: '8 DT', logo: '🌯', category: 'sandwich', type: 'plat', keywords: ['anchilada', 'escalope', 'grillée', 'mexicain'] },
+        { name: 'Anchilada escalope panée', resto: 'La Casa De Mama', price: '9 DT', logo: '🌯', category: 'sandwich', type: 'plat', keywords: ['anchilada', 'escalope', 'panée', 'mexicain'] },
+        { name: 'Anchilada cordon bleu', resto: 'La Casa De Mama', price: '10 DT', logo: '🌯', category: 'sandwich', type: 'plat', keywords: ['anchilada', 'cordon bleu', 'mexicain'] },
         
         // ==================== ZAKIA ====================
         { name: 'Poulet Rôti', resto: 'ZAKIA', price: '8,5 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'] },
@@ -69,14 +69,13 @@ let selectedSuggestionIndex = -1;
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic', 'mini', 'moy', 'maxi', 'xl', 'exacatory', 'shawarma', 'champignons', 'mitro'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
-    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux'],
+    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux', 'anchilada', 'cordon bleu', 'mexicain'],
     'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets'],
     'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
     'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'],
     'pasta': ['pasta', 'spaghetti', 'fruit de mer', 'escalope', 'merguez', 'creme', 'tomate'],
-    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez'],
-    'anchilada': ['anchilada', 'escalope', 'grillée', 'panée', 'cordon bleu', 'mexicain']
+    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez']
 };
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
@@ -395,6 +394,12 @@ function searchSuggestions() {
     if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
         suggestions.push({ type: 'plat', icon: '🥖', title: 'Baguette Farcie', subtitle: 'La Casa De Mama', price: 'À partir de 10 DT', badge: 'Plat', action: `filterByPlat('Baguette Farcie')` });
     }
+    if (input.includes('sandwich') || input.includes('anchilada') || input.includes('mexicain') || input.includes('cordon bleu')) {
+        suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
+        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope grillée', subtitle: 'La Casa De Mama', price: '8 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope grillée')` });
+        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope panée', subtitle: 'La Casa De Mama', price: '9 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope panée')` });
+        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada cordon bleu', subtitle: 'La Casa De Mama', price: '10 DT', badge: 'Plat', action: `filterByPlat('Anchilada cordon bleu')` });
+    }
     if (input.includes('zakia') || input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
         suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
         suggestions.push({ type: 'plat', icon: '🍗', title: 'Poulet Rôti', subtitle: 'ZAKIA', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Poulet Rôti')` });
@@ -410,12 +415,6 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja fruit de mer', subtitle: 'ZAKIA', price: '23 DT', badge: 'Plat', action: `filterByPlat('Ojja fruit de mer')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja escalope')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja merguez')` });
-    }
-    if (input.includes('anchilada') || input.includes('mexicain') || input.includes('cordon bleu')) {
-        suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
-        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope grillée', subtitle: 'La Casa De Mama', price: '8 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope grillée')` });
-        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope panée', subtitle: 'La Casa De Mama', price: '9 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope panée')` });
-        suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada cordon bleu', subtitle: 'La Casa De Mama', price: '10 DT', badge: 'Plat', action: `filterByPlat('Anchilada cordon bleu')` });
     }
     displaySuggestions(suggestions.slice(0, 8));
 }
@@ -511,6 +510,11 @@ function searchRestaurant() {
             if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
                 if (nom === 'baguette farcie') match = true;
             }
+            if (input.includes('anchilada') || input.includes('mexicain') || input.includes('cordon bleu')) {
+                if (nom === 'anchilada escalope grillée') match = true;
+                if (nom === 'anchilada escalope panée') match = true;
+                if (nom === 'anchilada cordon bleu') match = true;
+            }
             if (input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
                 if (nom === 'poulet rôti') match = true;
             }
@@ -523,11 +527,6 @@ function searchRestaurant() {
                 if (nom === 'ojja fruit de mer') match = true;
                 if (nom === 'ojja escalope') match = true;
                 if (nom === 'ojja merguez') match = true;
-            }
-            if (input.includes('anchilada') || input.includes('mexicain') || input.includes('cordon bleu')) {
-                if (nom === 'anchilada escalope grillée') match = true;
-                if (nom === 'anchilada escalope panée') match = true;
-                if (nom === 'anchilada cordon bleu') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -1569,8 +1568,8 @@ function getProductImage(productName) {
     if (productName.includes('Burger Classique')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788838/alostedh_zw5zjf.png';
     if (productName.includes('Burger Double Beef')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788845/burger_double_beef_hn1rtw.png';
     if (productName.includes('Burger Super Crispy')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788846/burger_super_cripsy_w5238p.png';
-    if (productName.includes('Burger Mushroom Beef') && productName.includes('21,9')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
-    if (productName.includes('Truff Burger Beef') && productName.includes('23')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
+    if (productName.includes('Cheddar cheese') && productName.includes('21,9')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788843/burger_mushroom_beef_rmrvxl.png';
+    if (productName.includes('Cheddar cheese') && productName.includes('23')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788938/truffe_burger_beef_xqzvro.png';
     if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
