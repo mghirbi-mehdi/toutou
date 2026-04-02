@@ -1263,7 +1263,7 @@ function showPizzaQuatreFromagesModal(mode) {
         <div class="pizza-option-btn" onclick="selectPizzaQuatreFromagesOption('${opt.name}', '${opt.price}', '${opt.size}')">
             <div style="flex: 1;">
                 <div class="pizza-option-name">${opt.name}</div>
-                <div class="pizza-option-desc">Pizza 4 Fromage ${opt.size}</div>
+                <div class="pizza-option-desc">Pizza 4 Fromage </div>
             </div>
             <div class="pizza-option-price">${opt.price} DT</div>
         </div>
