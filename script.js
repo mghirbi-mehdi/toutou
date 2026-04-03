@@ -1,11 +1,12 @@
 // ==================== DONNÉES POUR LA RECHERCHE ====================
 const searchData = {
     restaurants: [
-        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich'] },
+        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich', 'tacos'] },
         { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
         { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
         { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte', 'anchilada', '4 fromage'] },
-        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie', 'pasta', 'ojja'] }
+        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie', 'pasta', 'ojja'] },
+        { id: 'resto6', name: 'DIDI', logo: '🍽️', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['didi', 'lafayette', 'tunis', 'poulet', 'makrouna', 'tastira', 'loubia', 'sandwich', 'thon', 'kafteji', 'shan', 'tounsi', 'plat'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -15,6 +16,9 @@ const searchData = {
         { name: 'Cheddar cheese', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
+        { name: 'Tacos 2 viandes', resto: 'AL OSTEDH', price: '17 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', '2 viandes', 'boeuf', 'poulet'] },
+        { name: 'Tacos escalope à la crème', resto: 'AL OSTEDH', price: '15,3 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'escalope', 'creme', 'poulet'] },
+        { name: 'Tacos crispy', resto: 'AL OSTEDH', price: '15,3 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'crispy', 'poulet', 'pané'] },
         
         // ==================== SANDWICHS ESCALOPE AL OSTEDH ====================
         { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'base', 'gruyère', 'pepperoni', 'mozzarella', 'cheddar', 'raclette'] },
@@ -63,7 +67,21 @@ const searchData = {
         { name: 'Pasta Merguez', resto: 'ZAKIA', price: '14 DT', logo: '🍝', category: 'pasta', type: 'plat', keywords: ['pasta', 'merguez', 'épicé', 'tomate'] },
         { name: 'Ojja fruit de mer', resto: 'ZAKIA', price: '23 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'fruit de mer', 'oeuf', 'tomate'] },
         { name: 'Ojja escalope', resto: 'ZAKIA', price: '14 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'escalope', 'oeuf', 'tomate'] },
-        { name: 'Ojja merguez', resto: 'ZAKIA', price: '14 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'merguez', 'oeuf', 'tomate', 'épicé'] }
+        { name: 'Ojja merguez', resto: 'ZAKIA', price: '14 DT', logo: '🍳', category: 'ojja', type: 'plat', keywords: ['ojja', 'merguez', 'oeuf', 'tomate', 'épicé'] },
+        
+        // ==================== DIDI POULET ====================
+        { name: 'Quart de poulet', resto: 'DIDI', price: '8 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'quart', 'didi', 'makrouna', 'tastira', 'loubia'] },
+        { name: 'Demi poulet', resto: 'DIDI', price: '14 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'demi', 'didi', 'makrouna', 'tastira', 'loubia'] },
+        { name: 'Poulet entier', resto: 'DIDI', price: '24 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'entier', 'didi', 'makrouna', 'tastira', 'loubia'] },
+        { name: 'Poulet sec', resto: 'DIDI', price: '20 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'sec', 'didi'] },
+        
+        // ==================== DIDI SANDWICHS ====================
+        { name: 'Sandwich thon frit', resto: 'DIDI', price: '7 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['sandwich', 'thon', 'frit', 'didi', 'lafayette'] },
+        { name: 'Sandwich kafteji frit', resto: 'DIDI', price: '4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['sandwich', 'kafteji', 'frit', 'didi', 'lafayette', 'pomme de terre', 'oeuf'] },
+        { name: 'Sandwich poulet frit', resto: 'DIDI', price: '5 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['sandwich', 'poulet', 'frit', 'didi', 'lafayette'] },
+        
+        // ==================== DIDI SHAN TOUNSI ====================
+        { name: 'Shan Tounsi', resto: 'DIDI', price: '12 DT', logo: '🍲', category: 'plat', type: 'plat', keywords: ['shan', 'tounsi', 'tunisien', 'didi', 'plat', 'traditionnel', 'couscous'] }
     ]
 };
 
@@ -73,13 +91,14 @@ let selectedSuggestionIndex = -1;
 const categoryKeywords = {
     'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic', 'mini', 'moy', 'maxi', 'xl', 'exacatory', 'shawarma', 'champignons', 'mitro', '4 fromage', 'roquefort'],
     'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
-    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux', 'anchilada', 'cordon bleu', 'mexicain'],
-    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets'],
+    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux', 'anchilada', 'cordon bleu', 'mexicain', 'thon', 'kafteji', 'poulet frit'],
+    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets', '2 viandes', 'escalope à la crème', 'crispy'],
     'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
     'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
-    'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'],
+    'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier', 'sec'],
     'pasta': ['pasta', 'spaghetti', 'fruit de mer', 'escalope', 'merguez', 'creme', 'tomate'],
-    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez']
+    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez'],
+    'plat': ['plat', 'principal', 'specialite', 'shan', 'tounsi', 'couscous', 'traditionnel']
 };
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
@@ -88,7 +107,8 @@ const forceClosed = {
     'resto2': false,
     'resto3': false,
     'resto4': false,
-    'resto5': false
+    'resto5': false,
+    'resto6': false
 };
 
 // ==================== SYSTÈME DE VÉRIFICATION DES HORAIRES ====================
@@ -427,6 +447,23 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja escalope')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja merguez')` });
     }
+    if (input.includes('tacos') || input.includes('2 viandes') || input.includes('escalope à la crème') || input.includes('crispy')) {
+        suggestions.push({ type: 'restaurant', icon: '🍔', title: 'AL OSTEDH', subtitle: '📍 LAFAYETTE • 10h-22h', badge: 'Restaurant', action: `filterByRestaurant('resto1')` });
+        suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos 2 viandes', subtitle: 'AL OSTEDH', price: '17 DT', badge: 'Plat', action: `filterByPlat('Tacos 2 viandes')` });
+        suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos escalope à la crème', subtitle: 'AL OSTEDH', price: '15,3 DT', badge: 'Plat', action: `filterByPlat('Tacos escalope à la crème')` });
+        suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos crispy', subtitle: 'AL OSTEDH', price: '15,3 DT', badge: 'Plat', action: `filterByPlat('Tacos crispy')` });
+    }
+    if (input.includes('didi')) {
+        suggestions.push({ type: 'restaurant', icon: '🍽️', title: 'DIDI', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto6')` });
+    }
+    if (input.includes('sandwich') && input.includes('didi')) {
+        suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich thon frit', subtitle: 'DIDI', price: '7 DT', badge: 'Plat', action: `filterByPlat('Sandwich thon frit')` });
+        suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich kafteji frit', subtitle: 'DIDI', price: '4 DT', badge: 'Plat', action: `filterByPlat('Sandwich kafteji frit')` });
+        suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich poulet frit', subtitle: 'DIDI', price: '5 DT', badge: 'Plat', action: `filterByPlat('Sandwich poulet frit')` });
+    }
+    if (input.includes('shan') || input.includes('tounsi') || input.includes('plat')) {
+        suggestions.push({ type: 'plat', icon: '🍲', title: 'Shan Tounsi', subtitle: 'DIDI', price: '12 DT', badge: 'Plat', action: `filterByPlat('Shan Tounsi')` });
+    }
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -544,6 +581,20 @@ function searchRestaurant() {
                 if (nom === 'ojja fruit de mer') match = true;
                 if (nom === 'ojja escalope') match = true;
                 if (nom === 'ojja merguez') match = true;
+            }
+            if (input.includes('tacos') || input.includes('2 viandes') || input.includes('escalope à la crème') || input.includes('crispy')) {
+                if (nom === 'tacos 2 viandes') match = true;
+                if (nom === 'tacos escalope à la crème') match = true;
+                if (nom === 'tacos crispy') match = true;
+            }
+            if (input.includes('didi')) {
+                if (nomResto.includes('didi')) match = true;
+            }
+            if (input.includes('sandwich thon') || input.includes('sandwich kafteji') || input.includes('sandwich poulet')) {
+                if (nom === 'sandwichs') match = true;
+            }
+            if (input.includes('shan') || input.includes('tounsi')) {
+                if (nom === 'shan tounsi') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -1263,7 +1314,7 @@ function showPizzaQuatreFromagesModal(mode) {
         <div class="pizza-option-btn" onclick="selectPizzaQuatreFromagesOption('${opt.name}', '${opt.price}', '${opt.size}')">
             <div style="flex: 1;">
                 <div class="pizza-option-name">${opt.name}</div>
-                <div class="pizza-option-desc">Pizza 4 Fromage </div>
+                <div class="pizza-option-desc">Pizza 4 Fromage ${opt.size}</div>
             </div>
             <div class="pizza-option-price">${opt.price} DT</div>
         </div>
@@ -1290,6 +1341,263 @@ function selectPizzaQuatreFromagesOption(size, price, pizzaSize) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MODAL TACOS (AL OSTEDH) ====================
+const tacosAlOstedhOptionsList = [
+    { name: "Tacos 2 viandes", price: "17" },
+    { name: "Tacos escalope à la crème", price: "15.3" },
+    { name: "Tacos crispy", price: "15.3" }
+];
+
+let currentTacosAlOstedhMode = null;
+
+function showTacosAlOstedhModal(mode) {
+    currentTacosAlOstedhMode = mode;
+    const modal = document.getElementById('tacosAlOstedhModal');
+    const optionsContainer = document.getElementById('tacosAlOstedhOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = tacosAlOstedhOptionsList.map(opt => `
+        <div class="tacos-option-btn" onclick="selectTacosAlOstedhOption('${opt.name}', '${opt.price}')">
+            <span class="tacos-option-name">${opt.name}</span>
+            <span class="tacos-option-price">${opt.price} DT</span>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTacosAlOstedhModal() {
+    const modal = document.getElementById('tacosAlOstedhModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectTacosAlOstedhOption(productName, price) {
+    closeTacosAlOstedhModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
+    const restoName = 'AL OSTEDH';
+    
+    if (currentTacosAlOstedhMode === 'cart') {
+        addToCart(productName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+// ==================== MODAL POULET (DIDI) ====================
+const pouletDidiTailleOptions = [
+    { name: "Quart de poulet", prices: { makrouna: "8", tastira: "8", loubia: "8" } },
+    { name: "Demi poulet", prices: { makrouna: "14", tastira: "14", loubia: "14" } },
+    { name: "Poulet entier", prices: { makrouna: "24", tastira: "24", loubia: "24" } },
+    { name: "Poulet sec", prices: { makrouna: "20", tastira: "20", loubia: "20" }, noAccompaniment: true }
+];
+
+const pouletDidiAccompagnementOptions = [
+    { name: "Makrouna" },
+    { name: "Tastira" },
+    { name: "Loubia" }
+];
+
+let currentPouletDidiMode = null;
+let selectedPouletDidiTaille = null;
+let selectedPouletDidiAccompagnement = null;
+let selectedPouletDidiPrice = null;
+
+function showPouletDidiModal(mode) {
+    currentPouletDidiMode = mode;
+    selectedPouletDidiTaille = null;
+    selectedPouletDidiAccompagnement = null;
+    selectedPouletDidiPrice = null;
+    
+    const modal = document.getElementById('pouletDidiModal');
+    const optionsContainer = document.getElementById('pouletDidiOptions');
+    if (!modal || !optionsContainer) return;
+    
+    let html = '<div class="poulet-didi-step"><div class="poulet-didi-step-title">1. Choisissez la taille :</div><div class="poulet-didi-size-grid">';
+    pouletDidiTailleOptions.forEach(opt => {
+        html += `<div class="poulet-didi-size-btn" onclick="selectTaillePouletDidi('${opt.name}')">
+                    <div class="poulet-didi-size-name">${opt.name}</div>
+                </div>`;
+    });
+    html += '</div></div>';
+    html += '<div id="pouletDidiAccompagnementStep" style="display: none;"><div class="poulet-didi-step-title">2. Choisissez l\'accompagnement :</div><div class="poulet-didi-accompagnement-grid">';
+    
+    if (selectedPouletDidiTaille) {
+        const tailleObj = pouletDidiTailleOptions.find(t => t.name === selectedPouletDidiTaille);
+        if (tailleObj && tailleObj.noAccompaniment) {
+            document.getElementById('pouletDidiAccompagnementStep').style.display = 'none';
+            document.getElementById('pouletDidiConfirmDiv').style.display = 'block';
+            return;
+        } else if (tailleObj) {
+            pouletDidiAccompagnementOptions.forEach(opt => {
+                let price = '';
+                if (opt.name === 'Makrouna') price = tailleObj.prices.makrouna;
+                else if (opt.name === 'Tastira') price = tailleObj.prices.tastira;
+                else if (opt.name === 'Loubia') price = tailleObj.prices.loubia;
+                
+                html += `<div class="poulet-didi-accompagnement-btn" onclick="selectAccompagnementPouletDidi('${opt.name}', '${price}')">
+                            <div class="poulet-didi-accompagnement-name">${opt.name}</div>
+                            <div class="poulet-didi-accompagnement-price">${price} DT</div>
+                        </div>`;
+            });
+        }
+    } else {
+        pouletDidiAccompagnementOptions.forEach(opt => {
+            html += `<div class="poulet-didi-accompagnement-btn" onclick="selectAccompagnementPouletDidi('${opt.name}', '')">
+                        <div class="poulet-didi-accompagnement-name">${opt.name}</div>
+                        <div class="poulet-didi-accompagnement-price">- DT</div>
+                    </div>`;
+        });
+    }
+    
+    html += '</div></div>';
+    html += '<div id="pouletDidiConfirmDiv" style="display: none; margin-top: 1rem;"><button class="poulet-didi-confirm-btn" onclick="confirmerPouletDidi()">✅ Valider la commande</button></div>';
+    
+    optionsContainer.innerHTML = html;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function selectTaillePouletDidi(taille) {
+    selectedPouletDidiTaille = taille;
+    document.querySelectorAll('.poulet-didi-size-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.poulet-didi-size-btn').classList.add('selected');
+    
+    const tailleObj = pouletDidiTailleOptions.find(t => t.name === selectedPouletDidiTaille);
+    
+    if (tailleObj && tailleObj.noAccompaniment) {
+        document.getElementById('pouletDidiAccompagnementStep').style.display = 'none';
+        document.getElementById('pouletDidiConfirmDiv').style.display = 'block';
+        return;
+    }
+    
+    const accompagnementGrid = document.querySelector('.poulet-didi-accompagnement-grid');
+    
+    if (accompagnementGrid && tailleObj) {
+        let newHtml = '';
+        pouletDidiAccompagnementOptions.forEach(opt => {
+            let price = '';
+            if (opt.name === 'Makrouna') price = tailleObj.prices.makrouna;
+            else if (opt.name === 'Tastira') price = tailleObj.prices.tastira;
+            else if (opt.name === 'Loubia') price = tailleObj.prices.loubia;
+            
+            newHtml += `<div class="poulet-didi-accompagnement-btn" onclick="selectAccompagnementPouletDidi('${opt.name}', '${price}')">
+                            <div class="poulet-didi-accompagnement-name">${opt.name}</div>
+                            <div class="poulet-didi-accompagnement-price">${price} DT</div>
+                        </div>`;
+        });
+        accompagnementGrid.innerHTML = newHtml;
+    }
+    
+    document.getElementById('pouletDidiAccompagnementStep').style.display = 'block';
+}
+
+function selectAccompagnementPouletDidi(accompagnement, price) {
+    selectedPouletDidiAccompagnement = accompagnement;
+    selectedPouletDidiPrice = price;
+    document.querySelectorAll('.poulet-didi-accompagnement-btn').forEach(btn => btn.classList.remove('selected'));
+    event.target.closest('.poulet-didi-accompagnement-btn').classList.add('selected');
+    document.getElementById('pouletDidiConfirmDiv').style.display = 'block';
+}
+
+function confirmerPouletDidi() {
+    if (!selectedPouletDidiTaille) {
+        alert("Veuillez d'abord choisir la taille !");
+        return;
+    }
+    
+    const tailleObj = pouletDidiTailleOptions.find(t => t.name === selectedPouletDidiTaille);
+    let productName = '';
+    let price = '';
+    
+    if (tailleObj && tailleObj.noAccompaniment) {
+        productName = `Poulet sec`;
+        price = "20";
+    } else {
+        if (!selectedPouletDidiAccompagnement) {
+            alert("Veuillez d'abord choisir l'accompagnement !");
+            return;
+        }
+        productName = `${selectedPouletDidiTaille} - ${selectedPouletDidiAccompagnement}`;
+        price = selectedPouletDidiPrice;
+    }
+    
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    const restoName = 'DIDI';
+    
+    closePouletDidiModal();
+    
+    if (currentPouletDidiMode === 'cart') {
+        addToCart(productName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
+
+function closePouletDidiModal() {
+    const modal = document.getElementById('pouletDidiModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    selectedPouletDidiTaille = null;
+    selectedPouletDidiAccompagnement = null;
+    selectedPouletDidiPrice = null;
+}
+
+// ==================== MODAL SANDWICHS (DIDI) ====================
+const sandwichDidiOptionsList = [
+    { name: "Sandwich thon ", price: "7", description: "avec frite" },
+    { name: "Sandwich kafteji ", price: "4", description: "avec frite" },
+    { name: "Sandwich poulet ", price: "5", description: "avec frite" }
+];
+
+let currentSandwichDidiMode = null;
+
+function showSandwichDidiModal(mode) {
+    currentSandwichDidiMode = mode;
+    const modal = document.getElementById('sandwichDidiModal');
+    const optionsContainer = document.getElementById('sandwichDidiOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = sandwichDidiOptionsList.map(opt => `
+        <div class="sandwich-didi-option-btn" onclick="selectSandwichDidiOption('${opt.name.replace(/'/g, "\\'")}', '${opt.price}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="sandwich-didi-option-name">${opt.name}</div>
+                <div class="sandwich-didi-option-description">${opt.description}</div>
+            </div>
+            <div class="sandwich-didi-option-price">${opt.price} DT</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSandwichDidiModal() {
+    const modal = document.getElementById('sandwichDidiModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectSandwichDidiOption(productName, price, description) {
+    closeSandwichDidiModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+    const restoName = 'DIDI';
+    const fullProductName = productName;
+    
+    if (currentSandwichDidiMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
@@ -1469,6 +1777,7 @@ function checkCartRestaurantsStatus() {
             else if (restoName === 'King Street') restoSection = document.getElementById('resto3');
             else if (restoName === 'La Casa De Mama') restoSection = document.getElementById('resto4');
             else if (restoName === 'ZAKIA') restoSection = document.getElementById('resto5');
+            else if (restoName === 'DIDI') restoSection = document.getElementById('resto6');
             
             if (restoSection) {
                 const hoursElement = restoSection.querySelector('.restaurant-header p');
@@ -1508,7 +1817,8 @@ function showRestaurantClosedModal(closedRestos) {
                 • CHICK'IN : 11h - 23h<br>
                 • King Street : 11h - 23h<br>
                 • La Casa De Mama : 11h - 23h<br>
-                • ZAKIA : 11h - 23h</p>
+                • ZAKIA : 11h - 23h<br>
+                • DIDI : 11h - 23h</p>
             </div>
             <div class="restaurant-closed-footer">
                 <button class="restaurant-closed-btn" onclick="this.closest('.restaurant-closed-modal').remove(); document.body.style.overflow = 'auto';">Compris</button>
@@ -1641,6 +1951,7 @@ function getProductImage(productName) {
     if (productName.includes('Pizza 4 choix')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788911/pizza_4choix_bigmax_efwgr9.png';
     if (productName.includes('Pizza big max Thon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     if (productName.includes('Pizza Big jambon')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788918/Pizza_Big_jambon_fum%C3%A9_et_crispy_umdemv.png';
+    if (productName.includes('Tacos')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png';
     // Escalope
     if (productName.includes('Spécial escalope')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774131090/Sadwich_escalope_lahxch.png';
     // CHICK'IN
@@ -1670,6 +1981,11 @@ function getProductImage(productName) {
     if (productName.includes('Pasta') || productName.includes('fruit de mer') || productName.includes('escalope') || productName.includes('Merguez')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
     if (productName.includes('Ojja') || productName.includes('oeuf')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951260/ojja_zakia_ximfo4.png';
     if (productName.includes('ZAKIA') || productName.includes('Zakia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png';
+    // DIDI
+    if (productName.includes('Poulet sec')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png';
+    if (productName.includes('Sandwich thon frit') || productName.includes('Sandwich kafteji frit') || productName.includes('Sandwich poulet frit') || productName.includes('Sandwich thon') || productName.includes('Sandwich kafteji') || productName.includes('Sandwich poulet')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png';
+    if (productName.includes('Shan Tounsi')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png';
     return '';
 }
 
