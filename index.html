@@ -58,6 +58,7 @@
             <div class="category-item" data-category="poulet"><div class="category-icon">🍗</div><span>Poulet</span></div>
             <div class="category-item" data-category="pasta"><div class="category-icon">🍝</div><span>Pasta</span></div>
             <div class="category-item" data-category="ojja"><div class="category-icon">🍳</div><span>Ojja</span></div>
+            <div class="category-item" data-category="plat"><div class="category-icon">🍲</div><span>plat</span></div>
         </div>
     </div>
 
@@ -173,6 +174,21 @@
                         </div>
                     </div>
                 </div>
+                                <!-- Tacos -->
+                                <div class="plat-card" data-category="tacos">
+                                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775152509/tacos_alostedhhh_l5qajp.png'); background-position: center 56%; background-size: cover;"></div>
+                                    <div class="plat-info">
+                                        <h3>Tacos</h3>
+                                        <p class="plat-description">Tacos maison - Au choix : 2 viandes, Escalope à la crème ou Crispy</p>
+                                        <div class="plat-footer">
+                                            <span class="prix">À partir de 15,3 DT</span>
+                                            <div class="btn-group">
+                                                <button class="btn-whatsapp-direct" onclick="showTacosAlOstedhModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                                                <button class="btn-add-to-cart" onclick="showTacosAlOstedhModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                 <!-- Pizzas -->
                 <div class="plat-card" data-category="pizza">
@@ -261,7 +277,7 @@
             <div class="menu-grid">
                 <!-- Frenchy Tacos -->
                 <div class="plat-card" data-category="tacos">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png'); background-position: center 50%;"></div>
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773804616/frenshy_tacos_c83sdp.png'); background-position: center 70%;"></div>
                     <div class="plat-info">
                         <h3>Frenchy Tacos</h3>
                         <p class="plat-description">Tenders de poulet, pomme frite, sauce fromagère, sauce kewpie, lava sauce, laitue, oignons caramélisés <span class="highlight-offer">avec Boisson & Frites !</span></p>
@@ -277,7 +293,7 @@
 
                 <!-- Cheesy Burrito -->
                 <div class="plat-card" data-category="tacos">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png'); background-position: center 50%;"></div>
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773804874/cheesy_buritto_xtij9i.png'); background-position: center 70%;"></div>
                     <div class="plat-info">
                         <h3>Cheesy Burrito</h3>
                         <p class="plat-description">Tenders de poulet, sauce cheddar, fromage mozzarella, coleslaw, oignons caramélisés, sauce kewpie, lava sauce <span class="highlight-offer">avec Boisson & Frites !</span></p>
@@ -646,6 +662,66 @@
                 </div>
             </div>
         </section>
+               <!-- ========== RESTAURANT DIDI ========== -->
+<section class="restaurant-section" id="resto6">
+    <div class="restaurant-header">
+        <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775174573/didi_resto_wykwhc.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: white;"></div>
+        <div>
+            <h2>DIDI</h2>
+            <p>📍 Tunis • Beb Khadhra • Ouvert 11h-23h</p>
+        </div>
+    </div>
+    
+    <div class="menu-grid">
+        <!-- Poulet -->
+        <div class="plat-card" data-category="poulet">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775152523/poulet_didi_yicgsm.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Poulet</h3>
+                <p class="plat-description">Poulet rôti à la perfection, servi avec accompagnement au choix</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 8 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showPouletDidiModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showPouletDidiModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sandwichs -->
+        <div class="plat-card" data-category="sandwich">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775152551/sandwich_thon_frite_didi_k2g3p2.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Sandwichs</h3>
+                <p class="plat-description">Sandwich thon frit • Sandwich kafteji frit • Sandwich poulet frit</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 4 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showSandwichDidiModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showSandwichDidiModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shan Tounsi -->
+        <div class="plat-card" data-category="plat">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Shan Tounsi</h3>
+                <p class="plat-description">Shan tunisien traditionnel - Plat généreux et savoureux</p>
+                <div class="plat-footer">
+                    <span class="prix">12 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="commanderDirect('Shan Tounsi', '12 DT', 'DIDI')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Shan Tounsi', '12 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775152532/shan_tounsi_didi_sohp3n.png', 'DIDI', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <div class="contact-direct">
             <h3>🚚 Service Livraison Rapide</h3>
@@ -814,7 +890,44 @@
         </div>
     </div>
 </div>
-
+    <!-- MODAL POUR TACOS (AL OSTEDH) -->
+    <div id="tacosAlOstedhModal" class="choice-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>Choisissez votre Tacos</h3>
+                <span class="close-modal" onclick="closeTacosAlOstedhModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Veuillez sélectionner votre option :</p>
+                <div id="tacosAlOstedhOptions" class="tacos-options-grid"></div>
+            </div>
+        </div>
+    </div>
+        <!-- MODAL POUR POULET (DIDI) -->
+        <div id="pouletDidiModal" class="choice-modal">
+            <div class="modal-content" style="max-width: 550px;">
+                <div class="modal-header">
+                    <h3>Choisissez votre Poulet</h3>
+                    <span class="close-modal" onclick="closePouletDidiModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="pouletDidiOptions" class="poulet-didi-options-grid"></div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL POUR SANDWICHS (DIDI) -->
+<div id="sandwichDidiModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+            <h3>Choisissez votre Sandwich</h3>
+            <span class="close-modal" onclick="closeSandwichDidiModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>Veuillez sélectionner votre sandwich :</p>
+            <div id="sandwichDidiOptions" class="sandwich-didi-options-grid"></div>
+        </div>
+    </div>
+</div>
     <div id="limitModal" class="limit-modal">
         <div class="limit-modal-content">
             <div class="limit-modal-header"><span class="limit-modal-icon">⚠️</span><h3>Limite atteinte</h3></div>
