@@ -74,7 +74,7 @@
                 <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773788936/logo_alostedh_ts43gs.png'); background-size: contain; background-position: center 60%; background-repeat: no-repeat; background-color: white;"></div>
                 <div>
                     <h2>AL OSTEDH</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 10h-22h</p>
+                    <p>📍 Tunis • Lafayette • Ouvert 11h-00h</p>
                 </div>
             </div>
             
@@ -271,7 +271,7 @@
                 <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1773799035/logo_chickin_snt7ag.png'); background-size: cover; background-position: center 90%;"></div>
                 <div>
                     <h2>CHICK'IN</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 11h-23h</p>
+                    <p>📍 Tunis • Lafayette • Ouvert 11h-00h</p>
                 </div>
             </div>
             <div class="menu-grid">
@@ -427,7 +427,7 @@
                 <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774519594/logo_king_street_ioklwi.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
                 <div>
                     <h2>King Street</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 11h-23h</p>
+                    <p>📍 Tunis • Lafayette • Ouvert 11h-01h</p>
                 </div>
             </div>
             
@@ -485,7 +485,7 @@
                 <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774541009/logo_lacasa_de_mama_aw5r6e.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat;"></div>
                 <div>
                     <h2>La Casa De Mama</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 11h-23h</p>
+                    <p>📍 Tunis • Lafayette • Ouvert 11h-01h</p>
                 </div>
             </div>
             
@@ -570,7 +570,7 @@
 </div>
                 <!-- Baguette Farcie -->
                 <div class="plat-card" data-category="baguette">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png'); background-position: center; background-size: cover;"></div>
+                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png'); background-position: center; background-size: cover;"></div>
                     <div class="plat-info">
                         <h3>Baguette Farcie</h3>
                         <p class="plat-description">Escalope / Shawarma / Mixte, Jambon, Fromage</p>
@@ -600,6 +600,21 @@
                     </div>
                 </div>
             </div>
+            <!-- Makloub -->
+<div class="plat-card" data-category="makloub">
+    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png'); background-position: center; background-size: cover;"></div>
+    <div class="plat-info">
+        <h3>Makloub</h3>
+        <p class="plat-description">Escalope grillée • Escalope panée • Shawarma • Cordon bleu • Thon • Jambon</p>
+        <div class="plat-footer">
+            <span class="prix">À partir de 6 DT</span>
+            <div class="btn-group">
+                <button class="btn-whatsapp-direct" onclick="showMakloubLaCasaModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                <button class="btn-add-to-cart" onclick="showMakloubLaCasaModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+            </div>
+        </div>
+    </div>
+</div>
         </section>
 
         <!-- ========== RESTAURANT ZAKIA ========== -->
@@ -608,7 +623,7 @@
                 <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774900511/zakia_logo_whzfbt.png'); background-size: 150%; background-position: center 50%; background-repeat: no-repeat; background-color: white;"></div>
                 <div>
                     <h2>ZAKIA BEB JDID </h2>
-                    <p>📍 Tunis • Beb Jdid • Ouvert 11h-23h</p>
+                    <p>📍 Tunis • Beb Jdid • Ouvert 17h-02h</p>
                 </div>
             </div>
             
@@ -668,7 +683,7 @@
         <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775174573/didi_resto_wykwhc.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: white;"></div>
         <div>
             <h2>DIDI</h2>
-            <p>📍 Tunis • Beb Khadhra • Ouvert 11h-23h</p>
+            <p>📍 Tunis • Beb Khadhra • Ouvert 11h-02h</p>
         </div>
     </div>
     
@@ -877,6 +892,19 @@
             </div>
         </div>
     </div>
+    <!-- MODAL POUR MAKLOUB (LA CASA DE MAMA) -->
+<div id="makloubLaCasaModal" class="choice-modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+            <h3>Choisissez votre Makloub</h3>
+            <span class="close-modal" onclick="closeMakloubLaCasaModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>Veuillez sélectionner votre option :</p>
+            <div id="makloubLaCasaOptions" class="makloub-lacasa-options-grid"></div>
+        </div>
+    </div>
+</div>
     <!-- MODAL POUR PIZZA 4 FROMAGE (LA CASA DE MAMA) -->
 <div id="pizzaQuatreFromagesModal" class="choice-modal">
     <div class="modal-content" style="max-width: 500px;">
