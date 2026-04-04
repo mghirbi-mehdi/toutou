@@ -1,12 +1,12 @@
 // ==================== DONNÉES POUR LA RECHERCHE ====================
 const searchData = {
     restaurants: [
-        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '10h-22h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich', 'tacos'] },
-        { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-23h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
-        { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-23h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
-        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte', 'anchilada', '4 fromage'] },
-        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '11h-23h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie', 'pasta', 'ojja'] },
-        { id: 'resto6', name: 'DIDI', logo: '🍽️', address: 'LAFAYETTE', hours: '11h-23h', type: 'restaurant', keywords: ['didi', 'lafayette', 'tunis', 'poulet', 'makrouna', 'tastira', 'loubia', 'sandwich', 'thon', 'kafteji', 'shan', 'tounsi', 'plat'] }
+        { id: 'resto1', name: 'AL OSTEDH', logo: '🍔', address: 'LAFAYETTE', hours: '11h-00h', type: 'restaurant', keywords: ['burger', 'crispy', 'lafayette', 'cheese', 'boeuf', 'escalope', 'sandwich', 'tacos'] },
+        { id: 'resto2', name: 'CHICK\'IN', logo: '🌮', address: 'Centre Urbain Nord', hours: '11h-00h', type: 'restaurant', keywords: ['tacos', 'burrito', 'frenchy', 'poulet', 'burger', 'maple', 'sriracha', 'box', 'trufflow'] },
+        { id: 'resto3', name: 'King Street', logo: '🥙', address: 'Centre Ville', hours: '11h-01h', type: 'restaurant', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mahboul', 'pizza', 'triplex'] },
+        { id: 'resto4', name: 'La Casa De Mama', logo: '🍕', address: 'LAFAYETTE', hours: '11h-01h', type: 'restaurant', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'lafayette', 'italien', 'pizza', 'thon', 'exacatory', 'mitro', 'baguette', 'shawarma', 'mixte', 'anchilada', '4 fromage', 'makloub'] },
+        { id: 'resto5', name: 'ZAKIA', logo: '🍗', address: 'Beb Jdid', hours: '17h-02h', type: 'restaurant', keywords: ['zakia', 'beb jdid', 'tunis', 'poulet', 'rotisserie', 'pasta', 'ojja'] },
+        { id: 'resto6', name: 'DIDI', logo: '🍽️', address: 'LAFAYETTE', hours: '11h-02h', type: 'restaurant', keywords: ['didi', 'lafayette', 'tunis', 'poulet', 'makrouna', 'tastira', 'loubia', 'sandwich', 'thon', 'kafteji', 'shan', 'tounsi', 'plat'] }
     ],
     plats: [
         // ==================== AL OSTEDH ====================
@@ -60,6 +60,14 @@ const searchData = {
         { name: 'Anchilada escalope panée', resto: 'La Casa De Mama', price: '9 DT', logo: '🌯', category: 'sandwich', type: 'plat', keywords: ['anchilada', 'escalope', 'panée', 'mexicain'] },
         { name: 'Anchilada cordon bleu', resto: 'La Casa De Mama', price: '10 DT', logo: '🌯', category: 'sandwich', type: 'plat', keywords: ['anchilada', 'cordon bleu', 'mexicain'] },
         
+        // ==================== LA CASA DE MAMA MAKLOUB ====================
+        { name: 'Makloub Escalope grillée', resto: 'La Casa De Mama', price: '7.5 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'escalope', 'grillée', 'la casa', 'mama', 'riz'] },
+        { name: 'Makloub Escalope panée', resto: 'La Casa De Mama', price: '8 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'escalope', 'panée', 'la casa', 'mama', 'riz'] },
+        { name: 'Makloub Shawarma', resto: 'La Casa De Mama', price: '7.5 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'shawarma', 'la casa', 'mama', 'riz'] },
+        { name: 'Makloub Cordon bleu', resto: 'La Casa De Mama', price: '9 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'cordon bleu', 'la casa', 'mama', 'riz'] },
+        { name: 'Makloub Thon', resto: 'La Casa De Mama', price: '6 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'thon', 'la casa', 'mama', 'riz'] },
+        { name: 'Makloub Jambon', resto: 'La Casa De Mama', price: '6 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'jambon', 'la casa', 'mama', 'riz'] },
+        
         // ==================== ZAKIA ====================
         { name: 'Poulet Rôti', resto: 'ZAKIA', price: '8,5 DT', logo: '🍗', category: 'poulet', type: 'plat', keywords: ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier'] },
         { name: 'Pasta fruit de mer', resto: 'ZAKIA', price: '30 DT', logo: '🍝', category: 'pasta', type: 'plat', keywords: ['pasta', 'fruit de mer', 'spaghetti', 'creme', 'tomate'] },
@@ -94,7 +102,7 @@ const categoryKeywords = {
     'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux', 'anchilada', 'cordon bleu', 'mexicain', 'thon', 'kafteji', 'poulet frit'],
     'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets', '2 viandes', 'escalope à la crème', 'crispy'],
     'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre'],
-    'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love'],
+    'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love', 'escalope', 'shawarma', 'cordon bleu', 'la casa', 'mama'],
     'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier', 'sec'],
     'pasta': ['pasta', 'spaghetti', 'fruit de mer', 'escalope', 'merguez', 'creme', 'tomate'],
     'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez'],
@@ -464,6 +472,14 @@ function searchSuggestions() {
     if (input.includes('shan') || input.includes('tounsi') || input.includes('plat')) {
         suggestions.push({ type: 'plat', icon: '🍲', title: 'Shan Tounsi', subtitle: 'DIDI', price: '12 DT', badge: 'Plat', action: `filterByPlat('Shan Tounsi')` });
     }
+    if (input.includes('makloub') && input.includes('la casa')) {
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Escalope grillée', subtitle: 'La Casa De Mama', price: '7.5 DT', badge: 'Plat', action: `filterByPlat('Makloub Escalope grillée')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Escalope panée', subtitle: 'La Casa De Mama', price: '8 DT', badge: 'Plat', action: `filterByPlat('Makloub Escalope panée')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Shawarma', subtitle: 'La Casa De Mama', price: '7.5 DT', badge: 'Plat', action: `filterByPlat('Makloub Shawarma')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Cordon bleu', subtitle: 'La Casa De Mama', price: '9 DT', badge: 'Plat', action: `filterByPlat('Makloub Cordon bleu')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Thon', subtitle: 'La Casa De Mama', price: '6 DT', badge: 'Plat', action: `filterByPlat('Makloub Thon')` });
+        suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Jambon', subtitle: 'La Casa De Mama', price: '6 DT', badge: 'Plat', action: `filterByPlat('Makloub Jambon')` });
+    }
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -595,6 +611,9 @@ function searchRestaurant() {
             }
             if (input.includes('shan') || input.includes('tounsi')) {
                 if (nom === 'shan tounsi') match = true;
+            }
+            if (input.includes('makloub') && input.includes('la casa')) {
+                if (nom === 'makloub') match = true;
             }
             p.style.display = match ? 'block' : 'none';
             if (match) aUnResultat = true;
@@ -735,7 +754,7 @@ function selectEscalopeOption(productName, productPrice) {
     }
 }
 
-// ==================== MODAL MAKLOUB ====================
+// ==================== MODAL MAKLOUB (KING STREET) ====================
 const makloubOptionsList = [
     { name: "Jambon fumé", price: "8,5 DT", ingredients: "Jambon fumé, mozzarella, frites, harissa, sauce à l'ail, oignons, tomate" },
     { name: "Thon", price: "8,9 DT", ingredients: "Thon, mozzarella, frites, harissa, sauce à l'ail, oignons, tomate" },
@@ -1001,7 +1020,7 @@ function confirmerBaguette() {
     
     const productName = `Baguette Farcie ${selectedBaguetteTaille.taille} (${selectedBaguetteViande.viandeName} + Jambon + Fromage)`;
     const productPrice = selectedBaguetteTaille.prix;
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
     const restoName = 'La Casa De Mama';
     
     closeBaguetteModal();
@@ -1602,13 +1621,58 @@ function selectSandwichDidiOption(productName, price, description) {
     }
 }
 
-// ==================== COMMANDE DIRECTE ====================
-function commanderDirect(produit, prix, resto) {
-    let cleanPrice = prix.toString().replace(' DT', '').trim();
-    let message = `Ma commande :\n• ${produit} (${resto}) x1 - ${cleanPrice} DT\nTotal (hors livraison) : ${cleanPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+// ==================== MODAL MAKLOUB (LA CASA DE MAMA) ====================
+// ==================== MODAL MAKLOUB (LA CASA DE MAMA) ====================
+const makloubLaCasaOptionsList = [
+    { name: "Escalope grillée", price: "7.5", description: "" },
+    { name: "Escalope panée", price: "8", description: "" },
+    { name: "Shawarma", price: "7.5", description: "" },
+    { name: "Cordon bleu", price: "9", description: "" },
+    { name: "Thon", price: "6", description: "" },
+    { name: "Jambon", price: "6", description: "" }
+];
+
+let currentMakloubLaCasaMode = null;
+
+function showMakloubLaCasaModal(mode) {
+    currentMakloubLaCasaMode = mode;
+    const modal = document.getElementById('makloubLaCasaModal');
+    const optionsContainer = document.getElementById('makloubLaCasaOptions');
+    if (!modal || !optionsContainer) return;
+    
+    optionsContainer.innerHTML = makloubLaCasaOptionsList.map(opt => `
+        <div class="makloub-lacasa-option-btn" onclick="selectMakloubLaCasaOption('${opt.name.replace(/'/g, "\\'")}', '${opt.price}', '${opt.description.replace(/'/g, "\\'")}')">
+            <div style="flex: 1;">
+                <div class="makloub-lacasa-option-name">${opt.name}</div>
+            </div>
+            <div class="makloub-lacasa-option-price">${opt.price} DT</div>
+        </div>
+    `).join('');
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 }
 
+function closeMakloubLaCasaModal() {
+    const modal = document.getElementById('makloubLaCasaModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectMakloubLaCasaOption(productName, price, description) {
+    closeMakloubLaCasaModal();
+    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
+    const restoName = 'La Casa De Mama';
+    const fullProductName = `Makloub ${productName}`;
+    
+    if (currentMakloubLaCasaMode === 'cart') {
+        addToCart(fullProductName, price, imageUrl, restoName);
+        document.getElementById('cartPanel').classList.add('show');
+    } else {
+        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    }
+}
 // ==================== SYSTÈME DE PANIER AVEC FRITES ====================
 let cart = [];
 const MAX_CART_ITEMS = 5;
@@ -1813,12 +1877,12 @@ function showRestaurantClosedModal(closedRestos) {
                 </ul>
                 <p>Veuillez retirer les articles de ces restaurants ou attendre leur réouverture pour finaliser votre commande.</p>
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">⏰ Horaires d'ouverture :<br>
-                • AL OSTEDH : 10h - 22h<br>
-                • CHICK'IN : 11h - 23h<br>
-                • King Street : 11h - 23h<br>
-                • La Casa De Mama : 11h - 23h<br>
-                • ZAKIA : 11h - 23h<br>
-                • DIDI : 11h - 23h</p>
+                • AL OSTEDH : 11h - 00h<br>
+                • CHICK'IN : 11h - 00h<br>
+                • King Street : 11h - 01h<br>
+                • La Casa De Mama : 11h - 01h<br>
+                • ZAKIA : 17h - 02h<br>
+                • DIDI : 11h - 02h</p>
             </div>
             <div class="restaurant-closed-footer">
                 <button class="restaurant-closed-btn" onclick="this.closest('.restaurant-closed-modal').remove(); document.body.style.overflow = 'auto';">Compris</button>
@@ -1966,7 +2030,7 @@ function getProductImage(productName) {
     if (productName.includes('OG sub')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774129969/OG_SUB_d08hft.png';
     // King Street
     if (productName.includes('Makloub Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510734/makloub_mahboul_srroyh.png';
-    if (productName.includes('Makloub') && !productName.includes('Mahboul')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
+    if (productName.includes('Makloub') && !productName.includes('Mahboul') && !productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774510751/makloub_king_street_or1ngo.png';
     if (productName.includes('Pizza Triplex')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774519318/pizza_triplex_kyfy3c.png';
     // La Casa De Mama
     if (productName.includes('4 Feux')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png';
@@ -1974,8 +2038,9 @@ function getProductImage(productName) {
     if (productName.includes('Pizza Exacatory')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png';
     if (productName.includes('Pizza Mitro')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png';
     if (productName.includes('Pizza 4 Fromage')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png';
-    if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774560347/Baguette_Farcie_w8kvni.png';
+    if (productName.includes('Baguette Farcie')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png';
     if (productName.includes('Anchilada')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png';
+    if (productName.includes('Makloub') && productName.includes('La Casa')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png';
     // ZAKIA
     if (productName.includes('Quart') || productName.includes('Demi') || productName.includes('Poulet entier') || productName.includes('Tastira') || productName.includes('Makrouna') || productName.includes('Loubia')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774901380/poulet_zakia_sgcmsc.png';
     if (productName.includes('Pasta') || productName.includes('fruit de mer') || productName.includes('escalope') || productName.includes('Merguez')) return 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774951259/pasta_zakia_faedmq.png';
