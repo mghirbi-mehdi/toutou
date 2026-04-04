@@ -1613,3 +1613,80 @@ footer {
         text-align: center;
     }
 }
+/* ==================== MODAL MAKLOUB (LA CASA DE MAMA) ==================== */
+.makloub-lacasa-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.makloub-lacasa-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    gap: 1rem;
+}
+
+.makloub-lacasa-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.makloub-lacasa-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.makloub-lacasa-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.makloub-lacasa-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-name,
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-description,
+.makloub-lacasa-option-btn:hover .makloub-lacasa-option-price {
+    color: white;
+}
+
+#makloubLaCasaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#makloubLaCasaModal .modal-body {
+    padding: 1rem;
+}
+
+@media (max-width: 480px) {
+    #makloubLaCasaModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .makloub-lacasa-option-btn {
+        flex-direction: column;
+        text-align: center;
+    }
+}
