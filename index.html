@@ -479,143 +479,146 @@
             </div>
         </section>
 
-        <!-- ========== RESTAURANT LA CASA DE MAMA ========== -->
-        <section class="restaurant-section" id="resto4">
-            <div class="restaurant-header">
-                <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774541009/logo_lacasa_de_mama_aw5r6e.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat;"></div>
-                <div>
-                    <h2>La Casa De Mama</h2>
-                    <p>📍 Tunis • Lafayette • Ouvert 11h-01h</p>
+       <!-- ========== RESTAURANT LA CASA DE MAMA ========== -->
+<section class="restaurant-section" id="resto4">
+    <div class="restaurant-header">
+        <div class="restaurant-logo" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774541009/logo_lacasa_de_mama_aw5r6e.png'); background-size: cover; background-position: center 60%; background-repeat: no-repeat;"></div>
+        <div>
+            <h2>La Casa De Mama</h2>
+            <p>📍 Tunis • Lafayette • Ouvert 11h-01h</p>
+        </div>
+    </div>
+    
+    <div class="menu-grid">
+        <!-- 4 Feux -->
+        <div class="plat-card" data-category="sandwich">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png'); background-position: center 80%; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>4 Feux</h3>
+                <p class="plat-description">Taille standard : Escalope, Jambon et Pepperoni</p>
+                <div class="plat-footer">
+                    <span class="prix">15 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="commanderDirect('4 Feux', '15 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="addToCart('4 Feux', '15 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
                 </div>
             </div>
-            
-            <div class="menu-grid">
-                <!-- 4 Feux -->
-                <div class="plat-card" data-category="sandwich">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png'); background-position: center 80%; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>4 Feux</h3>
-                        <p class="plat-description">Taille standard : Escalope, Jambon et Pepperoni</p>
-                        <div class="plat-footer">
-                            <span class="prix">15 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="commanderDirect('4 Feux', '15 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="addToCart('4 Feux', '15 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537520/4_Feux_ggi87s.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
 
-                <!-- Pizza Thon -->
-                <div class="plat-card" data-category="pizza">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png'); background-position: center; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>Pizza Thon</h3>
-                        <p class="plat-description">Sauce tomate, mozzarella, thon</p>
-                        <div class="plat-footer">
-                            <span class="prix">À partir de 7 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="showPizzaThonModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="showPizzaThonModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
+        <!-- Pizza Thon -->
+        <div class="plat-card" data-category="pizza">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_resto4_vr1i1h.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Pizza Thon</h3>
+                <p class="plat-description">Sauce tomate, mozzarella, thon</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 7 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showPizzaThonModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showPizzaThonModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Pizza Exacatory -->
-                <div class="plat-card" data-category="pizza">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png'); background-position: center; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>Pizza Exacatory</h3>
-                        <p class="plat-description">Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate</p>
-                        <div class="plat-footer">
-                            <span class="prix">À partir de 15 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="showPizzaExacatoryModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="showPizzaExacatoryModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
+        <!-- Pizza Exacatory -->
+        <div class="plat-card" data-category="pizza">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537501/Pizza_exacatory_ci73dm.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Pizza Exacatory</h3>
+                <p class="plat-description">Double pâte, escalope, shawarma, champignons, pepperoni, sauce blanche ou tomate</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 15 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showPizzaExacatoryModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showPizzaExacatoryModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Pizza Mitro -->
-                <div class="plat-card" data-category="pizza">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png'); background-position: center; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>Pizza Mitro</h3>
-                        <p class="plat-description">Sauce tomate, mozzarella, escalope, shawarma, jambon, champignons, thon</p>
-                        <div class="plat-footer">
-                            <span class="prix">25 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="commanderDirect('Pizza Mitro', '25 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="addToCart('Pizza Mitro', '25 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
+        <!-- Pizza Mitro -->
+        <div class="plat-card" data-category="pizza">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Pizza Mitro</h3>
+                <p class="plat-description">Sauce tomate, mozzarella, escalope, shawarma, jambon, champignons, thon</p>
+                <div class="plat-footer">
+                    <span class="prix">25 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="commanderDirect('Pizza Mitro', '25 DT', 'La Casa De Mama')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Pizza Mitro', '25 DT', 'https://res.cloudinary.com/dajtosaqx/image/upload/v1774537477/pizza_mitro_resto4_fmamta.png', 'La Casa De Mama', event)"><i class="fas fa-cart-plus"></i> Ajouter</button>
                     </div>
                 </div>
-                <!-- Pizza 4 Fromage -->
-<div class="plat-card" data-category="pizza">
-    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png'); background-position: center; background-size: cover;"></div>
-    <div class="plat-info">
-        <h3>Pizza 4 Fromage</h3>
-        <p class="plat-description">Mozzarella, cheddar, gruyère, roquefort</p>
-        <div class="plat-footer">
-            <span class="prix">À partir de 9 DT</span>
-            <div class="btn-group">
-                <button class="btn-whatsapp-direct" onclick="showPizzaQuatreFromagesModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                <button class="btn-add-to-cart" onclick="showPizzaQuatreFromagesModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+            </div>
+        </div>
+
+        <!-- Pizza 4 Fromage -->
+        <div class="plat-card" data-category="pizza">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775131136/pizza_lacasademama_qubsqh.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Pizza 4 Fromage</h3>
+                <p class="plat-description">Mozzarella, cheddar, gruyère, roquefort</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 9 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showPizzaQuatreFromagesModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showPizzaQuatreFromagesModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Baguette Farcie -->
+        <div class="plat-card" data-category="baguette">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Baguette Farcie</h3>
+                <p class="plat-description">Escalope / Shawarma / Mixte, Jambon, Fromage</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 10 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showBaguetteModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showBaguetteModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anchilada -->
+        <div class="plat-card" data-category="sandwich">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Anchilada</h3>
+                <p class="plat-description">Anchilada mexicaine - Au choix : Escalope grillée, Escalope panée ou Cordon bleu</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 8 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showAnchiladaModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showAnchiladaModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Makloub (CORRIGÉ - placé à l'intérieur de menu-grid) -->
+        <div class="plat-card" data-category="makloub">
+            <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png'); background-position: center; background-size: cover;"></div>
+            <div class="plat-info">
+                <h3>Makloub</h3>
+                <p class="plat-description">Escalope grillée • Escalope panée • Shawarma • Cordon bleu • Thon • Jambon</p>
+                <div class="plat-footer">
+                    <span class="prix">À partir de 6 DT</span>
+                    <div class="btn-group">
+                        <button class="btn-whatsapp-direct" onclick="showMakloubLaCasaModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
+                        <button class="btn-add-to-cart" onclick="showMakloubLaCasaModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-                <!-- Baguette Farcie -->
-                <div class="plat-card" data-category="baguette">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775256523/Baguette_Farcie_epgizq.png'); background-position: center; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>Baguette Farcie</h3>
-                        <p class="plat-description">Escalope / Shawarma / Mixte, Jambon, Fromage</p>
-                        <div class="plat-footer">
-                            <span class="prix">À partir de 10 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="showBaguetteModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="showBaguetteModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Anchilada -->
-                <div class="plat-card" data-category="sandwich">
-                    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775069633/Anchilada_zixtsi.png'); background-position: center; background-size: cover;"></div>
-                    <div class="plat-info">
-                        <h3>Anchilada</h3>
-                        <p class="plat-description">Anchilada mexicaine - Au choix : Escalope grillée, Escalope panée ou Cordon bleu</p>
-                        <div class="plat-footer">
-                            <span class="prix">À partir de 8 DT</span>
-                            <div class="btn-group">
-                                <button class="btn-whatsapp-direct" onclick="showAnchiladaModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                                <button class="btn-add-to-cart" onclick="showAnchiladaModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Makloub -->
-<div class="plat-card" data-category="makloub">
-    <div class="plat-image" style="background-image: url('https://res.cloudinary.com/dajtosaqx/image/upload/v1775257405/makloub_jdid_ljdsyh.png'); background-position: center; background-size: cover;"></div>
-    <div class="plat-info">
-        <h3>Makloub</h3>
-        <p class="plat-description">Escalope grillée • Escalope panée • Shawarma • Cordon bleu • Thon • Jambon</p>
-        <div class="plat-footer">
-            <span class="prix">À partir de 6 DT</span>
-            <div class="btn-group">
-                <button class="btn-whatsapp-direct" onclick="showMakloubLaCasaModal('direct')"><i class="fab fa-whatsapp"></i> Commander</button>
-                <button class="btn-add-to-cart" onclick="showMakloubLaCasaModal('cart')"><i class="fas fa-cart-plus"></i> Ajouter</button>
-            </div>
-        </div>
-    </div>
-</div>
-        </section>
+</section>
 
         <!-- ========== RESTAURANT ZAKIA ========== -->
         <section class="restaurant-section" id="resto5">
