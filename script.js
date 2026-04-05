@@ -828,7 +828,7 @@ function selectChoice(choice) {
         addToCart(productName, price, 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png', resto);
     } else {
         let message = `Ma commande :\n• ${productName} (${resto}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -877,7 +877,7 @@ function selectPizza4ChoixOption(productName, price, size, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -943,7 +943,7 @@ function selectPizzaThonPepperoniFinal(productName, price, size, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${finalProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -992,7 +992,7 @@ function selectPizzaJambonCrispyOption(productName, price, size, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1038,7 +1038,7 @@ function selectEscalopeOption(productName, productPrice) {
         addToCart(productName, productPrice, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1089,7 +1089,7 @@ function selectMakloubOption(productName, productPrice, ingredients) {
         addToCart(fullProductName, productPrice, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${productPrice}\nTotal (hors livraison) : ${productPrice}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1137,7 +1137,7 @@ function selectPizzaTriplexOption(size, price, pizzaSize, description) {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1186,7 +1186,7 @@ function selectPizzaThonOption(size, price, pizzaSize, description) {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1234,7 +1234,7 @@ function selectPizzaExacatoryOption(size, price, pizzaSize, description) {
         addToCart(fullProductName, price, imageUrl, restoName);
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price}\nTotal (hors livraison) : ${price}\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1318,7 +1318,7 @@ function confirmerBaguette() {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1450,7 +1450,7 @@ function confirmerPoulet() {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1505,7 +1505,7 @@ function selectPastaOption(productName, price) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1551,7 +1551,7 @@ function selectOjjaOption(productName, price) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1597,7 +1597,7 @@ function selectAnchiladaOption(productName, price) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1648,7 +1648,7 @@ function selectPizzaQuatreFromagesOption(size, price, pizzaSize) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1694,7 +1694,7 @@ function selectTacosAlOstedhOption(productName, price) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1846,7 +1846,7 @@ function confirmerPouletDidi() {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1905,7 +1905,7 @@ function selectSandwichDidiOption(productName, price, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -1957,7 +1957,7 @@ function selectMakloubLaCasaOption(productName, price, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -2007,7 +2007,7 @@ function selectPastaLaCasaOption(productName, price, description) {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -2091,7 +2091,7 @@ function confirmerPainCorne() {
         document.getElementById('cartPanel').classList.add('show');
     } else {
         let message = `Ma commande :\n• ${productName} (${restoName}) x1 - ${productPrice} DT\nTotal (hors livraison) : ${productPrice} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
@@ -2428,7 +2428,7 @@ function checkoutCart() {
     message += `Total (hors livraison) : ${totalFormatted}\n\n`;
     message += `Merci de me confirmer la disponibilité et les frais de livraison.`;
     
-    window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/21620382016?text=${encodeURIComponent(message)}`, '_blank');
     cart = [];  
     saveCart();
     toggleCart();
