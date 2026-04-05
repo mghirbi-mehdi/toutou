@@ -473,13 +473,14 @@ header h1 {
     margin: 0;
 }
 
-/* ==================== MODALES UNIFIÉES (DESIGN PIZZA TRIPLEX) ==================== */
+/* ==================== MODALES UNIFIÉES ==================== */
 .escalope-options-grid,
 .makloub-options-grid,
 .pizza-options-grid,
 .pasta-options-grid,
 .ojja-options-grid,
-.anchilada-options-grid {
+.anchilada-options-grid,
+.pizza-options-grid {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -1370,6 +1371,7 @@ footer {
 .poulet-confirm-btn:hover {
     transform: scale(1.02);
 }
+
 /* Tacos Modal Styles */
 .tacos-options-grid {
     display: flex;
@@ -1425,6 +1427,7 @@ footer {
 #tacosAlOstedhModal .modal-body {
     padding: 1rem;
 }
+
 /* ==================== MODAL POULET (DIDI) ==================== */
 #pouletDidiModal .modal-content {
     max-width: 500px;
@@ -1536,6 +1539,7 @@ footer {
         min-width: unset;
     }
 }
+
 /* ==================== MODAL SANDWICHS (DIDI) ==================== */
 .sandwich-didi-options-grid {
     display: flex;
@@ -1613,6 +1617,7 @@ footer {
         text-align: center;
     }
 }
+
 /* ==================== MODAL MAKLOUB (LA CASA DE MAMA) ==================== */
 .makloub-lacasa-options-grid {
     display: flex;
@@ -1688,5 +1693,179 @@ footer {
     .makloub-lacasa-option-btn {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ==================== MODAL PASTA (LA CASA DE MAMA) ==================== */
+.pasta-lacasa-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pasta-lacasa-option-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    gap: 1rem;
+}
+
+.pasta-lacasa-option-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,71,87,0.2);
+    color: white;
+}
+
+.pasta-lacasa-option-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2d3436;
+    margin-bottom: 0.2rem;
+}
+
+.pasta-lacasa-option-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.pasta-lacasa-option-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-name,
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-description,
+.pasta-lacasa-option-btn:hover .pasta-lacasa-option-price {
+    color: white;
+}
+
+#pastaLaCasaModal .modal-content {
+    max-width: 500px;
+    margin: 10% auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#pastaLaCasaModal .modal-body {
+    padding: 1rem;
+}
+
+@media (max-width: 480px) {
+    #pastaLaCasaModal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    
+    .pasta-lacasa-option-btn {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==================== MODAL PAIN CORNÉ (LA CASA DE MAMA) ==================== */
+.paincorne-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.paincorne-step-title {
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #2d3436;
+    font-size: 0.95rem;
+}
+
+.paincorne-size-grid,
+.paincorne-viande-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.paincorne-size-btn,
+.paincorne-viande-btn {
+    flex: 1;
+    min-width: 85px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.paincorne-size-btn:hover,
+.paincorne-viande-btn:hover {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.paincorne-size-btn.selected,
+.paincorne-viande-btn.selected {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-color: #ff4757;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+}
+
+.paincorne-size-name,
+.paincorne-viande-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+.paincorne-size-price {
+    font-weight: 700;
+    color: #ff4757;
+    font-size: 0.85rem;
+}
+
+.paincorne-confirm-btn {
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s;
+}
+
+.paincorne-confirm-btn:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+    .paincorne-size-grid,
+    .paincorne-viande-grid {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .paincorne-size-btn,
+    .paincorne-viande-btn {
+        width: 100%;
+        min-width: unset;
     }
 }
