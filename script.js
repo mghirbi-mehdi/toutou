@@ -9,27 +9,26 @@ const searchData = {
         { id: 'resto6', name: 'DIDI', logo: '🍽️', address: 'LAFAYETTE', hours: '11h-02h', type: 'restaurant', keywords: ['didi', 'lafayette', 'tunis', 'poulet', 'makrouna', 'tastira', 'loubia', 'sandwich', 'thon', 'kafteji', 'shan', 'tounsi', 'plat'] }
     ],
     plats: [
-        // ==================== AL OSTEDH ====================
+        // ==================== AL OSTEDH BURGERS ====================
         { name: 'Burger Crispy', resto: 'AL OSTEDH', price: '17,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'crispy', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Classique', resto: 'AL OSTEDH', price: '18,6 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'classique', 'steak', 'cheddar', 'frites'] },
         { name: 'Cheddar cheese', resto: 'AL OSTEDH', price: '21,9 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Cheddar cheese', resto: 'AL OSTEDH', price: '23 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'cheese', 'champignon', 'creme', 'steak', 'cheddar', 'frites'] },
         { name: 'Burger Super Crispy', resto: 'AL OSTEDH', price: '24,1 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'super', 'crispy', 'triple', 'chicken', 'cheddar', 'frites'] },
         { name: 'Burger Double Beef', resto: 'AL OSTEDH', price: '28,5 DT', logo: '🍔', category: 'burger', type: 'plat', keywords: ['burger', 'double', 'beef', '300g', 'steak', 'cheddar', 'frites'] },
+        
+        // ==================== AL OSTEDH TACOS ====================
         { name: 'Tacos 2 viandes', resto: 'AL OSTEDH', price: '17 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', '2 viandes', 'boeuf', 'poulet'] },
         { name: 'Tacos escalope à la crème', resto: 'AL OSTEDH', price: '15,3 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'escalope', 'creme', 'poulet'] },
         { name: 'Tacos crispy', resto: 'AL OSTEDH', price: '15,3 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'crispy', 'poulet', 'pané'] },
         
-        // ==================== SANDWICHS ESCALOPE AL OSTEDH ====================
+        // ==================== AL OSTEDH SANDWICHS ====================
         { name: 'Spécial escalope', resto: 'AL OSTEDH', price: '9,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['escalope', 'sandwich', 'pané', 'base', 'gruyère', 'pepperoni', 'mozzarella', 'cheddar', 'raclette'] },
         
-        // ==================== PIZZAS AL OSTEDH ====================
-        { name: 'Pizza 4 choix (Big)', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
-        { name: 'Pizza 4 choix (Big Max)', resto: 'AL OSTEDH', price: '35.2 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big max', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
-        { name: 'Pizza Thon / Pepperoni (Big)', resto: 'AL OSTEDH', price: '29.7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'pepperoni', 'big', 'spicy', '6 fromages'] },
-        { name: 'Pizza Thon / Pepperoni (Big Max)', resto: 'AL OSTEDH', price: '35.2 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'pepperoni', 'big max', 'spicy', '6 fromages'] },
-        { name: 'Pizza Jambon fumé & crispy (Big)', resto: 'AL OSTEDH', price: '29.7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'jambon', 'fumé', 'crispy', 'big', 'spicy', '6 fromages'] },
-        { name: 'Pizza Jambon fumé & crispy (Big Max)', resto: 'AL OSTEDH', price: '35.2 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'jambon', 'fumé', 'crispy', 'big max', 'spicy', '6 fromages'] },
+        // ==================== AL OSTEDH PIZZAS ====================
+        { name: 'Pizza 4 choix', resto: 'AL OSTEDH', price: '33 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', '4 choix', 'big', 'big max', '33', '35.2', 'spicy', '6 fromages', 'pepperoni', 'jambon', 'thon', 'crispy'] },
+        { name: 'Pizza Thon / Pepperoni', resto: 'AL OSTEDH', price: '29.7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'pepperoni', 'big', 'big max', '29.7', '35.2', 'spicy', '6 fromages'] },
+        { name: 'Pizza Jambon fumé & crispy', resto: 'AL OSTEDH', price: '29.7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'jambon', 'fumé', 'crispy', 'big', 'big max', '29.7', '35.2', 'spicy', '6 fromages'] },
         
         // ==================== CHICK'IN ====================
         { name: 'Frenchy Tacos', resto: 'CHICK\'IN', price: '13,9 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['tacos', 'frenchy', 'poulet', 'tenders', 'lava', 'kewpie'] },
@@ -42,13 +41,11 @@ const searchData = {
         { name: 'Box Tex-Mex', resto: 'CHICK\'IN', price: '18,9 DT', logo: '🌮', category: 'tacos', type: 'plat', keywords: ['box', 'tex mex', 'french taco', 'cheesy burrito', 'chicky wrap', 'wings', 'chicken pops'] },
         { name: 'OG sub', resto: 'CHICK\'IN', price: '12,4 DT', logo: '🥪', category: 'sandwich', type: 'plat', keywords: ['og', 'sub', 'tenders', 'cheddar', 'kewpie', 'harissa', 'sandwich'] },
         
-        // ==================== KING STREET - MAKLOUB ====================
+        // ==================== KING STREET ====================
         { name: 'Makloub', resto: 'King Street', price: '8,5 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'riz'] },
         { name: 'Makloub Mahboul', resto: 'King Street', price: '13,9 DT', logo: '🥙', category: 'makloub', type: 'plat', keywords: ['makloub', 'mahboul', 'poulet', 'crème', 'mozzarella', 'gruyère', 'cheddar', 'harissa', 'big love', 'riz'] },
-        
-        // ==================== KING STREET - PIZZA ====================
         { name: 'Pizza Triplex', resto: 'King Street', price: '20,9 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'jambon', 'escalope', 'pepperoni', 'mozzarella', 'cheddar', 'basilic', 'tomates cerises'] },
-        
+
         // ==================== LA CASA DE MAMA ====================
         { name: '4 Feux', resto: 'La Casa De Mama', price: '15 DT', logo: '🔥', category: 'sandwich', type: 'plat', keywords: ['4 feux', 'escalope', 'jambon', 'pepperoni', 'sandwich', 'frites'] },
         { name: 'Pizza Thon', resto: 'La Casa De Mama', price: '7 DT', logo: '🍕', category: 'pizza', type: 'plat', keywords: ['pizza', 'thon', 'tomate', 'mozzarella', 'mini', 'moy', 'maxi', 'xl'] },
@@ -110,22 +107,6 @@ const searchData = {
         // ==================== DIDI SHAN TOUNSI ====================
         { name: 'Shan Tounsi', resto: 'DIDI', price: '12 DT', logo: '🍲', category: 'plat', type: 'plat', keywords: ['shan', 'tounsi', 'tunisien', 'didi', 'plat', 'traditionnel', 'couscous'] }
     ]
-};
-
-let selectedSuggestionIndex = -1;
-
-// ==================== CATÉGORIES POUR LE FILTRAGE ====================
-const categoryKeywords = {
-    'pizza': ['pizza', 'margherita', 'pepperoni', '4 choix', 'big max', 'spicy', 'fromages', 'jambon', 'thon', 'crispy', 'fumé', 'triplex', 'double pâtes', 'moyenne', 'max', 'family', 'escalope', 'basilic', 'mini', 'moy', 'maxi', 'xl', 'exacatory', 'shawarma', 'champignons', 'mitro', '4 fromage', 'roquefort'],
-    'burger': ['burger', 'crispy', 'boeuf', 'cheese', 'mushroom', 'truffe', 'double', 'maple', 'sriracha', 'trufflow'],
-    'sandwich': ['sandwich', 'panini', 'baguette', 'pain', 'escalope', 'wrap', '4 feux', 'anchilada', 'cordon bleu', 'mexicain', 'thon', 'kafteji', 'poulet frit'],
-    'tacos': ['tacos', 'burrito', 'frenchy', 'lava', 'kewpie', 'cheddar', 'box', 'wings', 'nuggets', '2 viandes', 'escalope à la crème', 'crispy'],
-    'baguette': ['baguette', 'farcie', 'escalope', 'shawarma', 'mixte', 'jambon', 'fromage', 'moy', 'maxi', '1 mètre', 'pain', 'corné', 'cornet'],
-    'makloub': ['makloub', 'riz', 'jambon', 'thon', 'poulet', 'grillé', 'pané', 'mozzarella', 'harissa', 'mahboul', 'crème', 'gruyère', 'cheddar', 'big love', 'escalope', 'shawarma', 'cordon bleu', 'la casa', 'mama'],
-    'poulet': ['poulet', 'rotisserie', 'tastira', 'makrouna', 'loubia', 'quart', 'demi', 'entier', 'sec'],
-    'pasta': ['pasta', 'spaghetti', 'fruit de mer', 'escalope', 'merguez', 'creme', 'tomate', 'alfredo', 'rosé', 'blanche', 'pesto', 'la casa', 'mama'],
-    'ojja': ['ojja', 'oeuf', 'tomate', 'fruit de mer', 'escalope', 'merguez'],
-    'plat': ['plat', 'principal', 'specialite', 'shan', 'tounsi', 'couscous', 'traditionnel']
 };
 
 // ==================== FERMETURE EXCEPTIONNELLE DES RESTAURANTS ====================
@@ -337,69 +318,126 @@ function filterByRestaurant(restoId) {
 function filterByPlat(platName) {
     document.getElementById('searchInput').value = platName;
     document.getElementById('suggestionsList')?.classList.remove('show');
+    
+    // Réinitialiser l'affichage de TOUS les plats et restaurants
     document.querySelectorAll('.plat-card').forEach(plat => plat.style.display = 'block');
+    document.querySelectorAll('.restaurant-section').forEach(resto => resto.style.display = 'block');
+    document.querySelectorAll('.special-section').forEach(section => section.style.display = 'block');
+    
     let targetResto = null;
+    let targetPlatCard = null;
+    
+    // Nettoie le nom de recherche
+    let cleanSearchName = platName
+        .replace(/\([^)]*\)/g, '')
+        .replace(/Big.*$/i, '')
+        .replace(/[0-9.,]+\s*DT/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+    
+    // Chercher le plat correspondant dans TOUS les restaurants
     document.querySelectorAll('.restaurant-section').forEach(resto => {
         let plats = resto.querySelectorAll('.plat-card');
         plats.forEach(plat => {
-            if (plat.querySelector('h3').textContent.toLowerCase().includes(platName.toLowerCase())) {
+            let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
+            let descPlat = plat.querySelector('.plat-description').textContent.toLowerCase();
+            
+            // Vérifier si ce plat correspond à la recherche
+            let isMatch = false;
+            
+            // Match exact ou partiel
+            if (nomPlat === cleanSearchName || nomPlat.includes(cleanSearchName) || cleanSearchName.includes(nomPlat)) {
+                isMatch = true;
+            }
+            // Match sur la description (pour les pizzas avec détails)
+            else if (descPlat.includes(cleanSearchName)) {
+                isMatch = true;
+            }
+            // Cas spécial pour les pizzas
+            else if (cleanSearchName.includes('pizza') && nomPlat.includes('pizza')) {
+                if (cleanSearchName.includes('4 choix') && nomPlat.includes('4 choix')) isMatch = true;
+                if (cleanSearchName.includes('thon') && nomPlat.includes('thon')) isMatch = true;
+                if (cleanSearchName.includes('pepperoni') && nomPlat.includes('pepperoni')) isMatch = true;
+                if (cleanSearchName.includes('jambon') && nomPlat.includes('jambon')) isMatch = true;
+                if (cleanSearchName.includes('crispy') && nomPlat.includes('crispy')) isMatch = true;
+                if (cleanSearchName.includes('triplex') && nomPlat.includes('triplex')) isMatch = true;
+                if (cleanSearchName.includes('exacatory') && nomPlat.includes('exacatory')) isMatch = true;
+                if (cleanSearchName.includes('mitro') && nomPlat.includes('mitro')) isMatch = true;
+                if (cleanSearchName.includes('4 fromage') && nomPlat.includes('4 fromage')) isMatch = true;
+            }
+            // Cas spécial pour les autres plats
+            else if (cleanSearchName.includes('makloub') && nomPlat.includes('makloub')) isMatch = true;
+            else if (cleanSearchName.includes('burger') && nomPlat.includes('burger')) isMatch = true;
+            else if (cleanSearchName.includes('tacos') && nomPlat.includes('tacos')) isMatch = true;
+            else if (cleanSearchName.includes('sandwich') && nomPlat.includes('sandwich')) isMatch = true;
+            else if (cleanSearchName.includes('pasta') && nomPlat.includes('pasta')) isMatch = true;
+            else if (cleanSearchName.includes('poulet') && nomPlat.includes('poulet')) isMatch = true;
+            else if (cleanSearchName.includes('ojja') && nomPlat.includes('ojja')) isMatch = true;
+            else if (cleanSearchName.includes('baguette') && nomPlat.includes('baguette')) isMatch = true;
+            else if (cleanSearchName.includes('pain corné') && nomPlat.includes('pain corné')) isMatch = true;
+            else if (cleanSearchName.includes('shan') && nomPlat.includes('shan')) isMatch = true;
+            
+            if (isMatch) {
                 targetResto = resto;
+                targetPlatCard = plat;
             }
         });
     });
-    if (targetResto) scrollToRestaurant(targetResto, platName);
-    setTimeout(() => {
-        document.querySelectorAll('.plat-card').forEach(plat => {
-            let nomPlat = plat.querySelector('h3').textContent.toLowerCase();
-            let categorie = plat.getAttribute('data-category').toLowerCase();
-            let matchMotsCles = false;
-            searchData.plats.forEach(p => {
-                if (p.name.toLowerCase() === nomPlat) {
-                    if (p.keywords.some(keyword => keyword.toLowerCase().includes(platName.toLowerCase()))) {
-                        matchMotsCles = true;
-                    }
+    
+    // Si on a trouvé un plat, on y va !
+    if (targetResto && targetPlatCard) {
+        // Défiler jusqu'au restaurant
+        targetResto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Mettre en évidence le restaurant
+        targetResto.style.transition = 'box-shadow 0.3s';
+        targetResto.style.boxShadow = '0 0 0 3px #ff4757';
+        setTimeout(() => targetResto.style.boxShadow = '', 2000);
+        
+        // Mettre en évidence le plat spécifique
+        setTimeout(() => {
+            targetPlatCard.style.transition = 'box-shadow 0.3s, transform 0.3s';
+            targetPlatCard.style.boxShadow = '0 0 0 3px #25D366';
+            targetPlatCard.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                targetPlatCard.style.boxShadow = '';
+                targetPlatCard.style.transform = '';
+            }, 2000);
+        }, 500);
+        
+        // Filtrer pour n'afficher que ce plat (optionnel)
+        setTimeout(() => {
+            document.querySelectorAll('.plat-card').forEach(plat => {
+                if (plat !== targetPlatCard) {
+                    plat.style.display = 'none';
+                } else {
+                    plat.style.display = 'block';
                 }
             });
-            let isEscalopeSupplement = false;
-            const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'steak', 'raclette'];
-            if (platName.toLowerCase().includes('escalope')) {
-                if (nomPlat === 'spécial escalope') {
-                    isEscalopeSupplement = true;
-                }
-                if (escalopeSupplements.some(sup => platName.toLowerCase().includes(sup))) {
-                    if (nomPlat === 'spécial escalope') {
-                        isEscalopeSupplement = true;
-                    }
-                }
+            
+            // Cacher les restaurants sans plats visibles
+            document.querySelectorAll('.restaurant-section').forEach(resto => {
+                let hasVisible = resto.querySelectorAll('.plat-card[style*="block"]').length > 0;
+                resto.style.display = hasVisible ? 'block' : 'none';
+            });
+            
+            document.getElementById('noResult')?.remove();
+        }, 100);
+        
+    } else {
+        // Si rien n'est trouvé, afficher un message
+        setTimeout(() => {
+            let noResult = document.getElementById('noResult');
+            if (!noResult) {
+                noResult = document.createElement('div');
+                noResult.id = 'noResult';
+                noResult.className = 'no-result';
+                document.querySelector('.container').prepend(noResult);
             }
-            if (platName.toLowerCase().includes('escalope') && platName.toLowerCase().includes('+')) {
-                if (nomPlat === 'spécial escalope') {
-                    isEscalopeSupplement = true;
-                }
-            }
-            let isMakloub = false;
-            if (platName.toLowerCase().includes('makloub') || platName.toLowerCase().includes('jambon') || platName.toLowerCase().includes('thon') || platName.toLowerCase().includes('poulet')) {
-                if (nomPlat === 'classics - makloubs') {
-                    isMakloub = true;
-                }
-            }
-            let match = nomPlat.includes(platName.toLowerCase()) || 
-                        categorie.includes(platName.toLowerCase()) || 
-                        matchMotsCles ||
-                        isEscalopeSupplement ||
-                        isMakloub;
-            plat.style.display = match ? 'block' : 'none';
-        });
-        document.querySelectorAll('.special-section').forEach(section => {
-            let hasVisible = section.querySelectorAll('.plat-card[style*="block"]').length > 0;
-            section.style.display = hasVisible ? 'block' : 'none';
-        });
-        document.querySelectorAll('.restaurant-section').forEach(resto => {
-            let hasVisible = resto.querySelectorAll('.plat-card[style*="block"]').length > 0;
-            resto.style.display = hasVisible ? 'block' : 'none';
-            if (hasVisible) updateRestaurantsStatus();
-        });
-    }, 600);
+            noResult.innerHTML = `<span>😕</span><p>Aucun résultat pour "${platName}"</p>`;
+        }, 100);
+    }
 }
 
 // ==================== SUGGESTIONS DE RECHERCHE ====================
@@ -408,40 +446,51 @@ function searchSuggestions() {
     let suggestionsList = document.getElementById('suggestionsList');
     if (input.length < 1) return suggestionsList?.classList.remove('show');
     let suggestions = [];
+    
     searchData.restaurants.forEach(resto => {
         if ([resto.name, resto.address, ...resto.keywords].some(k => k.toLowerCase().includes(input))) {
             suggestions.push({ type: 'restaurant', icon: resto.logo, title: resto.name, subtitle: `📍 ${resto.address} • ${resto.hours}`, badge: 'Restaurant', action: `filterByRestaurant('${resto.id}')` });
         }
     });
+    
     searchData.plats.forEach(plat => {
         if ([plat.name, ...plat.keywords].some(k => k.toLowerCase().includes(input))) {
             suggestions.push({ type: 'plat', icon: plat.logo, title: plat.name, subtitle: plat.resto, price: plat.price, badge: 'Plat', action: `filterByPlat('${plat.name}')` });
         }
     });
+    
+    // Suggestions supplémentaires
     const escalopeSupplements = ['gruyère', 'pepperoni', 'cheddar', 'mozzarella', 'raclette'];
     if (escalopeSupplements.some(sup => input.includes(sup)) || (input.includes('escalope') && input.includes('+'))) {
         suggestions.push({ type: 'plat', icon: '🥪', title: 'Spécial escalope', subtitle: 'AL OSTEDH', price: '9,4 DT', badge: 'Plat', action: `filterByPlat('Spécial escalope')` });
     }
+    
     if (input.includes('makloub') || input.includes('jambon') || input.includes('thon') || input.includes('poulet') || input.includes('mahboul') || input.includes('crème')) {
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Mahboul', subtitle: 'King Street', price: '13,9 DT', badge: 'Plat', action: `filterByPlat('Makloub Mahboul')` });
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Classics - Makloubs', subtitle: 'King Street', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Makloub')` });
     }
+    
     if (input.includes('pizza') || input.includes('triplex') || input.includes('double pâtes')) {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Triplex (Double Pâtes)', subtitle: 'King Street', price: 'À partir de 20,9 DT', badge: 'Plat', action: `filterByPlat('Pizza Triplex')` });
     }
+    
     if (input.includes('4 feux') || input.includes('la casa') || input.includes('mama') || input.includes('italien')) {
         suggestions.push({ type: 'plat', icon: '🔥', title: '4 Feux', subtitle: 'La Casa De Mama', price: '15 DT', badge: 'Plat', action: `filterByPlat('4 Feux')` });
         suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
     }
+    
     if (input.includes('pizza thon') || (input.includes('pizza') && input.includes('thon')) || input.includes('thon')) {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon', subtitle: 'La Casa De Mama', price: 'À partir de 7 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon')` });
     }
+    
     if (input.includes('pizza exacatory') || (input.includes('pizza') && input.includes('exacatory')) || input.includes('exacatory')) {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Exacatory', subtitle: 'La Casa De Mama', price: 'À partir de 15 DT', badge: 'Plat', action: `filterByPlat('Pizza Exacatory')` });
     }
+    
     if (input.includes('pizza mitro') || (input.includes('pizza') && input.includes('mitro')) || input.includes('mitro')) {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Mitro', subtitle: 'La Casa De Mama', price: '25 DT', badge: 'Plat', action: `filterByPlat('Pizza Mitro')` });
     }
+    
     if (input.includes('pizza 4 fromage') || (input.includes('pizza') && input.includes('4 fromage')) || input.includes('roquefort')) {
         suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 Fromage Mini', subtitle: 'La Casa De Mama', price: '9 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 Fromage Mini')` });
@@ -449,48 +498,58 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 Fromage Maxi', subtitle: 'La Casa De Mama', price: '16 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 Fromage Maxi')` });
         suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 Fromage XL', subtitle: 'La Casa De Mama', price: '20 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 Fromage XL')` });
     }
+    
     if (input.includes('baguette') || input.includes('farcie') || input.includes('escalope') || input.includes('shawarma') || input.includes('mixte')) {
         suggestions.push({ type: 'plat', icon: '🥖', title: 'Baguette Farcie', subtitle: 'La Casa De Mama', price: 'À partir de 10 DT', badge: 'Plat', action: `filterByPlat('Baguette Farcie')` });
     }
+    
     if (input.includes('sandwich') || input.includes('anchilada') || input.includes('mexicain') || input.includes('cordon bleu')) {
         suggestions.push({ type: 'restaurant', icon: '🍕', title: 'La Casa De Mama', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto4')` });
         suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope grillée', subtitle: 'La Casa De Mama', price: '8 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope grillée')` });
         suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada escalope panée', subtitle: 'La Casa De Mama', price: '9 DT', badge: 'Plat', action: `filterByPlat('Anchilada escalope panée')` });
         suggestions.push({ type: 'plat', icon: '🌯', title: 'Anchilada cordon bleu', subtitle: 'La Casa De Mama', price: '10 DT', badge: 'Plat', action: `filterByPlat('Anchilada cordon bleu')` });
     }
+    
     if (input.includes('zakia') || input.includes('poulet') || input.includes('tastira') || input.includes('makrouna') || input.includes('loubia')) {
         suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
         suggestions.push({ type: 'plat', icon: '🍗', title: 'Poulet Rôti', subtitle: 'ZAKIA', price: 'À partir de 8,5 DT', badge: 'Plat', action: `filterByPlat('Poulet Rôti')` });
     }
+    
     if (input.includes('pasta') || input.includes('fruit de mer') || input.includes('escalope') || input.includes('merguez')) {
         suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta fruit de mer', subtitle: 'ZAKIA', price: '30 DT', badge: 'Plat', action: `filterByPlat('Pasta fruit de mer')` });
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Pasta escalope')` });
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta Merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Pasta Merguez')` });
     }
+    
     if (input.includes('ojja') || input.includes('oeuf') || input.includes('tomate')) {
         suggestions.push({ type: 'restaurant', icon: '🍗', title: 'ZAKIA', subtitle: '📍 Beb Jdid • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto5')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja fruit de mer', subtitle: 'ZAKIA', price: '23 DT', badge: 'Plat', action: `filterByPlat('Ojja fruit de mer')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja escalope', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja escalope')` });
         suggestions.push({ type: 'plat', icon: '🍳', title: 'Ojja merguez', subtitle: 'ZAKIA', price: '14 DT', badge: 'Plat', action: `filterByPlat('Ojja merguez')` });
     }
+    
     if (input.includes('tacos') || input.includes('2 viandes') || input.includes('escalope à la crème') || input.includes('crispy')) {
         suggestions.push({ type: 'restaurant', icon: '🍔', title: 'AL OSTEDH', subtitle: '📍 LAFAYETTE • 10h-22h', badge: 'Restaurant', action: `filterByRestaurant('resto1')` });
         suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos 2 viandes', subtitle: 'AL OSTEDH', price: '17 DT', badge: 'Plat', action: `filterByPlat('Tacos 2 viandes')` });
         suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos escalope à la crème', subtitle: 'AL OSTEDH', price: '15,3 DT', badge: 'Plat', action: `filterByPlat('Tacos escalope à la crème')` });
         suggestions.push({ type: 'plat', icon: '🌮', title: 'Tacos crispy', subtitle: 'AL OSTEDH', price: '15,3 DT', badge: 'Plat', action: `filterByPlat('Tacos crispy')` });
     }
+    
     if (input.includes('didi')) {
         suggestions.push({ type: 'restaurant', icon: '🍽️', title: 'DIDI', subtitle: '📍 LAFAYETTE • 11h-23h', badge: 'Restaurant', action: `filterByRestaurant('resto6')` });
     }
+    
     if (input.includes('sandwich') && input.includes('didi')) {
         suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich thon frit', subtitle: 'DIDI', price: '7 DT', badge: 'Plat', action: `filterByPlat('Sandwich thon frit')` });
         suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich kafteji frit', subtitle: 'DIDI', price: '4 DT', badge: 'Plat', action: `filterByPlat('Sandwich kafteji frit')` });
         suggestions.push({ type: 'plat', icon: '🥪', title: 'Sandwich poulet frit', subtitle: 'DIDI', price: '5 DT', badge: 'Plat', action: `filterByPlat('Sandwich poulet frit')` });
     }
+    
     if (input.includes('shan') || input.includes('tounsi') || input.includes('plat')) {
         suggestions.push({ type: 'plat', icon: '🍲', title: 'Shan Tounsi', subtitle: 'DIDI', price: '12 DT', badge: 'Plat', action: `filterByPlat('Shan Tounsi')` });
     }
+    
     if (input.includes('makloub') && input.includes('la casa')) {
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Escalope grillée', subtitle: 'La Casa De Mama', price: '7.5 DT', badge: 'Plat', action: `filterByPlat('Makloub Escalope grillée')` });
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Escalope panée', subtitle: 'La Casa De Mama', price: '8 DT', badge: 'Plat', action: `filterByPlat('Makloub Escalope panée')` });
@@ -499,22 +558,37 @@ function searchSuggestions() {
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Thon', subtitle: 'La Casa De Mama', price: '6 DT', badge: 'Plat', action: `filterByPlat('Makloub Thon')` });
         suggestions.push({ type: 'plat', icon: '🥙', title: 'Makloub Jambon', subtitle: 'La Casa De Mama', price: '6 DT', badge: 'Plat', action: `filterByPlat('Makloub Jambon')` });
     }
+    
     if (input.includes('pasta') && input.includes('la casa')) {
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta Alfredo sauce rosé', subtitle: 'La Casa De Mama', price: '16 DT', badge: 'Plat', action: `filterByPlat('Pasta Alfredo sauce rosé')` });
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta Alfredo sauce blanche', subtitle: 'La Casa De Mama', price: '16 DT', badge: 'Plat', action: `filterByPlat('Pasta Alfredo sauce blanche')` });
         suggestions.push({ type: 'plat', icon: '🍝', title: 'Pasta Alfredo sauce pesto', subtitle: 'La Casa De Mama', price: '20 DT', badge: 'Plat', action: `filterByPlat('Pasta Alfredo sauce pesto')` });
     }
+    
     if (input.includes('pain') || input.includes('corné') || input.includes('cornet')) {
         suggestions.push({ type: 'plat', icon: '🥖', title: 'Pain Corné', subtitle: 'La Casa De Mama', price: 'À partir de 10 DT', badge: 'Plat', action: `filterByPlat('Pain Corné')` });
     }
-    if (input.includes('pizza') && input.includes('al ostedh')) {
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 choix (Big)', subtitle: 'AL OSTEDH', price: '33 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 choix (Big)')` });
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 choix (Big Max)', subtitle: 'AL OSTEDH', price: '35.2 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 choix (Big Max)')` });
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon/Pepperoni (Big)', subtitle: 'AL OSTEDH', price: '29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon / Pepperoni (Big)')` });
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon/Pepperoni (Big Max)', subtitle: 'AL OSTEDH', price: '35.2 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon / Pepperoni (Big Max)')` });
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Jambon Crispy (Big)', subtitle: 'AL OSTEDH', price: '29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Jambon fumé & crispy (Big)')` });
-        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Jambon Crispy (Big Max)', subtitle: 'AL OSTEDH', price: '35.2 DT', badge: 'Plat', action: `filterByPlat('Pizza Jambon fumé & crispy (Big Max)')` });
+    
+    // Suggestions pour les pizzas AL OSTEDH
+    if (input.includes('pizza') && (input.includes('al ostedh') || input.includes('ostedh') || input.includes('4 choix') || input.includes('thon') || input.includes('jambon'))) {
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 choix', subtitle: 'AL OSTEDH', price: '33 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 choix')` });
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon / Pepperoni', subtitle: 'AL OSTEDH', price: '29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon / Pepperoni')` });
+        suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Jambon fumé & crispy', subtitle: 'AL OSTEDH', price: '29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Jambon fumé & crispy')` });
     }
+    
+    // Suggestions pour les tailles Big / Big Max
+    if (input.includes('big') || input.includes('max')) {
+        if (input.includes('4 choix') || input.includes('pizza')) {
+            suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza 4 choix (Big 33 DT / Big Max 35.2 DT)', subtitle: 'AL OSTEDH', price: 'À partir de 33 DT', badge: 'Plat', action: `filterByPlat('Pizza 4 choix')` });
+        }
+        if (input.includes('thon') || input.includes('pepperoni')) {
+            suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Thon/Pepperoni (Big 29.7 DT / Big Max 35.2 DT)', subtitle: 'AL OSTEDH', price: 'À partir de 29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Thon / Pepperoni')` });
+        }
+        if (input.includes('jambon') || input.includes('crispy')) {
+            suggestions.push({ type: 'plat', icon: '🍕', title: 'Pizza Jambon Crispy (Big 29.7 DT / Big Max 35.2 DT)', subtitle: 'AL OSTEDH', price: 'À partir de 29.7 DT', badge: 'Plat', action: `filterByPlat('Pizza Jambon fumé & crispy')` });
+        }
+    }
+    
     displaySuggestions(suggestions.slice(0, 8));
 }
 
@@ -757,72 +831,7 @@ function selectChoice(choice) {
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
-// ==================== MODAL PIZZA THON / PEPPERONI AVEC CHOIX (AL OSTEDH) ====================
-let currentThonPepperoniGarniture = null;
-let currentThonPepperoniMode = null;
 
-function showPizzaThonPepperoniChoixModal(mode) {
-    currentThonPepperoniMode = mode;
-    const modal = document.getElementById('pizzaThonPepperoniChoixModal');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closePizzaThonPepperoniChoixModal() {
-    const modal = document.getElementById('pizzaThonPepperoniChoixModal');
-    if (modal) modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function selectThonPepperoniGarniture(garniture) {
-    currentThonPepperoniGarniture = garniture;
-    closePizzaThonPepperoniChoixModal();
-    
-    // Afficher le modal de choix de taille
-    const tailleModal = document.getElementById('pizzaThonPepperoniTailleModal');
-    const garnitureInfo = document.getElementById('pizzaThonPepperoniGarnitureInfo');
-    garnitureInfo.innerHTML = `<strong>${garniture}</strong> - Choisissez la taille :`;
-    
-    const optionsContainer = document.getElementById('pizzaThonPepperoniTailleOptions');
-    const pizzaThonPepperoniTailleList = [
-        { name: "Pizza Thon / Pepperoni (Big)", price: "29.7", size: "Big", description: `Sauce spicy al ostedh, 6 fromages, ${garniture}` },
-        { name: "Pizza Thon / Pepperoni (Big Max)", price: "35.2", size: "Big Max", description: `Sauce spicy al ostedh, 6 fromages, ${garniture} - Format Max` }
-    ];
-    
-    optionsContainer.innerHTML = pizzaThonPepperoniTailleList.map(opt => `
-        <div class="pizza-option-btn" onclick="selectPizzaThonPepperoniFinal('${opt.name.replace(/'/g, "\\'")}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
-            <div style="flex: 1;">
-                <div class="pizza-option-name">${opt.name}</div>
-                <div class="pizza-option-desc">${opt.description}</div>
-            </div>
-            <div class="pizza-option-price">${opt.price} DT</div>
-        </div>
-    `).join('');
-    
-    tailleModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closePizzaThonPepperoniTailleModal() {
-    const modal = document.getElementById('pizzaThonPepperoniTailleModal');
-    if (modal) modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function selectPizzaThonPepperoniFinal(productName, price, size, description) {
-    closePizzaThonPepperoniTailleModal();
-    const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
-    const restoName = 'AL OSTEDH';
-    const finalProductName = `${productName} (${currentThonPepperoniGarniture})`;
-    
-    if (currentThonPepperoniMode === 'cart') {
-        addToCart(finalProductName, price, imageUrl, restoName);
-        document.getElementById('cartPanel').classList.add('show');
-    } else {
-        let message = `Ma commande :\n• ${finalProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
-        window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
-    }
-}
 // ==================== MODAL PIZZA 4 CHOIX (AL OSTEDH) ====================
 const pizza4ChoixOptionsList = [
     { name: "Pizza 4 choix (Big)", price: "33", size: "Big", description: "Sauce spicy al ostedh, 6 fromages, pepperoni, jambon fumé, thon, crispy" },
@@ -872,22 +881,39 @@ function selectPizza4ChoixOption(productName, price, size, description) {
     }
 }
 
-// ==================== MODAL PIZZA THON / PEPPERONI (AL OSTEDH) ====================
-const pizzaThonPepperoniOptionsList = [
-    { name: "Pizza Thon / Pepperoni (Big)", price: "29.7", size: "Big", description: "Sauce spicy al ostedh, 6 fromages, Thon ou Pepperoni" },
-    { name: "Pizza Thon / Pepperoni (Big Max)", price: "35.2", size: "Big Max", description: "Sauce spicy al ostedh, 6 fromages, Thon ou Pepperoni - Format Max" }
-];
+// ==================== MODAL PIZZA THON / PEPPERONI AVEC CHOIX (AL OSTEDH) ====================
+let currentThonPepperoniGarniture = null;
+let currentThonPepperoniMode = null;
 
-let currentPizzaThonPepperoniMode = null;
+function showPizzaThonPepperoniChoixModal(mode) {
+    currentThonPepperoniMode = mode;
+    const modal = document.getElementById('pizzaThonPepperoniChoixModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
 
-function showPizzaThonPepperoniModal(mode) {
-    currentPizzaThonPepperoniMode = mode;
-    const modal = document.getElementById('pizzaThonPepperoniModal');
-    const optionsContainer = document.getElementById('pizzaThonPepperoniOptions');
-    if (!modal || !optionsContainer) return;
+function closePizzaThonPepperoniChoixModal() {
+    const modal = document.getElementById('pizzaThonPepperoniChoixModal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectThonPepperoniGarniture(garniture) {
+    currentThonPepperoniGarniture = garniture;
+    closePizzaThonPepperoniChoixModal();
     
-    optionsContainer.innerHTML = pizzaThonPepperoniOptionsList.map(opt => `
-        <div class="pizza-option-btn" onclick="selectPizzaThonPepperoniOption('${opt.name.replace(/'/g, "\\'")}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
+    const tailleModal = document.getElementById('pizzaThonPepperoniTailleModal');
+    const garnitureInfo = document.getElementById('pizzaThonPepperoniGarnitureInfo');
+    garnitureInfo.innerHTML = `<strong>${garniture}</strong> - Choisissez la taille :`;
+    
+    const optionsContainer = document.getElementById('pizzaThonPepperoniTailleOptions');
+    const pizzaThonPepperoniTailleList = [
+        { name: "Pizza Thon / Pepperoni (Big)", price: "29.7", size: "Big", description: `Sauce spicy al ostedh, 6 fromages, ${garniture}` },
+        { name: "Pizza Thon / Pepperoni (Big Max)", price: "35.2", size: "Big Max", description: `Sauce spicy al ostedh, 6 fromages, ${garniture} - Format Max` }
+    ];
+    
+    optionsContainer.innerHTML = pizzaThonPepperoniTailleList.map(opt => `
+        <div class="pizza-option-btn" onclick="selectPizzaThonPepperoniFinal('${opt.name.replace(/'/g, "\\'")}', '${opt.price}', '${opt.size}', '${opt.description.replace(/'/g, "\\'")}')">
             <div style="flex: 1;">
                 <div class="pizza-option-name">${opt.name}</div>
                 <div class="pizza-option-desc">${opt.description}</div>
@@ -896,27 +922,27 @@ function showPizzaThonPepperoniModal(mode) {
         </div>
     `).join('');
     
-    modal.style.display = 'block';
+    tailleModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
-function closePizzaThonPepperoniModal() {
-    const modal = document.getElementById('pizzaThonPepperoniModal');
+function closePizzaThonPepperoniTailleModal() {
+    const modal = document.getElementById('pizzaThonPepperoniTailleModal');
     if (modal) modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-function selectPizzaThonPepperoniOption(productName, price, size, description) {
-    closePizzaThonPepperoniModal();
+function selectPizzaThonPepperoniFinal(productName, price, size, description) {
+    closePizzaThonPepperoniTailleModal();
     const imageUrl = 'https://res.cloudinary.com/dajtosaqx/image/upload/v1773788915/pizza_bigmax_thon_pepperoni_jqgogy.png';
     const restoName = 'AL OSTEDH';
-    const fullProductName = productName;
+    const finalProductName = `${productName} (${currentThonPepperoniGarniture})`;
     
-    if (currentPizzaThonPepperoniMode === 'cart') {
-        addToCart(fullProductName, price, imageUrl, restoName);
+    if (currentThonPepperoniMode === 'cart') {
+        addToCart(finalProductName, price, imageUrl, restoName);
         document.getElementById('cartPanel').classList.add('show');
     } else {
-        let message = `Ma commande :\n• ${fullProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
+        let message = `Ma commande :\n• ${finalProductName} (${restoName}) x1 - ${price} DT\nTotal (hors livraison) : ${price} DT\n\nMerci de me confirmer la disponibilité et les frais de livraison.`;
         window.open(`https://wa.me/21651924385?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
